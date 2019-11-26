@@ -161,6 +161,8 @@ const car2 = new Car();
 car1.shift === Car.prototpye.shift;
 ```
 
+> 클래스도 함수입니다.
+
 ## hasOwnProperty
 
 ```javascript
