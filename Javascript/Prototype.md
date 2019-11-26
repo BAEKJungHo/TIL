@@ -161,6 +161,43 @@ const car2 = new Car();
 car1.shift === Car.prototpye.shift;
 ```
 
+## hasOwnProperty
+
+```javascript
+obj.hasOwnProperty(x); 
+```
+
+obj에 프로퍼티 x가 있다면 true를 반환하며, 프로퍼티 x가 obj에 정의되지 않았거나 프로토타입 체인에만 정의되었다면 false를 반환합니다.
+
+ES6 클래스를 설계 의도대로 사용한다면 데이터 프로퍼티는 항상 프로토타입 체인이 아니라 인스터늣에 정의해야합니다. 하지만 프로퍼티를 프로토타입에
+정의하지 못하도록 강제하는 장치는 없으므로 확실히 확인하려면 항상 hasOwnProperty를 사용하는 편이 좋습니다.
+
+```javascript
+class Super {
+  constructor() {
+    this.name = 'Super';
+    this.isSuper = true;
+  }
+}
+
+// 유효하지만 권장하지는 않습니다.
+Super.prototype.sneaky = 'not recommended!';
+
+class Sub extends Super {
+  constructor() {
+    super();
+    this.name = 'Sub';
+    this.isSub = true';
+  }
+}
+
+const obj = new Sub();
+
+for(let p in obj) {
+  console.log(`${p}: ${obj[p]}`+ (obj.hasOwnProperty(p) ? '' : '(inherited)'));
+}
+```
+
 ## Reference
 
 > https://medium.com/@bluesh55/javascript-prototype-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f8e67c286b67
