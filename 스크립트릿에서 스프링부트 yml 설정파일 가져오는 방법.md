@@ -5,9 +5,11 @@
 ### ApplicationContext 사용
 
 ```html
+<%@ page import="net.mayeye.site.util.SecurityAES256" %>
 <%
 
         ApplicationContext act = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getSession().getServletContext());
         SecurityAES256 securityAES256 = (SecurityAES256) act.getBean("securityAES256");
         
 %>
+```
