@@ -4,6 +4,8 @@
 
 ### ApplicationContext 사용
 
+1. 클래스는 빈으로 등록이 되어있어야 한다.
+
 ```html
 <%@ page import="net.mayeye.site.util.SecurityAES256" %>
 <%
