@@ -12,7 +12,7 @@
 
  
 
-그래서 Javascript 는 동일 출처 정책(Same Origin Policy) 라는 정책을 두어 다른 도메인의 서버에 요청하는 것을 보안 문제로 간주하고 이를 차단합니다. 즉, Javascript는 자신이 속한 동일한 도메인 내에서만 서버 요청을 허용하고, 처리해주겠다는 것인데요. 이것은 www.ozit.co.kr 도메인에서 호출된 AJAX는 www.ozit.co.kr 도메인 내에 있는 URL만을 호출할 수 있다는 의미입니다. 다시말하면 www.ozit.co.kr 도메인에서 www.tistory.com 의 URL을 AJAX로 호출할 수 없다는 의미이죠.
+그래서 Javascript 는 `동일 출처 정책(Same Origin Policy)` 라는 정책을 두어 다른 도메인의 서버에 요청하는 것을 보안 문제로 간주하고 이를 차단합니다. 즉, Javascript는 자신이 속한 동일한 도메인 내에서만 서버 요청을 허용하고, 처리해주겠다는 것인데요. 이것은 www.ozit.co.kr 도메인에서 호출된 AJAX는 www.ozit.co.kr 도메인 내에 있는 URL만을 호출할 수 있다는 의미입니다. 다시말하면 www.ozit.co.kr 도메인에서 www.tistory.com 의 URL을 AJAX로 호출할 수 없다는 의미이죠.
 
  
 
