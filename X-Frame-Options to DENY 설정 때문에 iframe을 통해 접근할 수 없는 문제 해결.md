@@ -53,6 +53,12 @@ public class CorsFilter implements Filter {
 
 위와 같이 설정하니 X-Frame-Options가 정상적으로 변경되는 것을 확인했다. chrome은 아직까지 ALLOW-FROM 설정을 인식하지 못해 무시해 버리기 때문에 정상적으로 동작한다. 다룬 브라우저도 정상적으로 동작... 오늘 오전의 삽질 경험을 공유해 본다.
 
+## 참고 
+
+https://gigas-blog.tistory.com/124
+
+https://www.slipp.net/questions/402
+
 ## 출처
 
 https://www.slipp.net/questions/402
