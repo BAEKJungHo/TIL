@@ -5,10 +5,10 @@
 Jsoup을 사용하는 경우 아래 처럼 중간에 timeout을 설정하면 된다.
 
 ```java
-  try {
-      Document doc = Jsoup.connect(URL).timeout(10000).get();
-      String html = doc.toString();
-  } catch (IOException e) {
-      e.printStackTrace();
-  }
+try {
+    Document doc = Jsoup.connect(URL).timeout(10000).get();
+    String html = doc.toString();
+} catch (IOException e) {
+    e.printStackTrace();
+}
 ```
