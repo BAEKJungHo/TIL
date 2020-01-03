@@ -36,6 +36,23 @@ public class HttpMessageConverterConfig extends WebMvcConfigurationSupport {
 	}
 }
 ```
+
+```java
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);
+        converters.add(xssEscapeConverter());
+    }
+
+    private HttpMessageConverter<?> xssEscapeConverter () {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.getFactory().setCharacterEscapes(new XSSEscapes());
+        MappingJackson2HttpMessageConverter xssEscapeConverter =
+                new MappingJackson2HttpMessageConverter();
+        xssEscapeConverter.setObjectMapper(objectMapper);
+        return xssEscapeConverter;
+    }
+```
   
 ## References
 
