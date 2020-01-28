@@ -25,9 +25,15 @@ serviceImpl에서 비지니스 로직을 처리하면서 에러가 발생할 경
 그리고 해당 메시지를 js에서 아래처럼 사용할 수 있다.
 
 ```javascript
-  .fail(function(err) {
-    alert(err.responseText);
-  });
+    $.ajaxPost(ORGANIZATION_COMMON.URL.EDIT, JSON.stringify(createJsonArrayForUpdate(organizationManage.form)))
+      .done(function(res) {
+        alert(MESSAGE.APPLIED);
+      })
+      .fail(function(err) {
+        alert(err.responseText);
+      });
 ```
+
+JSON.stringify로 json 형식 요청을 서버(컨트롤러)에 보내면 @RequestBody를 사용하여 요청본문에 있는 데이터를 받을 수 있다.
 
 즉, 에러 메시지는 responseText에 들어있다.
