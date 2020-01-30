@@ -1,6 +1,6 @@
 # @ComponentScan
 
-스프링에서 `<context:component-scan base-packages="경로" />` 이렇게 되어있을때 스프링부트에서는 아래와 같이 선언해줄 수 있다.
+스프링에서 `<context:component-scan base-packages="경로" />` 이렇게 되어있을때 스프링부트에서는 아래와 같이 선언해 줄 수 있다.
 
 ```java
 @Configuration
