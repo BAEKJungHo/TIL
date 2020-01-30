@@ -11,3 +11,7 @@ jsonArray.put(jsonObject)
 따라서 jsp에서 `${모델에 담긴 jsonArray 키값}"` 형태로 js로 뿌려도 
 
 해당 js에서 받을때는 문자열로 받기 때문에 js로 넘길때 `JSON.parse('${모델에 담긴 jsonArray 키값}')` 형태로 보내주어야 JSON 형식으로 console에 출력된다.
+
+```html
+uploadSave.save(JSON.parse('${largeFiles}'));
+```
