@@ -1,6 +1,6 @@
 # JSONArray
 
-java에서 객체(VO)에 담긴 프로퍼티 값들을 JSONObject에 키와 값 형태로 담고 
+java에서 객체에 담긴 프로퍼티 값들을 JSONObject에 키와 값 형태로 담고 
 
 `jsonObject.put("key", value);`
 
