@@ -32,3 +32,6 @@ FormData 의 경우에는 주로 비동기 파일 업로드에 많이 쓰이는�
 ## JSON parse error: Unrecognized token 'departmentSeq': was expecting ('true', 'false' or 'null');
 
 > https://denodo1.tistory.com/322
+
+- 프론트: JSON 데이터를 application/json으로 보내되, JSON 객체를 JSON.stringify()로 문자열화 해서 서버에 보내야 한다.
+- 스프링 백엔드: JSON 데이터와 구조가 같은 DTO를 만들고, 컨트롤러 메서드에 @RequestBody를 붙여서 DTO를 파라미터에 추가하면 Spring이 Jackson을 통해 JSON의 값을 읽어서 DTO에 잘 넣어준다.
