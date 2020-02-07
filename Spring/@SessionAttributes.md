@@ -10,3 +10,22 @@
 
 - SessionStatus를 사용해서 세션 처리 완료를 알려줄 수 있다.
 - 폼 처리 끝나고 세션 비울때 사용한다.
+
+## Example
+
+```java
+@Controller
+@SessionAttributes("event")  
+// @SessionAttributes({"event", "book"} 여러개도 지정가능
+public class EventController {
+  
+  /**
+  * @SessionAttributes 를 사용하여 모델에 담긴 event란 이름을 가진 객체를 세션에 담아준다.
+  */
+  public String eventsForm(Model model) {
+    model.addAttribute("event, newEvent);
+    return "/book/form";
+  }
+  
+}
+```
