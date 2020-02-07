@@ -14,6 +14,10 @@
 - SessionStatus를 사용해서 세션 처리 완료를 알려줄 수 있다.
 - 폼 처리 끝나고 세션 비울때 사용한다.
 
+> [멀티폼 서브밋과 같이 공부하기](https://github.com/BAEKJungHo/TIL/blob/master/Spring/%EB%A9%80%ED%8B%B0%ED%8F%BC%EC%84%9C%EB%B8%8C%EB%B0%8B.md)
+
+HttpSession을 이용하는 것은 low level이며 @SessionAttributes는 더 추상화 된 level 이다.
+
 ## Example
 
 ```java
