@@ -9,4 +9,4 @@ public class XXXException extends RuntimeException {
 }
 ```
 
-이런식으로 원하는 상위 Exception을 상속받아서 사용할 수 있다.
+이런식으로 원하는 상위 Exception 을 상속받아서 사용할 수 있다.
