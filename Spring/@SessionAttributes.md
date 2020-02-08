@@ -16,7 +16,7 @@
 
 > [멀티폼 서브밋과 같이 공부하기](https://github.com/BAEKJungHo/TIL/blob/master/Spring/%EB%A9%80%ED%8B%B0%ED%8F%BC%EC%84%9C%EB%B8%8C%EB%B0%8B.md)
 
-HttpSession을 이용하는 것은 low level이며 @SessionAttributes는 더 추상화 된 level 이다.
+HttpSession 을 이용하는 것은 low level 이며 @SessionAttributes 는 더 추상화 된 level 이다.
 
 ## Example
 
