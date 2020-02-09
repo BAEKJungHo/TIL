@@ -13,7 +13,7 @@
     - WebMvcConfigurationSupport.addDefaultHttpMessageConverters
     
 - HttpEntity
-  - @RequestBody와 비슷하지만 추가적으로 요청헤더 정보를 사용할 수 있다.
+  - @RequestBody와 비슷하지만 추가적으로 요청 헤더 정보를 사용할 수 있다.
 
 ```java
 @PostMapping
