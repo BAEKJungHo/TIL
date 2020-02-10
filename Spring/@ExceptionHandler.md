@@ -44,3 +44,13 @@ public class EventController {
     return "error";
   }
 ```  
+
+- REST API (ResponseEntity 사용하는 경우)
+
+```java
+return ResponseEntity.badRequest().body("error message");
+
+// return ResponseEntity.ok("message");
+```
+
+이런식으로 응답본문에 적어줘야한다.
