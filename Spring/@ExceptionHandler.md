@@ -22,11 +22,25 @@ public class EventController {
   /**
   * 에러 발생시 에러 메시지와 함께 특정한 페이지를 보여주고 싶은경우(에러 페이지, jsp가 있다고 가정)
   */
-  @ExceptionHandler(
+  @ExceptionHandler
   public String eventErrorHandler(ShowUserMessageException showUserMeesageException, Model model) {
     model.addAttribute("message", "event error");
     return "error";
   }
   
 }
+```  
+
+- 여러개의 Exception을 처리하는 HandlerMethod
+
+```java
+  /**
+  * 중괄호를 사용해 여러개의 Exception을 지정할 수 있다.
+  * 매개변수에서는 여러개의 Exception을 포함하는 상위 Exception으로 설정해야한다.
+  */
+  @ExceptionHandler({ShowUserMessageExcpetion.class, RuntimeException.class})
+  public String eventErrorHandler(RuntimeException exception, Model model) {
+    model.addAttribute("message", "event error");
+    return "error";
+  }
 ```  
