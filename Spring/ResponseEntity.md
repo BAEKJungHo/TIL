@@ -20,10 +20,11 @@ public ResponseEntity<Resource> fileDownLoad(@PathVariable String fileName) {
     .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; fileName=\"" + resourceLoader.getFileName() + "\")
     .header(HttpHeaders.CONTENT_TYPE, "image/jpg")
     .body(resource);
+    
+    // return new ResponseEntity<Resource>(resource, HttpStatus.CREATED); 처럼 보낼 수도 있다.
 ```
 
-위에서 @ResponseBody를 붙이지 않은 이유는 ResponseEntity 자체가 응답이기 때문에 사용안해도 된다. 만약 반환 타입이 Resource였으면 @ResponseBody를
-사용해야 한다.
+위에서 @ResponseBody를 붙이지 않은 이유는 ResponseEntity 자체가 응답이기 때문에 사용안해도 된다. 만약 반환 타입이 Resource였으면 @ResponseBody를 사용해야 한다.
 
 >  .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; fileName=\"" + resourceLoader.getFileName() + "\")는 사용자가 파일을 다운로드 받을때
 어떤 파일명으로 다운받을지를 설정할 수 있다.
