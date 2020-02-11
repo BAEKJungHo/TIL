@@ -1,7 +1,6 @@
 ## redirect로 파라미터 값 넘기기
 
 ```java
-
 redirect 하는 메서드(User user) {
       redirectAttributes.addAttribute("userMenuSeq", user.getUserMenuSeq());
       redirectAttributes.addFlashAttribute("message", Message.UPDATED.getMsg());
