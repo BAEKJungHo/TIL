@@ -2,7 +2,7 @@
 
 - Servlet
   - 자바 엔터프라이즈 에디션은 웹 애플리케이션 개발용 스펙과 API 제공
-  - 요청당 스레드 사용
+  - 요청당 스레드 사용(한 프로세스 내의 자원을 공유하는 스레드)
   - 가장 중요한 클래스 중 하나가 HttpServlet
 
 - CGI(Common Gateway Interface)
@@ -40,7 +40,7 @@ public class HelloServlet extends HttpServlet {
     System.out.println("init");
   }
   @Override
-  public void doGet(HttpServletReqeust req, HttpServletResponse res) {
+  public void doGet(HttpServletReqeust req, HttpServletResponse res) throws ServletExcetion {
     System.out.println("doGet");
   }
   @Override
