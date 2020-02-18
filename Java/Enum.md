@@ -1,28 +1,28 @@
 ```java
-    @GetMapping("/{year}")
-    public String year(@ModelAttribute("budgetVo") MecBudgetVo budgetVo, @PathVariable Integer programSeq,
-                       RedirectAttributes redirectAttributes) {
-        switch (findByYear(budgetVo.getYear())) {
-            case YEAR_2015 :
-                return BudgetsJSP.JSP_2015.getReturnUrl();
-            case YEAR_2014 :
-                return BudgetsJSP.JSP_2014.getReturnUrl();
-            case YEAR_2013 :
-                return BudgetsJSP.JSP_2013.getReturnUrl();
-            case YEAR_2012 :
-                return BudgetsJSP.JSP_2012.getReturnUrl();
-            case YEAR_2011 :
-                return BudgetsJSP.JSP_2011.getReturnUrl();
-            case YEAR_2010 :
-                return BudgetsJSP.JSP_2010.getReturnUrl();
-            case YEAR_2009 :
-                return BudgetsJSP.JSP_2009.getReturnUrl();
-            case YEAR_2008 :
-                return BudgetsJSP.JSP_2008.getReturnUrl();
-        }
-        redirectAttributes.addFlashAttribute("message", Message.DATA_ACCESS_ERROR.getMsg());
-        return "redirect:/kor/"+programSeq+"/budget";
+@GetMapping("/{year}")
+public String year(@ModelAttribute("budgetVo") MecBudgetVo budgetVo, @PathVariable Integer programSeq,
+                   RedirectAttributes redirectAttributes) {
+    switch (findByYear(budgetVo.getYear())) {
+        case YEAR_2015 :
+            return BudgetsJSP.JSP_2015.getReturnUrl();
+        case YEAR_2014 :
+            return BudgetsJSP.JSP_2014.getReturnUrl();
+        case YEAR_2013 :
+            return BudgetsJSP.JSP_2013.getReturnUrl();
+        case YEAR_2012 :
+            return BudgetsJSP.JSP_2012.getReturnUrl();
+        case YEAR_2011 :
+            return BudgetsJSP.JSP_2011.getReturnUrl();
+        case YEAR_2010 :
+            return BudgetsJSP.JSP_2010.getReturnUrl();
+        case YEAR_2009 :
+            return BudgetsJSP.JSP_2009.getReturnUrl();
+        case YEAR_2008 :
+            return BudgetsJSP.JSP_2008.getReturnUrl();
     }
+    redirectAttributes.addFlashAttribute("message", Message.DATA_ACCESS_ERROR.getMsg());
+    return "redirect:/kor/"+programSeq+"/budget";
+}
 ```
 
 ```java
