@@ -40,4 +40,4 @@ public class EventController {
 }
 ```
 
-`@Validated(Event.ValidateLimit.class)`를 통햇 ValidateLimit으로 지정한 그룹에 해당하는 애들만 유효성 검증을 실시한다.
+`@Validated(Event.ValidateLimit.class)`를 통 ValidateLimit으로 지정한 그룹에 해당하는 애들만 유효성 검증을 실시한다.
