@@ -15,4 +15,4 @@ this.yyy.method = GET
 this.yyy.submit()
 ```
 
-> 즉, GET 방식은 form 내부의 input 에 있는 데이터들을 쿼리스트링으로 키 밸류 형식으로 보낸다.
+> 즉, GET 방식은 form 내부의 input 에 있는 데이터들을 쿼리스트링으로 키와 밸류 형식으로 보낸다.
