@@ -1,3 +1,25 @@
+## Enum 을 문자열로 변환
+
+```java
+public enum DateFormat {
+
+    YYYYMMDD {
+        @Override
+        public String toString() {
+            return "yyyy-MM-dd";
+        }
+    }
+
+}
+```
+
+```java
+facilityApplyVo.setDay(DateParserUtils.getDateDay(date, DateFormat.YYYYMMDD.toString()));
+```
+
+
+## Example
+
 ```java
 @GetMapping("/{year}")
 public String year(@ModelAttribute("budgetVo") MecBudgetVo budgetVo, @PathVariable Integer programSeq,
