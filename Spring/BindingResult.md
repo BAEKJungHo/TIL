@@ -33,6 +33,14 @@ if(bindingResult.hasErrors()) {
         throw new ShowUserMessageException(error.getDefaultMessage());
     });
 }
+
+// redirect message 설정
+if(bindingResult.hasErrors()) {
+    bindingResult.getAllErrors().forEach(error -> {
+        redirectAttributes.addFlashAttribute("message", error.getDefaultMessage());
+    });
+    return REDIRECT_FORM_URL;
+}
 ```        
 
 validate 메서드 내부에서는 에러 발생 시 `throw new ShowUserMessageException("예약 시작시간은 종료시간을 넘을 수 없습니다.");` 처럼 
