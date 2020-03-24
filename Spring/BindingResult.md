@@ -27,7 +27,6 @@ private String title;
   - error.getDefaultMessage()
   
 ```java
-facilityApplyValidator.validate(facilityApplyVo);
 if(bindingResult.hasErrors()) {
     bindingResult.getAllErrors().forEach(error -> {
         throw new ShowUserMessageException(error.getDefaultMessage());
