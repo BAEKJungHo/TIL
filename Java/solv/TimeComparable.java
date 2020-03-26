@@ -1,6 +1,5 @@
 # TimeComparable
 
-```java
 /**
 * A Time Class Implementing Comparable<Time>
 */
@@ -40,4 +39,3 @@ class TimeComparable {
 
     }
 }
-```
