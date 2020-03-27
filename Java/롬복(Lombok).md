@@ -30,10 +30,12 @@
   public class RequiredArgsConstructorDIServiceExample {
     @ConstructorProperties({"firstRepository", "secondRepository", "thirdRepository"})
     public RequiredArgsConstructorDIServiceExample(FirstRepository firstRepository, SecondRepository secondRepository, ThirdRepository thirdRepository) {
-    this.firstRepository = firstRepository;
-    this.secondRepository = secondRepository;
-    this.thirdRepository = thirdRepository;
+      this.firstRepository = firstRepository;
+      this.secondRepository = secondRepository;
+      this.thirdRepository = thirdRepository;
     }
   }
   ```
+  
+  따라서 빈으로 등록 가능한 파라미터 타입들에 대해 의존성 주입을 해준다.
     
