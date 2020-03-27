@@ -39,3 +39,6 @@
   
   따라서 빈으로 등록 가능한 파라미터 타입들에 대해 의존성 주입을 해준다.
     
+- `@ConstructorProperties`
+   - 생성자의 속성 명칭 지정
+   - https://multifrontgarden.tistory.com/222 : 롬복 버전이 Jackson Deserialize 에 어떤 영향을 미치는지
