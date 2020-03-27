@@ -42,3 +42,114 @@
 - `@ConstructorProperties`
    - 생성자의 속성 명칭 지정
    - https://multifrontgarden.tistory.com/222 : 롬복 버전이 Jackson Deserialize 에 어떤 영향을 미치는지
+   
+- `@Builder`
+  - 빌더 패턴을 쉽게 적용할 수 있다.
+  - `@Builder.Default` 기본값을 적용할 수 있다.
+  - 출처 : https://tomining.tistory.com/180
+  - @Builder 적용 X
+  ```java
+    public class User {
+    private String name;
+    private int age;
+
+    public static UserBuilder builder() {
+      return new UserBuilder();
+    }
+
+    public String getName() {
+      return name;
+    }
+
+    public void setName(String name) {
+      this.name = name;
+    }
+
+    public int getAge() {
+      return age;
+    }
+
+    public void setAge(int age) {
+      this.age = age;
+    }
+  }
+
+  //Builder Class
+  public class UserBuilder {
+    private String name;
+    private int age;
+
+    public User build() {
+      User user = new User();
+      user.setName(this.name);
+      user.setAge(this.age);
+      return user;
+    }
+
+    public UserBuilder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public UserBuilder age(int age) {
+      this.age = age;
+      return this;
+    }
+  }
+  
+  public class UserBuilderTest {
+    @Test public void builderTest() {
+      User user = User.builder()
+                    .name("홍길동")
+                    .age(19)
+                    .build();
+      System.out.println(user);
+    }
+  }
+  ```
+  
+  - @Builder 적용
+  ```java
+  @Data
+  @Builder
+  public class User {
+    private String name;
+    private int age;
+  }
+
+  public class UserBuilderTest {
+    @Test  public void builderTest() {
+      User user = User.builder()
+                    .name("홍길동")
+                    .age(19)
+                    .build();
+      System.out.println(user);
+    }
+  }
+  ```
+
+  - @Builder 사용시 특정 속성에 기본값을 설정하려면?
+    - @Builder.Default 는 롬복 1.16.16 이상 부터 가능 
+    - 그 이전 버전은? 즉, @Builder를 사용한 경우 build()시 설정하지 않으면 0 / null / false가 된다고 언급하고 있다.
+
+  ```java
+  @Data
+  @Builder
+  public class User {
+    private String name;
+    @Builder.Default  private int age = 19;
+  }
+  
+  public class UserBuilderTest {
+    @Test  public void builderTest() {
+      User user = User.builder()
+                    .name("홍길동")
+                    .build();
+      System.out.println(user);
+    }
+  }
+  ```
+  
+  
+
+
