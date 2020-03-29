@@ -26,7 +26,27 @@
 - 코드 일관성 유지에 노력이 필요함
 - 높은 러닝 
   
+## Example
+
+```java
+@Service
+public class EventService {
+  public List<Event> getEvents() {
+    Event event1 = Event.builder()
+      .name("스프링 MVC 1")
+      .limitOfEnrollment(5)
+      .startDateTime(LocalDateTime.of(2019, 1, 10, 10, 0)
+      .endDateTime(LocalDateTime.of(2019, 1, 10, 12, 0)
+      .build();
   
+    Event event2 = Event.builder()
+      .name("스프링 MVC 2")
+      .limitOfEnrollment(5)
+      .startDateTime(LocalDateTime.of(2019, 1, 10, 10, 0)
+      .endDateTime(LocalDateTime.of(2019, 1, 10, 12, 0)
+      .build();
   
-  
-  
+    return List.of(event1, event2);
+  }
+}
+```
