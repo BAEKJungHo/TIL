@@ -6,10 +6,10 @@
   - `tail -f ./catalina.out`  
 - 내리기
   - ~/tomcat/apache*/bin 이동
-  - ./shutdown.sh
+  - `./shutdown.sh`
   - ps -ef | grep tomcat 으로 톰캣이 떠 있는지 확인
-  - kill -9 길게 떠 있는 로그 옆의 숫자
+  - `kill -9 길게 떠 있는 로그 옆의 숫자`
 - 올리기
   - ~/tomcat/apache*/bin 이동
-  - ./startup.sh
+  - `./startup.sh`
   
