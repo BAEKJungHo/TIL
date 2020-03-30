@@ -17,3 +17,7 @@ public class SampleControllerTest {
   }
 }
 ```
+
+# @SpringBootTest
+
+@SpringBootTest 는 통합 테스트 개념으로 모든 테스트를 등록해준다. 클래스 위에 @Component 로 빈으로 등록한 경우에는 web 과 관련된 설정이 아니기 때문에 @WebMvcTest 를 사용하여 테스트를 돌리면 테스트에 실패한다.
