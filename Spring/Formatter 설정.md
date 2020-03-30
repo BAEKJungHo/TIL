@@ -75,6 +75,8 @@ public class PersonFormatter implements Formatter<Person> {
   }
 }
 ```
+
+이렇게 formatter 를 사용하면 문자열을 객체로 받을 수 있다.
   
 ### 설정방법 1. 프로젝트 전역에 영향
 
