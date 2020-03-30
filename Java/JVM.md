@@ -1,14 +1,17 @@
 # JVM(Java Virtual Machine) : CERG, MHSPN
 
 - JVM
-  - 자바 가상 머신으로, 자바 바이트 코드를 실행할 수 있는 주체
-  - 플랫폼 독립적
+  - 자바 가상 머신으로, 자바 바이트 코드(.class 파일)를 OS 에 특화된 코드로 변환(인터프리터와 JIT 컴파일러) 하여 실행
+  - 바이트 코드를 실행하는 표준이자 구현체이다.
+  - JVM 스펙 (https://docs.oracle.com/javase/specs/jvms/se11/html/)
+  - JVM 밴더 : 오라클, 아마존, Azul ...
   - 자바 코드를 컴파일 해서 얻은 바이트 코드를 운영체제가 이해할 수 있는 기계어로 바꿔 실행
-
+  - 플랫폼 종속적(OS에 의존적)
+  
 ## Architecture
 
 > 자바 소스파일을 `Java Complier` 가 클래스 파일로 변환하고, `Class Loader` 가 `Runtime Data Area` 에 클래스 파일을 적재 시킨다. 
-`Execution Engine` 이 자바 메모리에 적재된 클래스 들을 기계어로 변환해 명령어 단위로 실행한다. 실행 방식에는 인터프리터 방식과, JIT 방식이 있다.
+`Execution Engine` 이 자바 메모리에 적재된 클래스 들을 기계어로 변환해 명령어 단위로 실행한다.
 그리고 Garbage Collector 는 Heap 영역에 적재된 객체들 중에서 참조되지 않은 객체를 제거한다.
 
 - JVM 은 크게 4가지로 구분 (CERG)
@@ -42,10 +45,27 @@
 > 쓰레드가 생성 되었을 때 메서드 영역과, 힙 영역은 모든 쓰레드가 공유하고 스택 영역, PC 레지스터, Native method stack 영역은 각각 스레드 마다 생성되고
 공유되지 않는다. 따라서 동기화 작업을 할때, synchronized 없이 동시성 문제를 해결하고 싶은 경우 지역변수를 이용하는 방법이 있다.
 
-# JRE(Java Runtime Environment)
+# JRE(Java Runtime Environment) : JVM + 라이브러리
 
-자바 런타임 환경은 JVM에서 실행하기 위한 자바 애플리케이션을 로드하는 온디스크 프로그램이다. JRE는 자바 개발 키트를 다운로드할 때 기본적으로 포함되며 각 JRE에는 코어 자바 클래스 라이브러리, 자바 클래스 로더, 자바 가상 머신이 포함된다.
+자바 런타임 환경은 JVM에서 실행하기 위한 자바 애플리케이션을 실행할 수 있도록 구성된 배포판. JRE는 자바 개발 키트를 다운로드할 때 기본적으로 포함되며 각 JRE에는 코어 자바 클래스 라이브러리, 자바 클래스 로더, 자바 가상 머신이 포함된다.
+
+- JVM 과  핵심 라이브러리 및 자바 런타임 환경에서 사용하는 프로퍼티 세팅이나 리소스 파일을 가지고 있다.(JVM + 라이브러리)
+- 개발 관련도구는 포함하지 않는다 (JDK 에서 제공)
+
+## JDK(Java Development Kit) : JRE + 개발툴
+
+- 자바 언어는 플랫폼 독립적(WORA : Write Once Run Anywhere)
+- 자바 11 부터는 JRE 제공 안함
+- 자바 9 부터 모듈 시스템 제공하기 때문에 JRE 를 구성할 수 있다.
+- 오라클에서 만든 Oracle JDK 11 버전부터 상용으로 사용할 때 유료. 
 
 ## References.
 
 > https://jeong-pro.tistory.com/148
+>
+> https://aboullaite.me/understanding-jit-compiler-just-in-time-compiler/ 
+>
+> https://howtodoinjava.com/java/basics/jdk-jre-jvm/ 
+>
+> https://en.wikipedia.org/wiki/List_of_JVM_languages 
+
