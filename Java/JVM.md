@@ -1,4 +1,4 @@
-# JVM(Java Virtual Machine)
+# JVM(Java Virtual Machine) : CERG, MHSPN
 
 - JVM
   - 자바 가상 머신으로, 자바 바이트 코드를 실행할 수 있는 주체
