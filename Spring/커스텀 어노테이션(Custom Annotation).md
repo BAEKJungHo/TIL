@@ -80,6 +80,15 @@ public @interface Deprecated {
 }
 ```
 
+## @Retention 어노테이션 범위
+
+- SOURCE 
+  - 컴파일러가 사용하고 클래스 파일에는 포함되지 않음 (단순 주석용, 컴파일러용)
+- CLASS
+  - 컴파일시 클래스 파일 안에 포함되나 JVM 에서 무시함
+- RUNTIME
+  - 컴파일시 포함되고 JVM 에서 인식함
+
 ## 주석용 어노테이션
 
 - 목록
@@ -97,7 +106,7 @@ public @interface Deprecated {
 
 ```java
 /**
- * list process
+ * 목록 처리를 나타내는 어노테이션
  * @author  BAEKJH;
  */
 @Target(ElementType.METHOD)
@@ -107,11 +116,94 @@ public @interface Inventory {
 
 
 /**
- * create process 
+ * 등록 처리를 나타내는 어노테이션
  * @author  BAEKJH;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 public @interface Create {
+}
+
+/**
+ * 등록폼 이동을 나타내는 어노테이션
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface CreateForm {
+}
+
+/**
+ * 등록 처리를 나타내는 어노테이션
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Create {
+}
+
+/**
+ * 상세 페이지 처리를 나타내는 어노테이션
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Detail {
+}
+
+/**
+ * 수정폼 이동을 나타내는 어노테이션
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface EditForm {
+}
+
+/**
+ * 수정 처리를 나타내는 어노테이션
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Edit {
+}
+
+/**
+ * 삭제 처리를 나타내는 어노테이션
+ * 삭제 상태여부인 Delck 를 Update 함
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Erase {
+}
+
+/**
+ * 완전 삭제 처리를 나타내는 어노테이션
+ * 실제 DB 에서도 삭제 처리를 함
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Remove {
+}
+
+/**
+ * 엑셀 다운로드를 나타내는 어노테이션
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface ExcelDownLoad {
+}
+
+/**
+ * 복원을 나타내는 어노테이션
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Recover {
 }
 ```
