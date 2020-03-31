@@ -79,3 +79,39 @@ import static java.lang.annotation.ElementType.*;
 public @interface Deprecated {
 }
 ```
+
+## 주석용 어노테이션
+
+- 목록
+- 상세
+- 등록
+- 등록폼
+- 수정
+- 수정폼
+- 삭제
+- 복원
+- 완전삭제
+- 엑셀다운로드 
+
+등등 주석용 어노테이션 생각해보기
+
+```java
+/**
+ * list process
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Inventory {
+}
+
+
+/**
+ * create process 
+ * @author  BAEKJH;
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Create {
+}
+```
