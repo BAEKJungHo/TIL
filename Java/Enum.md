@@ -22,7 +22,8 @@ facilityApplyVo.setDay(DateParserUtils.getDateDay(date, DateFormat.YYYYMMDD.toSt
 
 ```java
 @GetMapping("/{year}")
-public String year(@ModelAttribute("budgetVo") MecBudgetVo budgetVo, @PathVariable Integer programSeq,
+public String year(@ModelAttribute("budgetVo") MecBudgetVo budgetVo, \
+                   @PathVariable Integer programSeq,
                    RedirectAttributes redirectAttributes) {
     switch (findByYear(budgetVo.getYear())) {
         case YEAR_2015 :
