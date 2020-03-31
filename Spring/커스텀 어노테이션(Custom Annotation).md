@@ -176,7 +176,7 @@ public @interface Edit {
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
-public @interface Erase {
+public @interface Delck {
 }
 
 /**
