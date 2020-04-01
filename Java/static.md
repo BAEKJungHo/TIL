@@ -27,6 +27,25 @@ final static 으로 선언하면 적어도 1 바이트 이상의 GC 대상 객�
 지워지지 않습니다.
 - 만약 지속적으로 해당 객체에 데이터가 쌓인다면, 더이상 GC가 되지 않으면서 시스템은 `OutOfMemoryError` 를 발생시킬 것입니다.
 
+## Example
+
+객체가 제거되도 static 멤버는 메모리에 남아있기 때문에 코드 상에서 별도로 처리해두지 않으면 모든 메모리 공간을 static 인스턴스가 차지하는 메모리 Leak이 발생할 수 있다.
+
+```java
+public class OomClass {
+  static Vector oomVector;
+  static void addOomVector(int a) {
+      oomVector.add(a);
+  }
+  public OomClass() {
+      for (int i = 0; i < 100000; i++)
+          addOomVector(i);
+  }
+}
+```
+
+위의 OomClass는 생성 할 때마다 static 변수는 oomVector 벡터 클래스에 0~99999 까지 엔트리를 추가하는데 OomClass 한 두 개 정도 생성할 때는 별 문제가 되지 않지만 그 수가 많아지면 메모리에서 차지하는 비율이 높아져 OOM이 발생할 수 있다.
+
 ## 의견
 
 FileUtils 클래스 같은경우 전부다 static 메서드로 되어있던데  `public static List<FileVo> parseFileVoList(FileDto fileDTO, FileStore constants, List<String> extensionList)` 이런식으로 매개변수에 인스턴스변수 쓰는 애들이나, 인스턴스에  의존하는 경우에는 static 을 쓰면 안된다고 알고 있습니다. static 쓰면 GC(가비지 컬렉션) 대상이 아니라 메모리에 남아있어서 잘못하면 OOM 발생하고(static 에 대해서 정확히 알지 못하고 쓰는경우) 그러면 서버 다운됩니다. 대신 장점이 static 을 쓰면 속도가 빨라진다는 측면이 있는데 (FileUtils 에 있는 메서드들은 그렇게 속도 빨라야할 대상은 아님) 메모리 용량이 되게 크거나, 속도 측면과 맞바꿔야 할정도면 잘 판단해서 사용해야합니다. FileUtils 에서 static 으로 써도 될만한 애들은 `private static String generateFileName(String keyStr, int fileKey)` 이런 애들 입니다. 저희가 주로 enum 클래스들에 있는 메서드 들은 static 으로 사용하는데 메서드들이 일단 원시 타입을 매개변수로 받거나 매개변수가 없는 경우이며 부수효과가 없기 때문에 사용해도 되는 케이스 입니다.
