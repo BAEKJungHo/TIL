@@ -19,4 +19,5 @@
 
 ## 단점
 
-- 
+- static 변수들은 Method Area(Class Area, Code Area, Static Area) 에 생성되며, Static Area 는 가비지 컬렉션의 대상이 아니기 때문에, 메모리에서
+지워지지 않습니다.
