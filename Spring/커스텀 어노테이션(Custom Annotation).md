@@ -207,3 +207,34 @@ public @interface ExcelDownLoad {
 public @interface Recover {
 }
 ```
+
+## 런타임용 어노테이션
+
+- 엔티티 클래스나 DTO 클래스에서 디폴트값 설정을 위한 어노테이션
+
+```java
+/**
+ * 엔티티 클래스나 DTO 클래스에서 디폴트값 설정을 위한 어노테이션
+ */
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SetDefaultValue {
+
+    String value() default "";
+
+}
+
+// 사용
+
+/** 상태값
+ * A: 신청
+ * B: 보류
+ * C: 반려
+ * D: 불가능
+ * E: 허가
+ */
+@SetDefaultValue(value = "A")
+private String state;
+```
+
+
