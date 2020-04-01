@@ -148,7 +148,7 @@ public @interface Create {
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
-public @interface Detail {
+public @interface View {
 }
 
 /**
