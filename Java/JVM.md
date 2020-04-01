@@ -29,7 +29,7 @@
     - Heap Area
       - new 키워드로  생성된 객체와 배열
       - GC 의 대상
-    - Stack Area
+    - Stack Area(Class Area, Code Area, Static Area)
       - 지역변수, 파라미터, 리턴 값 연산에 사용되는 임시 값 등
       - Person p = new Person() 작성한 경우 p 는 스택 영역에 생성되고, 힙 영역의 주소값을 가지고 있다. new 로 생성된 Person 클래스는 힙 영역에 생성된다.
       - 메서드를 호출할 때마다 개별적으로 스택이 생성된다.
