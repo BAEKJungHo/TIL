@@ -40,7 +40,7 @@ Message.BAD_REQUEST.getMsg();
 
 ```java
 @GetMapping("/{year}")
-public String year(@ModelAttribute("budgetVo") MecBudgetVo budgetVo, \
+public String year(@ModelAttribute("budgetVo") MecBudgetVo budgetVo,
                    @PathVariable Integer programSeq,
                    RedirectAttributes redirectAttributes) {
     switch (findByYear(budgetVo.getYear())) {
