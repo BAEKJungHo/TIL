@@ -1,3 +1,3 @@
-## TIL (Today I Learned)
+## TIL
 
-> [Web Developer RoadMap](https://github.com/devJang/developer-roadmap)
+> [My Medium Blog. @WEBEVELOPER](https://medium.com/webeveloper)
