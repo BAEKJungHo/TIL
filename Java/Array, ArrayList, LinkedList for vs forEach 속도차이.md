@@ -42,6 +42,16 @@ Node<E> node(int index) {
 }
 ```   
 
+## ArrayList
+
+ArrayList는 내부적으로 데이터를 배열에서 관리하며 데이터의 추가, 삭제를 위해 아래와 같이 임시 배열을 생성해 데이터를 복사 하는 방법을 사용 하고 있다.
+
+## LinkedList
+
+LinkedList는 데이터를 저장하는 각 노드가 이전 노드와 다음 노드의 상태만 알고 있다고 보면 된다.
+
+## References.
+
 > https://siyoon210.tistory.com/99
 >
 > https://multifrontgarden.tistory.com/130
