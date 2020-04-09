@@ -1,0 +1,10 @@
+# 오라클 TO_DATE
+
+오라클에서 문자열로된 날짜 2020-01-01 를 시작일과 종료일 문자열인 날짜 형식과 비교할 때 모두 다 TO_DATE 를 적용해야한다.
+
+```sql
+TO_DATE(ORIGINAL_DATE, 'YYYY-MM-DD') BETWEEN TO_DATE(#{startDate}, 'YYYY-MM-DD') AND TO_DATE(#{endDate}, 'YYYY-MM-DD')
+```
+
+`TO_DATE(ORIGINAL_DATE, 'YYYY-MM-DD') BETWEEN #{startDate} AND #{endDate}` 이렇게 사용해도 로컬에서는 에러가 나지 않지만 운영서버에 반영하여 테스트
+하는 경우에는 `literal does not match format string` 에러가 발생한다.
