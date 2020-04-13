@@ -64,6 +64,15 @@ public class Singleton {
 
 > volatile 키워드를 사용하면 멀티스레딩을 쓰더라도 uniqueInstance 변수가 Sigleton 인스턴스로 초기ㅗ하 되는 과정이 올바르게 진행되도록 할 수 있다.
 
+## 싱글턴 사용시 주의사항
+
+- 클래스 로더를 2개 이상 사용하는 경우 객체가 2번 이상 생성될 수 있다.
+  - 이럴때는 클래스 로더를 지정해야함
+
+## 사용되는 예
+
+- 레지스트리 같은 인스턴스가 꼭 1개만 있어야 하는 경우
+  
 ## volatile
 
 - volatile keyword는 Java 변수를 Main Memory 에 저장하겠다라는 것을 명시하는 것입니다.
