@@ -225,6 +225,10 @@ volatile 키워드를 추가하게 되면 Main Memory 에 저장하고 읽어오
 - 여러 Thread 가 write 하는 상황이라면?
   - synchronized 를 통해 변수 read & write의 원자성(atomic) 을 보장해야 합니다.
 
+## 스프링 싱글턴을 이용한 동시성 문제 해결
+
+시설물 관리 프로젝트를 개발할때 synchronized 를 사용했는데, Table 이나, 오라클 쿼리 select for update 같은 걸 이용하면, 자바 성능은 그대로 유지하면서 synchronized 없이 락을 걸 수 있기 때문에 더 좋을것같다.
+
 ## References.
 
 > https://itmore.tistory.com/entry/스프링-ApplicationContext-동작방식
