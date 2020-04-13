@@ -86,6 +86,8 @@ volatile 변수를 사용하고 있지 않는 MultiThread 어플리케이션에�
 
 volatile 키워드를 추가하게 되면 Main Memory 에 저장하고 읽어오기 때문에 변수 값 불일치 문제를 해결 할 수 있습니다. 즉, volatile 는 변수의 read 와 write 를 Main Memory 에서 진행하게 됩니다.
 
+
+- Multi Thread 환경에서 하나의 Thread 만 read & write 하고 나머지 Thread 가 read 하는 상황에서 가장 최신의 값을 보장합니다.
 - 하나의 Thread 가 아닌 여러 Thread 가 write 하는 상황에서는 적합하지 않습니다.
 - 여러 Thread 가 write 하는 상황이라면?
   - synchronized 를 통해 변수 read & write의 원자성(atomic) 을 보장해야 합니다.
