@@ -119,7 +119,12 @@ InnerInstanceClazz 내부 인스턴스는 static 이기 때문에 클래스 로�
 - 클래스 로더를 2개 이상 사용하는 경우 객체가 2번 이상 생성될 수 있다.
   - 이럴때는 클래스 로더를 지정해야함
   
-> 자바와 Spring에서의 싱글톤 차이점이라면, 싱글톤 객체의 생명주기가 다르다. 또한 자바에서 공유 범위는 Class loader 기준이지만, Spring 에서는 ApplicationContext 가 기준이 된다.  
+> 자바와 Spring에서의 싱글톤 차이점이라면, 싱글톤 객체의 생명주기가 다르다. 또한 자바에서 범위는 Class loader 기준이지만, Spring 에서는 ApplicationContext 가 기준이 된다.  
+
+클래스 로더 기준이라는 것은 톰캣이 WAR 파일을 만들게 되면, WAR 파일 하나 당 클래스 로더 하나 1:1 식으로 배치가 되기 때문에 다른 WAR 파일은 참조가 불가능하다.
+
+반면, ApplicationContext 기준이라는 것은 web.xml 에서 root context 하나와 servlet cotnext 여러개를 등록할 수 있는데, 이 각각의 context 들이
+싱글턴 범위가 된다.
 
 ## 스프링 applicationContext 와 싱글톤
 
