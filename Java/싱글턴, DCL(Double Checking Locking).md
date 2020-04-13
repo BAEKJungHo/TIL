@@ -78,7 +78,9 @@ public enum Singleton {
 }
 ```
 
-마지막 방법은 `LazyHolder` 라고 내부클래스를 사용하여 인스턴스를 생성하는 것인데, 미리 인스턴스를 생성하는 방법과 유사하다. 현재 가장 많이 사용하는 방식이며, volatile 이나 synchronized 키워드가 없어도 동시성 문제를 해결한다. 따라서 성능도 뛰어나다
+마지막 방법은 `LazyHolder` 라고 내부클래스를 사용하여 인스턴스를 생성하는 것인데, 미리 인스턴스를 생성하는 방법과 유사하다. 현재 가장 많이 사용하는 방식이며, volatile 이나 synchronized 키워드가 없어도 동시성 문제를 해결한다. 따라서 성능도 뛰어나다.
+
+LazyHolder 방식은 static 객체임에도 불구하고 필요시 메모리에 할당해서 쓴다는 것과 그 방식이 쓰레드 안전성을 보장해준다는 겁니다.
 
 ```java
 public class Singleton {
