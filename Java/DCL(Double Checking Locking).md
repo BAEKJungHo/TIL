@@ -119,6 +119,10 @@ Singleton 클래스에는 InnerInstanceClazz() 클래스의 변수가 없기 때
 
 ## 스프링 applicationContext 와 싱글톤
 
+스프링은 빈을 등록할 때 범위를 지정할 수 있는데 Default 가 Singleton 이다. 
+
+싱글톤 말고도 session, request, prototype와 같은 값들로 설정이 가능하다.
+
 Root Application Context , Application Context 안에 들어 있는 객체는 Thread safe 입니다.
 
 예를들어 VO 가 Root Application Context에 있을 경우, 다른 여러 요청이 같은 VO에 접근하면 이전 요청과 간섭이 발생하여 올바른 데이터를 얻지 못할 것입니다.
