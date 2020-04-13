@@ -14,7 +14,7 @@ public class Singleton {
   
   // lazy initialization
   public static synchronized Singleton getInstance() {
-    if(uniqueInstance != null) {
+    if(uniqueInstance == null) {
       uniqueInstance = new Singleton();
     }
     return uniqueInstance;
