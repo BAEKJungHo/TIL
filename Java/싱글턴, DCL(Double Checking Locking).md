@@ -137,6 +137,7 @@ Root Application Context , Application Context 안에 들어 있는 객체는 Th
 /**
  * 스프링에서는 주로 ServiceImpl 을 빈으로 등록하기 위해서 @Service 를 붙인다. 즉, SerivceImpl 은 thread-safe 하다
  * 반면 serviceImpl 내부 메서드 중 동시성 처리를 위해 동기화 블럭을 지정해야하는 메서드가 있을 수 있는데 해야하는 이유는, 동시에 메서드에 접근한 경우 DB에 값이 2번 쓰여질 수도 있다 즉, PK 는 달라도 필수값(Unique key 로 지정해야할 필요가 있는 값) 들이 2번 쓰여지게 됩니다.(테이블 에 LOCK 을 걸거나, Unique key 지정 등을 하지 않은경우)
+ * 즉, Thread-safe 한 경우라도 위와같은 경우에는 synchronized 블럭을 지정해야하기도 한다.
  */
 ``` 
 Thread safe하기 위해서는 객체에 인스턴스 변수가 없으면 됩니다.
