@@ -68,7 +68,17 @@ public class Singleton {
 
 > volatile 키워드를 사용하면 멀티스레딩을 쓰더라도 uniqueInstance 변수가 Sigleton 인스턴스로 초기 되는 과정이 올바르게 진행되도록 할 수 있다.
 
-마지막 방법은 `Holder` 라고 내부클래스를 사용하여 인스턴스를 생성하는 것인데, 미리 인스턴스를 생성하는 방법과 유사하다. 
+다음은 `Enum` 을 이용하는 방법이 있다.
+
+Enum 은 인스턴스가 여러개 생기지 않도록 보장해주며, 직렬화가 자동으로 지원된다. 단점은 Enum 은 컴파일 시점에 성격이 결정되어, 매번 메서드를 호출할 때 Context 정보를 넘겨야하므로 비효율적인 상황이 생길 수 있다.
+
+```java
+public enum Singleton {
+  INSTANCE;
+}
+```
+
+마지막 방법은 `LazyHolder` 라고 내부클래스를 사용하여 인스턴스를 생성하는 것인데, 미리 인스턴스를 생성하는 방법과 유사하다. 현재 가장 많이 사용하는 방식이며, volatile 이나 synchronized 키워드가 없어도 동시성 문제를 해결한다. 따라서 성능도 뛰어나다
 
 ```java
 public class Singleton {
@@ -95,6 +105,8 @@ public class Singleton {
 
 JVM의 클래스 로더 메커니즘과 클래스의 로드 시점을 이용하여 내부 클래스를 통해 생성 시킴으로써 쓰레드 간의 동기화 문제를 해결한다.
 위 방법은 현재 java에서 싱글톤 생성에서 사용하는 대표적인 방법이다.
+
+Singleton 클래스에는 InnerInstanceClazz() 클래스의 변수가 없기 때문에, static 멤버 클래스더라도, 클래스 로더가 초기화 과정을 진행할때 InnerInstanceClazz 메서드를 초기화 하지 않고, getInstance () 메서드를 호출할때 초기화 된다. 즉, `동적바인딩(Dynamic Binding)` 런타임시에 성격이 결정 되는 특징을 이용하여 thread-safe 하면서 성능이 뛰어나다.
 
 > 내부 클래스에 관해서 이펙티브 자바 참고
 
@@ -198,3 +210,5 @@ volatile 키워드를 추가하게 되면 Main Memory 에 저장하고 읽어오
 > https://victorydntmd.tistory.com/161
 >
 > https://joont.tistory.com/144
+>
+> https://medium.com/@joongwon/multi-thread-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C%EC%9D%98-%EC%98%AC%EB%B0%94%EB%A5%B8-singleton-578d9511fd42
