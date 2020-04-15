@@ -1,7 +1,7 @@
 # JVM(Java Virtual Machine) : CERG, MHSPN
 
 - JVM
-  - 자바 가상 머신으로, 자바 바이트 코드(.class 파일)를 OS 에 특화된 코드로 변환(인터프리터와 JIT 컴파일러) 하여 실행
+  - 자바 가상 머신으로, 자바 바이트 코드(class 파일)를 OS 에 특화된 코드로 변환(인터프리터와 JIT 컴파일러) 하여 실행
   - 바이트 코드를 실행하는 표준이자 구현체이다.
   - JVM 스펙 (https://docs.oracle.com/javase/specs/jvms/se11/html)
   - JVM 밴더 : 오라클, 아마존, Azul 
