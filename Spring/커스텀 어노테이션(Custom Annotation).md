@@ -237,4 +237,32 @@ public @interface SetDefaultValue {
 private String state;
 ```
 
+## Example
 
+```java
+@ConstraintComposition(CompositionType.AND)
+@Target({ METHOD, FIELD })
+@Retention(RUNTIME)
+@Constraint(validatedBy = NumberValidator.class)
+public @interface Number {
+    String message() default "숫자만 입력 가능합니다.";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+}
+
+public class NumberValidator implements ConstraintValidator<Number, String> {
+    @Override
+    public void initialize(Number constraintAnnotation) {
+
+    }
+
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        if (value == null) {
+            return false;
+        }
+        Matcher matcher = Pattern.compile("[0-9]+").matcher(value);
+        return matcher.find();
+    }
+}
+```
