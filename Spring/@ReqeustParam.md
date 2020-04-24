@@ -8,7 +8,7 @@ id 값 1은
 
 @GetMapping("/hello/{id}") 처럼 사용하여 @PathVariable 로 받을 수 있다
 
-@RequestMapping String name 으로 할 수 있다.
+@RequestParam String name 으로 할 수 있다.
 
 만약 name 과 age 둘다 받고 싶은 경우 컴포짓 객체 방식으로 @ModealAttribute User user 로 받을 수 있다.
 
