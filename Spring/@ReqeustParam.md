@@ -1,5 +1,7 @@
 ## @RequestParam
 
+- 외부에서 API 로 넘긴 파라미터를 가져올 수 있다.
+
 /hello/1?name=jungho&age=27
 
 처럼 되어있을때 name을 받고 싶은경우
