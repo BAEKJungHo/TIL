@@ -23,13 +23,13 @@
     JIT 컴파일러는 적절한 시간에 전체 바이트 코드를 네이티브 코드로 변경해서 Execution Engine이 네이티브로 컴파일된 코드를 실행하는 것으로 성능을 높이는 방식이다.
   - `Runtime Data Area (실행 데이터 영역, 자바 런타임 메모리, MHSPN)`
     - JVM의 메모리 영역으로 자바 애플리케이션을 실행할 때 사용되는 데이터들을 적재하는 영역이다.
-    - Method Area
+    - Method Area(Class Area, Code Area, Static Area)
       - 클래스 멤버 변수 이름, 데이터 타입, 접근 제어자 정보같은 필드 정보와 메서드 이름
       - 리턴 타입, 파라미터, Type 정보(interface 인지, class 인지), 상수 풀(문자상수, 타입 필드, 객체 참조), static 변수, final class 등
     - Heap Area
       - new 키워드로  생성된 객체와 배열
       - GC 의 대상
-    - Stack Area(Class Area, Code Area, Static Area)
+    - Stack Area
       - 지역변수, 파라미터, 리턴 값 연산에 사용되는 임시 값 등
       - Person p = new Person() 작성한 경우 p 는 스택 영역에 생성되고, 힙 영역의 주소값을 가지고 있다. new 로 생성된 Person 클래스는 힙 영역에 생성된다.
       - 메서드를 호출할 때마다 개별적으로 스택이 생성된다.
