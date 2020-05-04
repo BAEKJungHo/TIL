@@ -6,7 +6,7 @@
   - JVM 스펙 (https://docs.oracle.com/javase/specs/jvms/se11/html)
   - JVM 밴더 : 오라클, 아마존, Azul 
   - 자바 코드를 컴파일 해서 얻은 바이트 코드를 운영체제가 이해할 수 있는 기계어로 바꿔 실행
-  - 플랫폼 종속적(OS에 의존적)
+  - 플랫폼 종속적(OS 에 의존적)
   
 ## Architecture
 
