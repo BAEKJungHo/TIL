@@ -7,7 +7,7 @@
 - 클래스는 빈으로 등록이 되어있어야 한다.
 
 ```html
-<%@ page import="net.mayeye.site.util.SecurityAES256" %>
+<%@ page import="xxx.xxx.xxx.util.SecurityAES256" %>
 <%
 
         ApplicationContext act = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getSession().getServletContext());
