@@ -13,7 +13,7 @@
 > 자바 소스파일을 `Java Complier` 가 클래스 파일로 변환하고, `Class Loader` 가 `Runtime Data Area` 에 클래스 파일을 적재 시킨다. 
 `Execution Engine` 이 자바 메모리에 적재된 클래스들을 기계어로 변환해 명령어 단위로 실행한다. 그리고 Garbage Collector 는 Heap 영역에 적재된 객체들 중에서 참조되지 않은 객체를 제거한다.
 
-- JVM 은 크게 4가지로 구분 (CERG)
+- JVM 은 크게 4가지로 구분(CERG)
   - `Class Loader (클래스 파일 적재 .. 실행 데이터 영역에 적재)`
     - 자바에서 소스를 작성하면 Person.java 처럼 .java파일이 생성된다. .java 소스를 자바컴파일러가 컴파일하면 Person.class 같은 .class파일(바이트코드)이 생성된다. 
     이렇게 생성된 클래스파일들을 엮어서 JVM 이 운영체제로부터 할당받은 메모리영역인 `Runtime Data Area` 로 적재하는 역할을 Class Loader가 한다. (자바 애플리케이션이 실행중일 때 이런 작업이 수행된다.)
