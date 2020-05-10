@@ -15,7 +15,7 @@
 
 - JVM 은 크게 4가지로 구분(CERG)
   - `Class Loader (클래스 파일 적재 .. 실행 데이터 영역에 적재)`
-    - 자바에서 소스를 작성하면 Person.java 처럼 .java파일이 생성된다. .java 소스를 자바컴파일러가 컴파일하면 Person.class 같은 .class파일(바이트코드)이 생성된다. 
+    - 자바에서 소스를 작성하면 Person.java 처럼 .java파일이 생성된다. .java 소스를 자바컴파일러가 컴파일하면 Person.class 같은 .class 파일(바이트코드)이 생성된다. 
     이렇게 생성된 클래스파일들을 엮어서 JVM 이 운영체제로부터 할당받은 메모리영역인 `Runtime Data Area` 로 적재하는 역할을 Class Loader가 한다. (자바 애플리케이션이 실행중일 때 이런 작업이 수행된다.)
   - `Execution Engine (실행 엔진)`
     - Class Loader 에 의해 메모리에 적재된 클래스(바이트 코드)들을 기계어로 변경해 명령어 단위로 실행하는 역할을 한다. 명령어를 하나 하나 실행하는 인터프리터(Interpreter) 방식이 있고 JIT(Just-In-Time) 컴파일러를 이용하는 방식이 있다.
