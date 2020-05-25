@@ -1,6 +1,6 @@
 # 순환 참조(Circular Reference)
 
-> https://medium.com/webeveloper/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%88%9C%ED%99%98-%EC%B0%B8%EC%A1%B0-circular-reference-d01c6beee7e6
+> [Webeveloper, 스프링 순환 참조(Circular Reference)](https://medium.com/webeveloper/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%88%9C%ED%99%98-%EC%B0%B8%EC%A1%B0-circular-reference-d01c6beee7e6)
 
 ## Example
 
