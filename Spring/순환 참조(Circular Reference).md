@@ -36,9 +36,9 @@ Description:
 The dependencies of some of the beans in the application context form a cycle:
 
 ┌─────┐
-|  aBCServiceImpl defined in file [/Users/andrew/workspace/spring-boot/target/classes/com/baekjh/demo/spring/circular/ABCServiceImpl.class]
+|  aBCServiceImpl defined in file [/Users/baek/workspace/spring-boot/target/classes/com/baekjh/demo/spring/circular/ABCServiceImpl.class]
 ↑     ↓
-|  xYZServiceImpl defined in file [/Users/andrew/workspace/spring-boot/target/classes/com/baekjh/demo/spring/circular/XYZServiceImpl.class]
+|  xYZServiceImpl defined in file [/Users/baek/workspace/spring-boot/target/classes/com/baekjh/demo/spring/circular/XYZServiceImpl.class]
 └─────┘
 ```
 
@@ -48,8 +48,7 @@ The dependencies of some of the beans in the application context form a cycle:
 
 ## Repository 로 해결하기
 
-ServiceImpl 은 @Service 로 빈으로 등록한 존재이기 때문에 순환 참조가 발생할 수 있는데, ABCServiceImpl 에서 XYZServiceImpl 에 있는 별다른 로직이 아닌
-단순히 DB 에서 값을 조회해서 와야 하는경우 XYZServiceImpl 을 아래 처럼 Repository 로 의존성을 주입받으면 순환 참조 문제가 해결된다.
+ServiceImpl 은 @Service 로 빈으로 등록한 존재이기 때문에 순환 참조가 발생할 수 있는데, ABCServiceImpl 에서 XYZServiceImpl 에 있는 별다른 로직이 아닌 단순히 DB 에서 값을 조회해서 와야 하는경우 XYZServiceImpl 을 아래 처럼 Repository 로 의존성을 주입받으면 순환 참조 문제가 해결된다.
 
 ```java
 @RequriedArgsConstrcutor
@@ -71,7 +70,7 @@ ABCService 와 XYZService 를 의존하는 새 클래스 QORService 를 작성�
 
 만약 repository 가 service 처럼 interafce, class 로 나뉘는 경우 더 신경 써야 할 것이다.
 
-> ABCService 에서 만든 로직을 XYZService 에서 참조해서 사용해야 하고, ABCService 에서는 CRUD 를 처리하기 위해서 XYZ 테이블에 있는 값을 조회해서 얻어와야 하는 경우 XYZRepository 를 이용해야 한다. 만약 서로 각 service 에서 만든 로직을 서로 참조하게 설계한 경우, 잘못된 설계이다.
->
-> ABCService 에서 생성자로 XYZService 의존성 주입을 받는 경우는, ABCService 는 XYZService 에 의존한다라는 의미가 된다. 반면 Repository 의존성 주입을 받는 경우는 ABCSerivce 는 XYZService 와 관련이 있다. 정도로만 생각하면 될 것 같다.
+ABCService 에서 만든 로직을 XYZService 에서 참조해서 사용해야 하고, ABCService 에서는 CRUD 를 처리하기 위해서 XYZ 테이블에 있는 값을 조회해서 얻어와야 하는 경우 XYZRepository 를 이용해야 한다. 만약 서로 각 service 에서 만든 로직을 서로 참조하게 설계한 경우, 잘못된 설계이다.
+
+ABCService 에서 생성자로 XYZService 의존성 주입을 받는 경우는 `ABCService 는 XYZService 에 의존한다` 라는 의미가 된다. 반면 Repository 의존성 주입을 받는 경우는 `ABCSerivce 는 XYZService 와 관련이 있다` 정도로만 생각하면 될 것 같다.
 
