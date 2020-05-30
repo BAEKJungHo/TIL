@@ -12,7 +12,7 @@
 
 - setDisallowedFields 를 사용한 블랙리스트 처리 기반
   - 받고싶지 않은 필드값을 걸러낼 수 있다.
-  - 폼에서 setDisallowedFields에 설정한 필드를 보내도 객체에 바인딩 되지 않는다. 즉 null 값으로 박힌다.
+  - 폼에서 setDisallowedFields 에 설정한 필드를 보내도 객체에 바인딩 되지 않는다. 즉 null 값으로 박힌다.
 
 ```java
 @InitBinder
