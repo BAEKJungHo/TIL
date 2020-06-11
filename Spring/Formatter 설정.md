@@ -50,7 +50,7 @@ public class SampleController {
 }
 ```
 
-현재는 위처럼 문자열 name 을 person 으로 받을 수 없다. 이를 해결하기 위해서는 Formatter 를 만들어야 한다.
+현재는 위 처럼 문자열 name 을 person 으로 받을 수 없다. 이를 해결하기 위해서는 Formatter 를 만들어야 한다.
 
 - Formatter interface
   
