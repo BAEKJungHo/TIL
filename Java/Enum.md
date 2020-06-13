@@ -1,4 +1,4 @@
-## Enum 을 문자열로 변환 1.
+## EX1) Enum 을 문자열로 변환 
 
 ```java
 public enum DateFormat {
@@ -17,7 +17,7 @@ public enum DateFormat {
 facilityApplyVo.setDay(DateParserUtils.getDateDay(date, DateFormat.YYYYMMDD.toString()));
 ```
 
-## Enum 을 문자열로 변환 2.
+## EX2) Enum 을 문자열로 변환
 
 ```java
 @Getter
