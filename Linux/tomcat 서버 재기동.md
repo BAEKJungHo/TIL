@@ -1,7 +1,7 @@
 # tomcat 서버 재기동 방법
 
 - 톰캣이 떠 있는지 확인 + 위치 찾기
-  - `ps -ef | grep java`  
+  - `ps -ef | grep tomcat`  
 - 해당 위치로 이동 후 로그 확인
   - `tail -f ./catalina.out`  
 - 내리기
