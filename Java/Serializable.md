@@ -7,7 +7,7 @@
  
 > 즉, 직렬화(Serializable) 를 한다는 것은 네트워크 전송을 한다는 것이다.
 
-- 직렬화 하고싶지 않은 필드의 경우에는 `transient` 키워드 붙이기
+- 직렬화 하고싶지 않은 필드의 경우에는 `transient` 키워드를 붙여야 한다.
 
 ```java
 public class NoQuarterState implements State {
