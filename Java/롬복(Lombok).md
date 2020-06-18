@@ -74,7 +74,7 @@
     }
   }
 
-  //Builder Class
+  // Builder Class
   public class UserBuilder {
     private String name;
     private int age;
