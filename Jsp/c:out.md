@@ -6,4 +6,4 @@ c:out을 사용하면 기본적으로 XSS 방지를 위해서 `""` 큰따옴표 
 
 `escapeXml="false"` 를 쓰면 html 태그가 적용되서 나오고 사용하지않으면 html 태그 자체가 나온다.
 
-escapeXml 의 default 값은 true 이다.
+escapeXml 의 default 값은 true 이다. 
