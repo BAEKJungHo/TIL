@@ -7,7 +7,7 @@
   - JVM 밴더 : 오라클, 아마존, Azul 
   - 자바 코드를 컴파일 해서 얻은 바이트 코드를 운영체제가 이해할 수 있는 기계어로 바꿔 실행
   - 플랫폼 종속적(OS 에 의존적)
-  
+   
 ## Architecture
 
 > 자바 소스파일을 `Java Complier` 가 클래스 파일로 변환하고, `Class Loader` 가 `Runtime Data Area` 에 클래스 파일을 적재 시킨다. `Execution Engine` 이 자바 메모리에 적재된 클래스들을 기계어로 변환해 명령어 단위로 실행한다. 그리고 Garbage Collector 는 Heap 영역에 적재된 객체들 중에서 참조되지 않은 객체를 제거한다.
