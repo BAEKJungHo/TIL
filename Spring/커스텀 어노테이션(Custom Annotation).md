@@ -238,7 +238,7 @@ private String state;
 ```
 
 ## Example
-
+ 
 ```java
 @ConstraintComposition(CompositionType.AND)
 @Target({ METHOD, FIELD })
