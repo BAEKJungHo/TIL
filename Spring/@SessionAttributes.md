@@ -53,7 +53,7 @@ public class EventController {
 }
 ```
 
-세션에 담긴 atttibute를 꺼내오려면 아래와 같이 하면 된다.
+세션에 담긴 attribute 를 꺼내오려면 아래와 같이 하면 된다.
 
 ```java
 Object event = request.getSession().getAttribute("event");
