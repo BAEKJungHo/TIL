@@ -9,3 +9,4 @@
 이러한 문제들을 JodaTime 이라는 오픈소스를 사용하여 문제를 피했었고, Java 8 에서는 LocalDate 를 통해 해결했다.
 
 > 자바 8 일 경우 Date 대신 LocalDate 와 LocalDateTime 을 무조건 써야한다.
+ 
