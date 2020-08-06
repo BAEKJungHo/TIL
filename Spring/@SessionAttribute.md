@@ -1,4 +1,4 @@
-# @SessionAttribute
+# @SessionAttribute 
 
 - HTTP 세션에 들어있는 값을 참조할 때 사용
 - HttpSession을 사용할 때 비해 타입 컨버전을 자동으로 지원하기 때문에 편리함
