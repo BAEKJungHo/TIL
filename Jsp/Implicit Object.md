@@ -21,4 +21,17 @@ WAS는 이 변환한 Servlet을 동작하여 필요한 기능을 수행한다.
 
 수행 완료 후 생성된 데이터를 웹 페이지와 함께 클라이언트로 응답한다.
 
+## JSP 특징
+
+- 스크립트 언어이기 때문에 자바 기능을 그대로 사용할 수 있다.
+- Tomcat(WAS)이 이미 만들어놓은 객체(`predefined values`)를 사용한다.
+  - Ex. request, response, session 등
+- 사용자 정의 태그(custom tags)를 사용하여, 보다 효율적으로 웹 사이트를 구성할 수 있다.
+  - JSTL(JSP Standard Tag Library, JSP 표준 태그 라이브러리)사용
+- HTML 코드 안에 Java 코드가 있기 때문에 HTML 코드를 작성하기 쉽다.
+- Servlet과 다르게 JSP는 수정된 경우 재배포할 필요 없이 Tomcat(WAS)이 알아서 처리해준다.
+
+
+## References.
+
 > https://gmlwjd9405.github.io/2018/11/03/jsp.html
