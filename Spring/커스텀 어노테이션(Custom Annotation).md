@@ -266,3 +266,7 @@ public class NumberValidator implements ConstraintValidator<Number, String> {
     }
 }
 ```
+
+## Article
+
+> https://woowabros.github.io/experience/2020/06/26/custom-annotation.html
