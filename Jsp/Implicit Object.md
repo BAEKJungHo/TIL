@@ -12,12 +12,12 @@ JSP가 실행되면 WAS는 내부적으로 JSP 파일을 Java Servlet(.java)으�
 
 WAS는 이 변환한 Servlet을 동작하여 필요한 기능을 수행한다.
 
-- 1) WAS는 사용자 요청에 맞는 적절한 Servlet 파일을 컴파일(.class 파일 생성)한다.
-- 2) .class 파일을 메모리에 올려 Servlet 객체를 만든다.
-- 3) 메모리에 로드될 때 Servlet 객체를 초기화하는 init() 메서드가 실행된다.
-- 4) WAS는 Request가 올 때마다 thread를 생성하여 처리한다.
-- 5) 각 thread는 Servlet의 단일 객체에 대한 service() 메서드를 실행한다.
-- 6) service() 메서드는 요청에 맞는 적절한 메서드(doGet, doPost 등)를 호출한다.
+1) WAS는 사용자 요청에 맞는 적절한 Servlet 파일을 컴파일(.class 파일 생성)한다.
+2) .class 파일을 메모리에 올려 Servlet 객체를 만든다.
+3) 메모리에 로드될 때 Servlet 객체를 초기화하는 init() 메서드가 실행된다.
+4) WAS는 Request가 올 때마다 thread를 생성하여 처리한다.
+5) 각 thread는 Servlet의 단일 객체에 대한 service() 메서드를 실행한다.
+6) service() 메서드는 요청에 맞는 적절한 메서드(doGet, doPost 등)를 호출한다.
 
 수행 완료 후 생성된 데이터를 웹 페이지와 함께 클라이언트로 응답한다.
 
