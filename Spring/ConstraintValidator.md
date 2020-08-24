@@ -70,12 +70,12 @@ public class OrderSheetFormValidator implements ConstraintValidator<OrderSheetFo
 }
 ```
 
-(1) ConstraintValidator<OrderSheetForm, OrderSheetRequest>를 상속받습니다. OrderSheetForm 작성한 위에서 생성한 어노테이션, OrderSheetRequest는 @RequestBody으로 받는 객체입니다.
-(2) invalidCount는 검증이 실패할 때마다 증가할 카운트 변수입니다.
-(3) addConstraintViolation 메서드를 통해서 에러 메시지와 검증한 node key 값을 넘겨줍니다. 해당 node는 ErrorResponse의 errors[].field에 바인딩 됩니다.
-(4) 해당 메서드로 @OrderSheetForm의 default "Order sheet form is invalid"; 값을 disable 시킵니다.
-(5) 해당 메서드로 검증에 대한 Violation 을 추가합니다.
-(6) invalidCount == 0 아닌 경우에는 false
+- (1) ConstraintValidator<OrderSheetForm, OrderSheetRequest>를 상속받습니다. OrderSheetForm 작성한 위에서 생성한 어노테이션, OrderSheetRequest는 @RequestBody으로 받는 객체입니다.
+- (2) invalidCount는 검증이 실패할 때마다 증가할 카운트 변수입니다.
+- (3) addConstraintViolation 메서드를 통해서 에러 메시지와 검증한 node key 값을 넘겨줍니다. 해당 node는 ErrorResponse의 errors[].field에 바인딩 됩니다.
+- (4) 해당 메서드로 @OrderSheetForm의 default "Order sheet form is invalid"; 값을 disable 시킵니다.
+- (5) 해당 메서드로 검증에 대한 Violation 을 추가합니다.
+- (6) invalidCount == 0 아닌 경우에는 false
 
 ## 어노테이션 적용 클래스
 
@@ -109,9 +109,9 @@ public class OrderSheetRequest {
 }
 ```
 
-(1) @OrderSheetForm을 추가해서 OrderSheetFormValidator가 동작하게 합니다.
-(2) @Valid을 추가해서 각 클래스의 JSR-303 기반 어노테이션이 동작하게 합니다. @Valid이 없는 경우 payment.PaymentMethod의 @NotNull 동작하지 않습니다.
-(3) Error[].value 값이 객체인 경우에 해당 객체의 정보를 출력하기 위해서 @ToString을 추가합니다.
+- (1) @OrderSheetForm을 추가해서 OrderSheetFormValidator가 동작하게 합니다.
+- (2) @Valid을 추가해서 각 클래스의 JSR-303 기반 어노테이션이 동작하게 합니다. @Valid이 없는 경우 payment.PaymentMethod의 @NotNull 동작하지 않습니다.
+- (3) Error[].value 값이 객체인 경우에 해당 객체의 정보를 출력하기 위해서 @ToString을 추가합니다.
 
 ### Controller
 
