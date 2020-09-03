@@ -117,6 +117,20 @@ class Test {
 `MyArrayList<Integer>` 로 생성했던 타입파라미터가 사라지고, Raw 타입으로만 사용하는데, 
 값을 꺼내 쓰는 곳에 형변환 코드가 추가되었다. 제네릭을 사용하면 컴파일러가 형변환을 알아서 진행한다는 것을 확인했다.
 
+## 타입 추론(Type Inference)
+
+JDK 1.7 버전 부터 제네릭에서 타입 추론이 가능하게 되었다. 따라서 타입 파라미터를 두번 명시하지 않아도 된다.
+
+- (JDK 1.6) List<Integer> list = new ArrayList<Integer>(); 
+- (JDK 1.7) List<Integer> list = new ArrayList<>();
+
+## 한정적 타입 매개변수(Bounded Type Parameter)
+
+## 와일드카드(WildCard)
+
+## 제네릭을 사용할 수 없는 경우
+
+## 제네릭 메서드
 
 ## References.
 
