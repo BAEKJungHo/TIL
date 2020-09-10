@@ -59,7 +59,7 @@ public class MyArrayListTest {
 ```
 
 위 처럼 String 으로 넣고 Integer 로 파싱하게 되는 경우 `ClassCastException` 이 발생한다. 더 심각한 문제는 이러한 에러를 컴파일시에는 발견되지 않는다는 것이다. 또한
-캐스팅을 직접해줘야한다.
+캐스팅을 직접 해줘야 한다.
 
 위 코드를 제네릭으로 바꾸면 다음과 같다.
 
