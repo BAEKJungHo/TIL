@@ -126,7 +126,15 @@ JDK 1.7 버전 부터 제네릭에서 타입 추론이 가능하게 되었다. �
 
 ## 한정적 타입 매개변수(Bounded Type Parameter)
 
+제네릭을 사용하면서 타입 파라미터의 범위를 제한할 수 있다.
+
+```java
+public class GenericArrayList<T extends Number> // Number 랑 그걸 상속받는 자식들
+public class GenericArrayList<T super Number> // Number 랑 그 상위들 
+```
+
 ## 와일드카드(WildCard)
+
 
 ## 제네릭을 사용할 수 없는 경우
 
