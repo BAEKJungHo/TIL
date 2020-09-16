@@ -119,7 +119,7 @@ class Test {
 
 ## 타입 추론(Type Inference)
 
-JDK 1.7 버전 부터 제네릭에서 타입 추론이 가능하게 되었다. 따라서 타입 파라미터를 두번 명시하지 않아도 된다.
+JDK 1.7 버전 부터 제네릭에서 타입 추론이 가능하게 되었다. 따라서 타입 파라미터를 두 번 명시하지 않아도 된다.
 
 - (JDK 1.6) List<Integer> list = new ArrayList<Integer>(); 
 - (JDK 1.7) List<Integer> list = new ArrayList<>();
