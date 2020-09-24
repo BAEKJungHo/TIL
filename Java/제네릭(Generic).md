@@ -123,6 +123,8 @@ JDK 1.7 버전 부터 제네릭에서 타입 추론이 가능하게 되었다. �
 
 - (JDK 1.6) List<Integer> list = new ArrayList<Integer>(); 
 - (JDK 1.7) List<Integer> list = new ArrayList<>();
+    
+> 제네릭은 타입소거라는 특징으로 컴파일러가 컴파일 타임에 타입을 추론할 수 있으며, 이런 타입 추론 기능을 강력하게 사용하기 위해서는 런타임에 타입을 추론하는 Array 대신에 컴파일 타임에 타임을 추론하는 List 를 함께 사용해야 안정성을 보장 할 수 있다.
 
 ## 한정적 타입 매개변수(Bounded Type Parameter)
 
