@@ -13,3 +13,7 @@
   - ~/tomcat/apache*/bin 이동
   - `./startup.sh`
   
+# 개발서버 띄울 때 해야할 일 들
+
+- server.xml 에서 domain 에 해당하는 host 코드 작성
+- vhost 에서 JK... 톰캣 버전 
