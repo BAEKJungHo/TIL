@@ -39,3 +39,15 @@ String mediaType = tika.detect(파일객체);
 ```
 
 위 처럼 사용하면 mediaType을 구할 수 있다.
+
+## ResponseEntity 반환에 따른 JS 동작
+
+```java
+@RequestMapping(value = "/validateNickname.do", method = RequestMethod.POST)
+public ResponseEntity validateNickname(@RequestBody String nickname) throws SQLException {
+    return memberInfoService.validateNickname(nickname) ? new ResponseEntity(HttpStatus.OK)
+            : new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+}
+```
+
+HttpStatus.OK 면 AJAX 의 SUCCESS 메서드를 타게되며, HttpStatus.INTERNAL_SERVER_ERROR 이면 AJAX 의 ERROR 메서드를 타게 된다.
