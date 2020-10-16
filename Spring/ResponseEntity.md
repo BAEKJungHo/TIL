@@ -55,7 +55,7 @@ public ResponseEntity validateNickname(@RequestBody String params) throws SQLExc
         throw new DataAccessException("닉네임 검증 중 오류가 발생하였습니다.");
     }
     return memberInfoService.validateNickname(requestDto) ? new ResponseEntity(HttpStatus.OK)
-            : new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            : new ResponseEntity(HttpStatus.BAD_REQUEST);
 }
 ```
 
