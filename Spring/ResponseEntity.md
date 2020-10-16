@@ -42,10 +42,19 @@ String mediaType = tika.detect(파일객체);
 
 ## ResponseEntity 반환에 따른 JS 동작
 
+> 스프링부트가 아닌 스프링에서 JSON 데이터를 받기위해선 jacson-databind 라이브러리가 있어야 하며 ObjectMapper 를 통해서  `{"nickname" : "ABC", ...} Key 와 Value 형태의 JSON 형식`을 DTO 에 매핑 시켜줄 수 있다.
+
 ```java
-@RequestMapping(value = "/validateNickname.do", method = RequestMethod.POST)
-public ResponseEntity validateNickname(@RequestBody String nickname) throws SQLException {
-    return memberInfoService.validateNickname(nickname) ? new ResponseEntity(HttpStatus.OK)
+@RequestMapping(value = "/validateNickname.do", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+public ResponseEntity validateNickname(@RequestBody String params) throws SQLException {
+    ObjectMapper objectMapper = new ObjectMapper();
+    MemberInfoDto.ValidateNicknameRequest requestDto;
+    try{
+        requestDto = objectMapper.readValue(params, MemberInfoDto.ValidateNicknameRequest.class);
+    } catch (IOException e) {
+        throw new DataAccessException("닉네임 검증 중 오류가 발생하였습니다.");
+    }
+    return memberInfoService.validateNickname(requestDto) ? new ResponseEntity(HttpStatus.OK)
             : new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 }
 ```
