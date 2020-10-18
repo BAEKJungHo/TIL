@@ -48,9 +48,9 @@ String mediaType = tika.detect(파일객체);
 @RequestMapping(value = "/validateNickname.do", method = RequestMethod.POST, produces = "application/json; charset=utf8")
 public ResponseEntity validateNickname(@RequestBody String params) throws SQLException {
     ObjectMapper objectMapper = new ObjectMapper();
-    MemberInfoDto.ValidateNicknameRequest requestDto;
+    MemberInfoDto.ValidationNicknameRequest requestDto;
     try{
-        requestDto = objectMapper.readValue(params, MemberInfoDto.ValidateNicknameRequest.class);
+        requestDto = objectMapper.readValue(params, MemberInfoDto.ValidationNicknameRequest.class);
     } catch (IOException e) {
         throw new DataAccessException("닉네임 검증 중 오류가 발생하였습니다.");
     }
