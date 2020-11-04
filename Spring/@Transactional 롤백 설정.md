@@ -6,10 +6,9 @@
 
 - rollbackFor : 롤백이 수행되어야 하는 예외클래스를 적어준다
 
-따로 설정을 안해주면 RuntimeException 에 대해서들만 롤백을 실행한다.
+스프링 프레임워크에서 `@Transactional` 어노테이션을 사용한 트랙잭션 처리에서 Checked 예외는 롤백 되지 않는다. 이것은 스프링 프레임워크가 EJB 에서의 관습을 따르기 때문이라고 합니다. 그러므로 기본적으로 Unchecked 예외는 롤백이 된다. RuntimeException 을 던지면 롤백이 된다는 것이다.
 
-
-스프링 프레임워크에서 `@Transactional` 어노테이션을 사용한 트랙잭션 처리에서 Checked 예외는 롤백 되지 않는다. 이것은 스프링 프레임워크가 EJB 에서의 관습을 따르기 때문이라고 합니다. 그러므로 기본적으로 Unchecked 예외는 롤백이 된다. RuntimeException 을 던지면 롤백이 된다는 것이다
+스프링이 JdbcTemplate 를 도입하면서 SQLException 을 DataAccessExcpetion(Unchecked Exception) 으로 던지기 때문에 쿼리에서 문제가 발생해서 터져도 롤백이 됬던 것이다. 
 
 ## 기본 설정
 
