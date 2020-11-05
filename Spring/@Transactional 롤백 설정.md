@@ -22,6 +22,8 @@
 ## 롤백 기준
 
 > https://pjh3749.tistory.com/269
+>
+> https://woowabros.github.io/experience/2019/01/29/exception-in-transaction.html
 
 ## References.
 
