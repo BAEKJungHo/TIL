@@ -19,6 +19,10 @@
 
 > 예외에 따른 롤백처리는 Checked 예외는 롤백되지 않고, Unchecked 예외는 롤백된다.
 
+## 롤백 기준
+
+> https://pjh3749.tistory.com/269
+
 ## References.
 
 > https://offbyone.tistory.com/405
