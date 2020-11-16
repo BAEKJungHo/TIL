@@ -55,8 +55,10 @@ public ResponseEntity validateNickname(@RequestBody String params) throws SQLExc
         throw new DataAccessException("닉네임 검증 중 오류가 발생하였습니다.");
     }
     return memberInfoService.validateNickname(requestDto) ? new ResponseEntity(HttpStatus.OK)
-            : new ResponseEntity(HttpStatus.BAD_REQUEST);
+            : new ResponseEntity("errorMsg", HttpStatus.BAD_REQUEST);
 }
 ```
 
 HttpStatus.OK 면 AJAX 의 SUCCESS 메서드를 타게되며, HttpStatus.INTERNAL_SERVER_ERROR 이면 AJAX 의 ERROR 메서드를 타게 된다.
+
+@ControllerAdvice 를 통해 DataAccessException 처리를 해야 한다.
