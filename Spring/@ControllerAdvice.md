@@ -17,8 +17,6 @@
 @ControllerAdvice(annotations = {Controller.class, Service.class})
 public class ExceptionHandler {
 
-    // RedirectAttributes 나 Model 종류를 파라미터에 작성하면 해당 메서드를 타지 않을 수 있다.
-    // HttpServletRequest 를 이용하면 Exception 에 담긴 Error Message 를 View 단에 뿌릴 수 있다.
     @org.springframework.web.bind.annotation.ExceptionHandler(BusinessException.class)
     public String businessException(BusinessException e, HttpServletRequest request) {
         request.setAttribute("message", e.getMessage());
