@@ -10,8 +10,25 @@
   - 특정 어노테이션을 가지고 있는 컨트롤러에만 적용하기(스프링 4.0 부터)
   - 특정 패키지 이하의 컨트롤러에만 적용하기
   - 특정 클래스 타입에만 적용하기
+  
+## Example 1
 
-## Example
+```java
+@ControllerAdvice(annotations = {Controller.class, Service.class})
+public class ExceptionHandler {
+
+    // RedirectAttributes 나 Model 종류를 파라미터에 작성하면 해당 메서드를 타지 않을 수 있다.
+    // HttpServletRequest 를 이용하면 Exception 에 담긴 Error Message 를 View 단에 뿌릴 수 있다.
+    @org.springframework.web.bind.annotation.ExceptionHandler(BusinessException.class)
+    public String businessException(BusinessException e, HttpServletRequest request) {
+        request.setAttribute("message", e.getMessage());
+        return "egovframework/mayeye/message";
+    }
+
+}
+```
+
+## Example 2
 
 ```java
 /**
