@@ -3,6 +3,19 @@
 ## MimeMessagePreparator 를 이용한 대량 메일 보내기
 
 ```java
+public MailVO createMailVO(MailVO mailVO) {
+	try {
+		setSmtpAccount(mailVO);
+	} catch (NeedParamsException e) {
+		LOGGER.debug(e.getMessage());
+		throw new BusinessException("외부 메일 발송 준비 과정에서 실패하였습니다.");
+	} catch (Exception e) {
+		LOGGER.debug(e.getMessage());
+		throw new BusinessException("외부 메일 발송 준비 과정에서 실패하였습니다.");
+	}
+	return mailVO;
+}
+
 public void sendMail(List<MailVO> mails) {
 	LOGGER.info("started send email (log..)");
 	MimeMessagePreparator[] mimeMessagePreparators = new MimeMessagePreparator[mails.size()];
@@ -19,6 +32,25 @@ public void sendMail(List<MailVO> mails) {
 	}
 	mailSender.send(mimeMessagePreparators);
 	LOGGER.info("ended send email (log..)");
+}
+
+private void setSmtpAccount(MailVO mailVO) {
+	String host = mailVO.get_host();
+	String id = mailVO.get_id();
+	String pw = mailVO.get_pw();
+
+	if (host == null || id == null || pw == null) {
+		return;
+	}
+	JavaMailSenderImpl mailSenderImpl = (JavaMailSenderImpl)mailSender;
+	mailSenderImpl.setHost(host);
+	mailSenderImpl.setUsername(id);
+	mailSenderImpl.setPassword(pw);
+
+	// 구글 메일 테스트 시 포트 설정
+	if(mailVO.getPort() != 0) {
+		mailSenderImpl.setPort(mailVO.getPort());
+	}
 }
 
 private void setMailContents(MimeMessageHelper msgHelper, MailVO mailVO) throws Exception {
