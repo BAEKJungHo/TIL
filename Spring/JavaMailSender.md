@@ -20,6 +20,27 @@ public void sendMail(List<MailVO> mails) {
 	mailSender.send(mimeMessagePreparators);
 	LOGGER.info("ended send email (log..)");
 }
+
+private void setMailContents(MimeMessageHelper msgHelper, MailVO mailVO) throws Exception {
+	msgHelper.setFrom(mailVO.getFrom());
+	msgHelper.setTo(mailVO.getTo());
+	msgHelper.setSubject(mailVO.getTitle());
+	msgHelper.setText(mailVO.getContent(), true);
+	msgHelper.setSentDate(new Date());
+}
+
+private void setAttachedFile(MimeMessageHelper msgHelper, MailVO mailVO) throws Exception {
+	List<MultipartFile> attFileList = mailVO.getAttFileList();
+	if (attFileList == null) {
+		return;
+	}
+	for (int i=0; i < attFileList.size(); i++) {
+		MultipartFile file = attFileList.get(i);
+		if (file.getSize() > 0) {
+			msgHelper.addAttachment(file.getOriginalFilename(), new ByteArrayResource(file.getBytes()));
+		}
+	}
+}
 ```
 
 ## References.
