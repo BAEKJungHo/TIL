@@ -84,7 +84,7 @@ public class SwaggerConfig {
  - .path() 는 URL 경로를 지정하여 해당 URL에 해당하는 요청만 Swagger API 문서로 만든다. (필수)
  
  
- ## 어노테이션
+ ## @Profile
  
  - `@Profile`
   - 운영 프로파일에서는 Swagger 설정이 적용되지 않도록 처리 가능
