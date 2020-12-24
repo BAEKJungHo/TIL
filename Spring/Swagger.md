@@ -97,13 +97,21 @@ swagger 구성을 별도의 구성 클래스에 넣고 @Profile 을 달아 특�
 ```java
 @Configuration
 @EnableSwagger2
-@Profile("dev")
+@Profile({"local", "dev"})
 public class SwaggerConfig {
     // your swagger configuration
 }
 ```
 
-> application.yml(.properties) : `--spring.profiles.active=dev` 또는 구성 파일 :을 통해 Spring Boot 앱이 작동하는 프로필을 정의 할 수 있다. `spring.profiles.active=dev`
+- application.yml(.properties) profile 
+
+```
+.properties : `spring.profiles.active=dev`
+.yml 
+    spring:
+        profiles:
+            active: local
+```
 
 ## Reference
 
