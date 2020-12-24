@@ -47,6 +47,9 @@ css, image 파일 같은 정적 파일 자원을 스프링에서는 `<mvc:resour
     }
 ```
 
+> Swagger2(2.9.x) 를 사용하는 경우 swagger-ui.html 에 접근하면 404 Not Found 에러가 발생하는 경우가 있다. 이러한 경우 스프링 부트의 WebConfig 에서 ResourceHandler 에 
+ swagger-ui.html 페이지가 어디에 있는지 위치를 추가해야 한다.
+
 ## SwaggerConfig 생성
 
 ```java
@@ -75,9 +78,6 @@ public class SwaggerConfig {
 }
 ```
 
->  Swagger2(2.9.x) 를 사용하는 경우 swagger-ui.html 에 접근하면 404 Not Found 에러가 발생하는 경우가 있다. 이러한 경우 스프링 부트의 WebConfig 에서 ResourceHandler 에 
- swagger-ui.html 페이지가 어디에 있는지 위치를 추가해야 한다.
-> 
 > 특정 패키지 지정하기 : `.apis(RequestHandlerSelectors.basePackage("com.weave.*.*.*.web.rest"))`
 
 - Swagger 설정을 정의한 코드
