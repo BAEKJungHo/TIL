@@ -1,5 +1,7 @@
 # 스프링 부트에서 Swagger 설정하기
 
+> [Swagger vs Spring Rest Docs](https://woowabros.github.io/experience/2018/12/28/spring-rest-docs.html)
+
 ## 의존성 추가
 
 - swagger 를 사용하기 위한 의존성
@@ -8,13 +10,14 @@
 > https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
 
 ```xml
-<!-- springfox-swagger2 -->
+<!-- springfox-swagger-ui -->
 <dependency>
- <groupId>io.springfox</groupId>
- <artifactId>springfox-swagger-ui</artifactId>
- <version>2.9.2</version>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>2.9.2</version>
 </dependency>
-<!-- springfox-swager-ui -->
+
+<!-- springfox-swagger2 -->
 <dependency>
     <groupId>io.springfox</groupId>
     <artifactId>springfox-swagger2</artifactId>
@@ -48,8 +51,6 @@ css, image 파일 같은 정적 파일 자원을 스프링에서는 `<mvc:resour
 
 ```java
 @EnableSwagger2
-@ComponentScan(basePackages = "net.mayeye")
-@ServletComponentScan(basePackages = "net.mayeye.site")
 @Configuration
 public class SwaggerConfig {
 
@@ -61,7 +62,7 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public Docket commonApi() {
+    public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("Mayeye")
                 .apiInfo(this.apiInfo())
