@@ -47,7 +47,38 @@ css, image 파일 같은 정적 파일 자원을 스프링에서는 `<mvc:resour
 ## SwaggerConfig 생성
 
 ```java
+@EnableSwagger2
+@ComponentScan(basePackages = "net.mayeye")
+@ServletComponentScan(basePackages = "net.mayeye.site")
+@Configuration
+public class SwaggerConfig {
 
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Weave")
+                .description("API 테스트 및 관리")
+                .build();
+    }
+
+    @Bean
+    public Docket commonApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("Mayeye")
+                .apiInfo(this.apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.weave.*.*.*.web.rest"))
+                .paths(PathSelectors.ant("/api/**"))
+                .build();
+    }
+
+}
+```
+
+- Swagger 설정을 정의한 코드입니다.
+ - .consume()과 .produces()는 각각 Request Content-Type, Response Content-Type에 대한 설정입니다.(선택)
+ - .apiInfo()는 Swagger API 문서에 대한 설명을 표기하는 메소드입니다. (선택)
+ - .apis()는 Swagger API 문서로 만들기 원하는 basePackage 경로입니다. (필수)
+ - .path()는 URL 경로를 지정하여 해당 URL에 해당하는 요청만 Swagger API 문서로 만듭니다.(필수)
 
 ## Reference
 
