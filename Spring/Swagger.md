@@ -74,14 +74,38 @@ public class SwaggerConfig {
 }
 ```
 
-- Swagger 설정을 정의한 코드입니다.
- - .consume()과 .produces()는 각각 Request Content-Type, Response Content-Type에 대한 설정입니다.(선택)
- - .apiInfo()는 Swagger API 문서에 대한 설명을 표기하는 메소드입니다. (선택)
- - .apis()는 Swagger API 문서로 만들기 원하는 basePackage 경로입니다. (필수)
- - .path()는 URL 경로를 지정하여 해당 URL에 해당하는 요청만 Swagger API 문서로 만듭니다.(필수)
+>  Swagger2(2.9.x) 를 사용하는 경우 swagger-ui.html 에 접근하면 404 Not Found 에러가 발생하는 경우가 있다. 이러한 경우 스프링 부트의 WebConfig 에서 ResourceHandler 에 
+ swagger-ui.html 페이지가 어디에 있는지 위치를 추가해야 한다.
+
+- Swagger 설정을 정의한 코드
+ - .consume() 과 .produces() 는 각각 Request Content-Type, Response Content-Type 에 대한 설정(선택)
+ - .apiInfo() 는 Swagger API 문서에 대한 설명을 표기하는 메소드 (선택)
+ - .apis() 는 Swagger API 문서로 만들기 원하는 basePackage 경로 (필수)
+ - .path() 는 URL 경로를 지정하여 해당 URL에 해당하는 요청만 Swagger API 문서로 만든다. (필수)
+ 
+ 
+ ## 어노테이션
+ 
+ - `@Profile`
+  - 운영 프로파일에서는 Swagger 설정이 적용되지 않도록 처리 가능
+  
+swagger 구성을 별도의 구성 클래스에 넣고 @Profile 을 달아 특정 프로필에서만 Spring 컨텍스트로 스캔되도록한다.
+
+```java
+@Configuration
+@EnableSwagger2
+@Profile("dev")
+public class SwaggerConfig {
+    // your swagger configuration
+}
+```
+
+> application.yml(.properties) : `--spring.profiles.active=dev` 또는 구성 파일 :을 통해 Spring Boot 앱이 작동하는 프로필을 정의 할 수 있다. `spring.profiles.active=dev`
 
 ## Reference
 
 > https://yookeun.github.io/java/2017/02/26/java-swagger/
 > 
 > https://medium.com/@jinnyjinnyjinjin/java-spring-boot-swagger-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0-4f83029bd57b
+>
+> https://yonguri.tistory.com/87
