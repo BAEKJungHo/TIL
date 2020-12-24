@@ -13,6 +13,9 @@ public void configurePathMatch(PathMatchConfigurer configurer) {
 }
 ```    
 
+> DefaultAnnotationHandlerMapping : @RequestMapping 어노테이션을 이용하여 요청을 처리할 컨트롤러를 구함.
+(버전3.1 이후 부터 RequestMappingHandlerMapping 이 기본 HandlerMapping.(DefaultAnnotationHandlerMapping이 deprecated되면서 대체됨)
+
 ## DefaultAnnotationHandlerMapping 소스
 
 ```java
