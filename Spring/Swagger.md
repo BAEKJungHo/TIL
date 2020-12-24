@@ -107,6 +107,8 @@ public class SwaggerConfig {
 
 ## Reference
 
+> https://jojoldu.tistory.com/31
+>
 > https://yookeun.github.io/java/2017/02/26/java-swagger/
 > 
 > https://medium.com/@jinnyjinnyjinjin/java-spring-boot-swagger-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0-4f83029bd57b
