@@ -17,7 +17,7 @@ Bean properties of type Resource and Resource array can be populated from String
 Resource resource = resourceLoader.getResource("classpath:jXlsTemplate/survey.xlsx");
 
 // file 키워드로 파일 찾기
-Resource resource = resourceLoader.getResource("file:"+ "프로젝트 경로" + "/WEB-INF" + "파일경로");
+Resource resource = resourceLoader.getResource("file:" + "프로젝트 경로" + "/WEB-INF" + "파일경로");
 
 // 상대경로로 파일 찾기
 Resource resource = resourceLoader.getResource("WEB-INF/test.dat");
