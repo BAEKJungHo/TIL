@@ -8,11 +8,9 @@ ResourceLoader는 리소스를 읽어오는 기능을 제공하는 인터페이�
 DefaultResourceLoader is a standalone implementation that is usable outside an ApplicationContext, also used by ResourceEditor.
 Bean properties of type Resource and Resource array can be populated from Strings when running in an ApplicationContext, using the particular context's resource loading strategy.
 
-```
-Must support fully qualified URLs, e.g. "file:C:/test.dat".
-Must support classpath pseudo-URLs, e.g. "classpath:test.dat".
-Should support relative file paths, e.g. "WEB-INF/test.dat". (This will be implementation-specific, typically provided by an ApplicationContext implementation.)
-```
+- Must support fully qualified URLs, e.g. "file:C:/test.dat".
+- Must support classpath pseudo-URLs, e.g. "classpath:test.dat".
+- Should support relative file paths, e.g. "WEB-INF/test.dat". (This will be implementation-specific, typically provided by an ApplicationContext implementation.)
 
 ```java
 // classPath 로 파일 찾기
