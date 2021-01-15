@@ -12,8 +12,23 @@ $.ajaxPost = (url, data) => {
 };
 
 ...
+
 $.ajaxPost(`${CONTEXT_PATH}/xxx/api/remove`, JSON.stringify(params))
   .complete(data => alert(data.responseText), removeLinkUrlTag(obj));
+  
+...  
+  
+const params = {
+     a,
+     b,
+     c,
+ };
+    
+return new Promise((resolve, reject) => {
+     $.ajaxPost(url, JSON.stringify(params))
+         .then(res => resolve(res))
+         .always(err => reject(err));
+ });
 ```
 
 .done 
