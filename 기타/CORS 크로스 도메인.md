@@ -26,3 +26,5 @@
 # References. 
 
 > https://changrea.io/web/ajax-cors/
+>
+> https://coding-groot.tistory.com/91
