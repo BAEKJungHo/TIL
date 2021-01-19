@@ -22,3 +22,21 @@ LocalDateTime threeYearsAfter = now.plusYears(3); // 3년 뒤 - now는 계속 �
 LocalDateTime twoDaysAgo = now.minusDays(2); // 2일 전
 LocalDateTime twoDaysAndThreeHoursAgo = now.minusDays(2).minusHours(3); // 2일 3시간 전
 ```
+
+```java
+/**
+ * 현재 날짜에서 n 개월 뒤
+ * @return
+ */
+public static String getAfterMonth(int month) {
+    return LocalDate.now().plusMonths(month).format(DateTimeFormatter.ISO_DATE);
+}
+
+/**
+ * 현재 날짜에서 n 년 뒤
+ * @return
+ */
+public static String getAfterYear(int year) {
+    return LocalDate.now().plusYears(year).format(DateTimeFormatter.ISO_DATE);
+}
+```
