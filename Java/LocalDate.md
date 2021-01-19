@@ -13,3 +13,12 @@ public static String getToday() {
         return LocalDate.now().format(DateTimeFormatter.ISO_DATE);
 }
 ```
+
+- 날짜 더하고 빼기
+
+```java
+LocalDateTime now = LocalDateTime.now(); // 현재시간
+LocalDateTime threeYearsAfter = now.plusYears(3); // 3년 뒤 - now는 계속 현재시간
+LocalDateTime twoDaysAgo = now.minusDays(2); // 2일 전
+LocalDateTime twoDaysAndThreeHoursAgo = now.minusDays(2).minusHours(3); // 2일 3시간 전
+```
