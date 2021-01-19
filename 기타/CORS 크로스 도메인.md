@@ -28,3 +28,5 @@
 > https://changrea.io/web/ajax-cors/
 >
 > https://coding-groot.tistory.com/91
+>
+> https://evan-moon.github.io/2020/05/21/about-cors/
