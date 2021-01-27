@@ -62,3 +62,14 @@ public ResponseEntity validateNickname(@RequestBody String params) throws SQLExc
 HttpStatus.OK 면 AJAX 의 SUCCESS 메서드를 타게되며, HttpStatus.INTERNAL_SERVER_ERROR 이면 AJAX 의 ERROR 메서드를 타게 된다.
 
 @ControllerAdvice 를 통해 DataAccessException 처리를 해야 한다.
+
+```java
+Map<String, Object> map = new HashMap<>();
+map.put("message", "SUCCESS");
+
+return ResponseEntity.ok(map);
+```
+
+이런식으로 map 에 담아서 응답 메시지에 보낼 수 있다.
+
+js 에서는 `res.message` 이렇게 사용한다.
