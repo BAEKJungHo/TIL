@@ -2,7 +2,6 @@
 
 ```java
 @Aspect
-@Order(5)
 @Component
 public class WebLogAspect {
 
