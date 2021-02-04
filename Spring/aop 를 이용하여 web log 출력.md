@@ -12,6 +12,7 @@ public class WebLogAspect {
 
     @Around("webLog()")
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
+        // 스톱워치로 시간 측정
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -21,10 +22,10 @@ public class WebLogAspect {
             logger.info("URL : " + request.getRequestURL().toString());
             logger.info("URI : " + request.getRequestURI());
             logger.info("HTTP_METHOD : " + request.getMethod());
-            logger.info("IP : " + request.getRemoteAddr());
-            logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-            logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
+            // 추가적으로 IP, CLASS METHOD 를 설정할 수 있다.
+            // 생략
         }
+        
         Object returnValue = null;
         try{
             returnValue = joinPoint.proceed();
@@ -32,6 +33,7 @@ public class WebLogAspect {
             logger.error(joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + "exception occured " + e.getMessage(),e);
             throw e;
         }
+        
         stopWatch.stop();
         logger.info(stopWatch.prettyPrint());
         logger.info("RETURN : " + returnValue);
