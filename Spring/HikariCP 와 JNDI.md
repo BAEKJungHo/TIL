@@ -48,6 +48,97 @@ Naming 서비스는 Java Naming and Directory Interface(JNDI) API를 이용하�
 Naming 서비스를 지원하는 Naming 서버에 자원을 등록하여 다른 어플리케이션에서 사용할 수 있도록 공개하고, Naming 서버에 등록되어 있는 자원을 찾아와서 이용할 수 있게 한다.
 
 
+`JNDI 는 프로그램과 데이타베이스간에 타이트하게 묶여있는 결합도를 피하게 해주며, 쉽게 설정, 배포하게해준다.`
+
+웹로직/톰캣 서버가 부팅시에 JNDI 객체를 등록한다.
+
+JNDI 서버의 실제 구현 기능은 각 Application Server 의 Vendor (톰캣, 웹로직같은) 가 제공한다.
+
+
+## DB 연결이 1개일 때 JNDI 설정
+
+DB 연결이 1개인 경우 application.yml 에서 jndi 설정을 할 수 있다. 
+
+- application.yml
+
+```java
+spring:
+  profiles:
+    active: mysql
+    include: >
+      log,
+      path,
+      doc
+  datasource:
+    driver-class-name: net.sf.log4jdbc.DriverSpy # org.postgresql.Driver
+    tomcat:
+      max-active: 400
+      max-wait: 10000
+      max-idle: 20
+      test-on-borrow: true
+      validation-query: select 1 from dual
+      test-while-idle: true
+      time-between-eviction-runs-millis: 600000
+    test-on-borrow: true
+    validation-query: select 1 from dual
+    test-while-idle: true
+    time-between-eviction-runs-millis: 600000
+    jndi-name: JNDI 이름을 설정
+```
+
+- MyBatisConfig.java
+
+```java
+@Configuration
+@MapperScan(basePackages = "net.mayeye.site.module.*.repository", sqlSessionFactoryRef = "db1SqlSessionFactory")
+@EnableTransactionManagement
+public class MybatisConfig {
+
+    // JNDI 방식인 경우
+    @Bean(name ="coreDataSource")
+    @Primary
+    @ConfigurationProperties(prefix ="spring.datasource")
+    public DataSource coreDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+    
+    /*
+    // JNDI 방식인 경우
+    @Value("${spring.datasource.jndi-name}")
+    private String primaryJndiName;
+    private JndiDataSourceLookup lookup = new JndiDataSourceLookup();
+    @Bean(name ="coreDataSource")
+    @Primary
+    public DataSource coreDataSource() {
+        return lookup.getDataSource(primaryJndiName);
+    }
+    */
+    
+    @Bean(name ="db1SqlSessionFactory")
+    @Primary
+    public SqlSessionFactory db1SqlSessionFactory(@Qualifier("coreDataSource") DataSource coreDataSource,
+                                                  ApplicationContext applicationContext,
+                                                  @Value("${mybatis.type-aliases-package}") String typeAliasesPackage,
+                                                  @Value("${mybatis.mapper-locations}") String mapperLocations,
+                                                  @Value("${mybatis.config-location}") String configLocation) throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(coreDataSource);
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources(mapperLocations));
+        sqlSessionFactoryBean.setTypeAliasesPackage(typeAliasesPackage);
+        sqlSessionFactoryBean.setConfigLocation(applicationContext.getResource(configLocation));
+        return sqlSessionFactoryBean.getObject();
+    }
+
+    @Bean(name ="db1SqlSessionTemplate")
+    @Primary
+    public SqlSessionTemplate db1SqlSessionTemplate(SqlSessionFactory db1SqlSessionFactory)throws Exception {
+
+        return new SqlSessionTemplate(db1SqlSessionFactory);
+    }
+
+}
+```
+
 ## 참고 
 
 > [jojoldo. SpringBoot 와 HikariCP](https://jojoldu.tistory.com/296)
@@ -59,3 +150,9 @@ Naming 서비스를 지원하는 Naming 서버에 자원을 등록하여 다른 
 > [Spring Boot 1.5.4-release 에서 HikariCP 설정하기](https://yeti.tistory.com/120)
 > 
 > https://acet.pe.kr/214
+>
+> https://hamait.tistory.com/331
+> 
+> [Spring Boot JNDI 를 이용한 다중 DataSource 설정](https://www.javaer101.com/ko/article/1504853.html)
+> 
+> [Spring Boot 2.x 에서 다중 DataSource 설정](https://gigas-blog.tistory.com/122)
