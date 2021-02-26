@@ -84,6 +84,11 @@ spring:
     test-while-idle: true
     time-between-eviction-runs-millis: 600000
     jndi-name: JNDI 이름을 설정
+    
+mybatis:
+  type-aliases-package: com.weave.module
+  mapper-locations: classpath:mybatis/mapper/**/*_MySQL.xml
+  config-location: classpath:mybatis/config/Mybatis_Config.xml
 ```
 
 - MyBatisConfig.java
