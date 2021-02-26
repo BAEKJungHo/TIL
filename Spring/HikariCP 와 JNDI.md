@@ -37,11 +37,11 @@ HikariCP 는 미리 정해 놓은 만큼의 connection 을 pool 에 담아 놓�
 - A service provider interface (SPI). This part of the API is used to plug in a provider of a naming and directory service to the J2EE platform.
   - API 의 부분으로써 J2EE 플랫폼 기반에 네이밍과 디렉토리 서비스의 제공자를 연결시킨다. 즉 SPI 가 LDAP, DNS, NDS 등 서비스 제공자들을 연결 시킨다.
 
-[jndi](images/jndi.PNG)
+[jndi](../images/jndi.PNG)
 
 > JNDI is a fundamental service to all J2EE applications
 
-[jndi](images/namingservice.PNG)
+[jndi](../images/namingservice.PNG)
 
 Naming 서비스는 Java Naming and Directory Interface(JNDI) API를 이용하여 자원(Resource)를 찾을 수 있도록 도와주는 서비스이다.
 
