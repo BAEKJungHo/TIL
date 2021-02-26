@@ -61,7 +61,7 @@ DB 연결이 1개인 경우 application.yml 에서 jndi 설정을 할 수 있다
 
 - application.yml
 
-```java
+```yml
 spring:
   profiles:
     active: mysql
