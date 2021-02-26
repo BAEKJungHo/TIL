@@ -90,11 +90,11 @@ spring:
 
 ```java
 @Configuration
-@MapperScan(basePackages = "net.mayeye.site.module.*.repository", sqlSessionFactoryRef = "db1SqlSessionFactory")
+@MapperScan(basePackages = "com.weave.module.*.repository", sqlSessionFactoryRef = "db1SqlSessionFactory")
 @EnableTransactionManagement
 public class MybatisConfig {
 
-    // JNDI 방식인 경우
+    // JNDI 방식이 아닌 
     @Bean(name ="coreDataSource")
     @Primary
     @ConfigurationProperties(prefix ="spring.datasource")
