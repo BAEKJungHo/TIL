@@ -13,8 +13,7 @@ public class NeroConfig {
 
 만약 Application.java 에 `@SpringBootApplication` 어노테이션이 있으면 기본 패키지 경로가 net.xxx.yyy 일때
 
-yyy 폴더 아래에 폴더를 하나 생성해주고, 해당 폴더에 자바 파일을 넣게되면 알아서 컴포넌트스캔을 통하여 @Service, @Controller 등 어노테이션이 있는 애들을
-자동으로 빈으로 등록해준다.
+yyy 폴더 아래에 폴더를 하나 생성해주고, 해당 폴더에 자바 파일을 넣게되면 알아서 컴포넌트스캔을 통하여 @Service, @Controller 등 어노테이션이 있는 애들을 자동으로 빈으로 등록해준다.
 
 ## 동작 방식
 
