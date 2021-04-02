@@ -1,7 +1,9 @@
 # RegularExpression
 
 ```java
-public interface RegularExpression {
+public class RegularExpression {
+
+    private RegularExpression() {}
 
     Pattern YYYY_MM_DD = Pattern.compile("^\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$");
     Pattern PASSWORD = Pattern.compile("^(?=.*?[a-zA-Z])(?=.*?[0-9])(?!.*?[\\&><'])(?!.*(%2F))(?=.*?[#?!@$%^&*-]).{9,}$");
