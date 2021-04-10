@@ -53,17 +53,83 @@ CentOS 에서 아파치를 설치하는 방식은 2가지가 있다.
 
 `netstat -tnlp`
 
-#### 7. 주소창에 IP(or localhost) 입력 후 apache 화면이 나오는지 확인
+#### 7. 자동 재시작 설정 및 80 포트 방화벽 열기
 
-나오는 경우 딱히 신경쓸게 없지만, 나오지 않는 경우에는 해당 포트 번호가 뚫려있는지 확인해야 하므로 telnet 을 이용해야한다.
+주소창에 IP(or localhost) 입력 후 apache 화면이 나오는지 확인해야한다. 나오는 경우 딱히 신경쓸게 없지만, 나오지 않는 경우에는 해당 포트 번호가 뚫려있는지 확인해야 하므로 telnet 을 이용해야한다.
 
 - 안뜨면 Window 제어판에서 telnet 설치 후 cmd 창을 열어서 `telnet ip port`로 붙는지 확인.
   - telnet 192.168.x.x 80
   - [CentOS7 방화벽 열기](https://www.lesstif.com/system-admin/rhel-centos-firewall-22053128.html)
-    - `firewall-cmd --permanent --zone=public --add-port=80/tcp`
+    - 실행 중인 포트 방화벽 목록 보기 : `firewall-cmd --list-all`
+    - 포트 방화벽 열기 : `firewall-cmd --permanent --zone=public --add-port=80/tcp`
+    - 방화벽 재시작 : `firewall-cmd --reload`
   - 다시 해당 IP(or localhost)로 Apache 화면이 뜨는지 확인
+
+> 참고 : [How To Open Port 80 CentOS7](https://linuxhint.com/open-port-80-centos/)
 
 - 추가적으로 리눅스 재부팅 시 apache 도 자동으로 시작하게 하는 설정을 해야한다.
   - reboot 명령어 입력 후 CentOS7 리부팅
   - 아파치가 자동으로 실행 되는지 확인하고, 80 포트 방화벽도 잘 열려있는지 확인
   - 아파치가 자동으로 실행이 안된다면 `chkconfig httpd on` 명령어 입력
+  - 자동 재시작 명령어 : `systemctl enable httpd`
+
+## JDK 설치
+
+JDK 1.8 을 기준으로 설명.
+
+### 1. OPEN-JDK 1.8 설치
+
+- `yum install java-1.8.0-openjdk`
+- `yum install java-1.8.0-openjdk-devel`
+
+`java -version` 과 `javac -version` 을 쳤을때 둘다 나와야 한다.
+
+### 2. 환경변수 등록
+
+/usr/bin/java 경로에 심볼릭링크가 걸려있기 때문에 실제 경로를 찾아서 환경변수에 등록해주어야 한다.
+
+- `readlink -f /usr/bin/java`
+  - /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64/jre/bin/java
+
+실제 경로를 찾았으면 /etc/profile을 vi 로 열어준다. 그리고 JAVA_HOME, PATH, CLASSPATH 를 등록한다.
+
+```
+//# vi /etc/profile
+
+...
+
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64
+PATH=$PATH:$JAVA_HOME/bin
+CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
+
+export JAVA_HOME PATH CLASSPATH
+```
+
+환경 변수를 등록했다면 ssh 연결을 재시작하거나 `source /etc/profile` 명렁어를 입력해준다.
+
+등록한 환경 변수가 제대로 적용되었는지 테스트한다.
+
+```
+# echo $JAVA_HOME
+# echo $PATH
+# echo $CLASSPATH
+```
+
+### 3. HelloWorld.java 컴파일 후 실행
+
+- `vi HelloWorld.java`
+
+```java
+public class HelloWorld{
+   public static void main(String[] args){
+        System.out.println("Hello World!!");
+   }
+}
+```
+
+```
+# javac HelloWorld.java
+# java -cp . HelloWorld
+Hello World!!
+```
+
