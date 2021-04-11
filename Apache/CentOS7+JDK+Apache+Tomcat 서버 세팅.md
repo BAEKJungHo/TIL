@@ -62,6 +62,7 @@ CentOS 에서 아파치를 설치하는 방식은 2가지가 있다.
   - [CentOS7 방화벽 열기](https://www.lesstif.com/system-admin/rhel-centos-firewall-22053128.html)
     - 실행 중인 포트 방화벽 목록 보기 : `firewall-cmd --list-all`
     - 포트 방화벽 열기 : `firewall-cmd --permanent --zone=public --add-port=80/tcp`
+    - 방화벽 설정 : `firewall-cmd --permanent --add-service=http / firewall-cmd --permanent --add-service=https`
     - 방화벽 재시작 : `firewall-cmd --reload`
   - 다시 해당 IP(or localhost)로 Apache 화면이 뜨는지 확인
 
@@ -93,9 +94,9 @@ JDK 1.8 을 기준으로 설명.
 
 실제 경로를 찾았으면 /etc/profile을 vi 로 열어준다. 그리고 JAVA_HOME, PATH, CLASSPATH 를 등록한다.
 
-```
-//# vi /etc/profile
+- `vi /etc/profile`
 
+```
 ...
 
 JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64
@@ -176,7 +177,7 @@ export CATALINA_HOME=/usr/local/victolee/tomcat8.0.52
 ### 4. 톰캣 환경 설정
 
 톰캣의 server.xml 에서 톰캣의 port 를 변경해줘야 한다. 일반적으로 8080 은 사용하지 않고 앞에 숫자 하나를 붙여서 사용하곤한다. ex) 58080 이런식
-그리고 AJP 포트 8001 은 건들면 안된다. 나중에 Apache 와 연동할 때 사용하기 때문이다.
+그리고 AJP 포트 건들면 안된다. 나중에 Apache 와 연동할 때 사용하기 때문이다.
 
 포트번호와 URIEncoding 설정을 한다.
 
@@ -299,3 +300,121 @@ ID 와 PW 를 설정한다.
 - 톰캣 재시작
   - `systemctl restart tomcat.service`
 - Tomcat Manager 에 접속이 되는지 확인(IP/manager)
+
+## 4. Apache 와 Tomcat 연동
+
+아파치와 톰캣을 연동하는 방법은 세 가지가 있다.
+
+- mod_jk
+  - 장점
+    - 가장 많이 사용하므로 관련 자료가 많다.
+    - JkMount 옵션을 이용하면 URL 이나 컨텐츠별로 유연한 설정이 가능(이미지는 웹서버, 서블릿은 톰캣)
+  - 단점
+    - 별도의 모듈을 설치해야 함.
+    - 설정이 어려움.
+    - 톰캣 전용이라서 WAS 에 의존적임.
+- mod_proxy
+  - 장점
+    - 별도의 모듈 설치가 필요 없고(apache 기본 모듈) 설정이 간편하다.
+    - 특정 WAS 에 의존적이지 않으므로 모든 WAS 에 적용이 가능하다.
+  - 단점
+    - URL 별 유연한 설정이 어렵다.([ProxyPassMatch](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypassmatch) 사용 필요)
+- mod_proxy_ajp
+  - 장점
+    - 별도의 모듈 설치가 필요 없고(apache 기본 모듈) 설정이 간편하다.
+    - 특정 WAS 에 의존적이지 않으므로 모든 WAS 에 적용이 가능하다.
+  - 단점
+    - URL 별 유연한 설정이 어렵다.([ProxyPassMatch](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypassmatch) 사용 필요)
+
+> 참고 : [아파치 웹 서버(apache httpd) 와 톰캣 연동하기 - tomcat connector(mod_jk) , reverse proxy(mod_proxy)](https://www.lesstif.com/system-admin/apache-httpd-tomcat-connector-mod_jk-reverse-proxy-mod_proxy-12943367.html)
+
+일반적으로 가장 많이 사용하는 방법은 `mod_jk`이다. mod_jk 는 [Tomcat Connector](http://tomcat.apache.org/connectors-doc/) 라고 불린다.
+
+mod_proxy 가 mod_jk 에 비해 설정이 간편하고 __AJP 같은 특정 WAS 의존적인 프로토콜을 사용하지 않으므로 성능이 더 좋다__ 고 하지만 mod_jk 가 오랫동안 써왔고 친숙해서 mod_jk 를 많이 사용하는 편이다. mod_jk는 아파치 서버 뒤에 톰캣을 숨기고 URL 접근할 때 포트 번호를 제거하는데 유용하다. 
+
+
+먼저 AJP 프로토콜에 대해서 알아보겠다.
+
+> AJP 프로토콜이란?
+> 
+> AJP(Apache JServ Protocol)은 Web Server에서 받은 요청을 WAS로 전달해주는 프로토콜이다. 해당 프로토콜은 Apache HTTP Server, Apahce Tomcat,  웹스피어, 웹로직, JBOSS, JEUS, 등 다양한 WAS에서 지원한다. TCP와 패킷 기반의 프로토콜로 웹 서버 성능이 증가된다. 
+
+- AJP는 HTTP의 내용을 포워드 용도에만 있다.
+- AJP는 8K 이상을 전송하지 못한다(헤더는, Body Chunk는 64K 를 보낸다.).
+- 그래서 짤라서 여러 번 보내는 것 같다(시퀀셜하게, Body Chunk 또한 64K 씩 잘라서 보낸다.).
+- Secure하지 않다. 단지 포워드 용도이기 때문이다. Secure하기 위해서는 HTTPS를 포워딩 하면 된다
+
+
+mod_jk 를 설치 하려면 `gcc, gcc-c++, httpd-devel` 세가지 패키지가 설치되어 있어야 한다.
+
+`yum -y install gcc gcc-c++ httpd-devel`
+
+mod_jk 를 이용한 연동 방법에 대해서만 설명하겠다.
+
+### 1. mod_jk 설치
+
+톰캣 커넥터를 다운로드 받고 설치한다.
+
+- `wget -c http://mirror.navercorp.com/apache/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.46-src.tar.gz`
+
+> [Tomcat Connector Download](https://tomcat.apache.org/download-connectors.cgi)
+
+- `tar -zxvf tomcat-connectors-version-src.tar.gz`
+
+커넥터를 설치하고 압축을 푼 다음 native 디렉터리에 진입하여 아래의 명령어를 실행한다.
+
+- `cd native`
+- `./buildconf.sh`
+- `./configure --with-apxs=/usr/bin/apx`
+  - Makefile(컴파일 옵션이 설정되는 화일)이 만들어집니다. 소스를 컴파일하는 컴퓨터의 사양에 맞는 환경에 알맞는 Makefile 이 생성됩니다.
+- `make`
+  - 소스코드를 실제로 컴파일해서 binary 파일을 생성한다.
+- `make install`
+ - 컴파일된 프로그램, 환경파일, 데이터파일을 지정된 위치에 복사한다.
+- `ls /etc/httpd/modules/ | grep mod_jk` 또는 `find / -name mod_jk.so`
+  - mod_jk 파일 확인 -> `mod_jk.so` 가 나와야 한다.
+
+### 2. mod_jk 설정파일을 수정한다.
+
+`/etc/httpd/conf.d` 또는 `conf.modules.d` 안에 있을것이다.
+
+```
+<IfModule mod_jk.c>
+JkWorkersFile conf/workers.properties
+JkShmFile run/mod_jk.shm
+JkLogFile logs/mod_jk.log
+JkLogLevel info
+JkLogStampFormat "[%y %m %d %H:%M:%S] "
+</IfModule>
+```
+
+### 3. workers.properties 만들기
+
+- `/etc/httpd/conf/` 에서 `vi workers.properties`
+
+
+```
+worker.list=tomcat
+worker.tomcat.port=톰캣의 AJP 포트 적기
+worker.tomcat.host=192.168.x.x
+worker.tomcat.type=ajp13
+worker.tomcat.lbfactor=1
+```
+
+### 4. httpd.conf 수정
+
+```
+<VirtualHost *:80>
+ServerName localhost
+
+# 확장자 jsp, json, xml, do를 가진 경로는 woker tomcat으로 연결하는 구문.
+JkMount /*.jsp tomcat
+JkMount /*.json tomcat
+JkMount /*.xml tomcat
+JkMount /*.do tomcat
+</VirtualHost>
+```
+
+### 5. 아파치 재시작
+
+`service httpd restart`
