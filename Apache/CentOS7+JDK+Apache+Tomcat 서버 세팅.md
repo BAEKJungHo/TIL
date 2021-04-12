@@ -394,7 +394,7 @@ JkMount /*.do tomcat
 
 ## 5. AJP 포트 변경
 
-AJP 포트도 기본이 8009 인데 58009 이런식으로 사용해야 한다.
+AJP 포트도 기본이 8009 인데 58009 이런식으로 사용하는 것을 추천한다.(취약점 때문에 변경하는걸 추천하는데 굳이 안해도 상관은 없다.)
 
 Tomcat 의 server.xml 에서 58009 로 수정하고 workers.propertiese 에서 AJP 포트만 수정하면 아래와 같은 에러가 발생한다.
 
@@ -419,3 +419,28 @@ Tomcat 의 server.xml 에서 58009 로 수정하고 workers.propertiese 에서 A
 3. 포트추가(ajp 설정한 포트를 추가 해주시면 됩니다.)
 
 `semanage port -a -p tcp -t http_port_t 포트`
+
+## 6. AJP 취약점
+
+- 2020.03.10 기준
+  - tomcat7 의 경우 7.0.100 버전 으로
+  - tomcat8 의 경우 8.5.51 버전 으로
+  - tomcat9 의 경우 9.0.31 버전 으로 업데이트를 해줘야 한다.
+
+업데이트를 하고 톰캣을 실행하면 톰캣 로그에 다음과 같이 찍힌다.
+
+```
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:353)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:493)
+	Caused by: java.lang.IllegalArgumentException: AJP 연결자는 secretRequired="true"로 구성되었으나 보안 속성이 널 또는 ""입니다. 이 조합은 유효하지 않습니다.
+		at org.apache.coyote.ajp.AbstractAjpProtocol.start(AbstractAjpProtocol.java:274)
+		at org.apache.catalina.connector.Connector.startInternal(Connector.java:1099)
+		... 12 more
+```
+
+- server.xml 에서 AJP 포트 부분에 아래 처럼 변경한다.
+  - 기존 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>`
+  - 변경 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443" address="0.0.0.0" secretRequired="false"/>;`
