@@ -350,6 +350,18 @@ worker.tomcat.lbfactor=1
 
 ### 4. httpd.conf 수정
 
+- Document Root 수정
+
+```
+DocumentRoot "/usr/local/tomcat8/webapps/ROOT"
+<Directory "/usr/local/tomcat8/webapps/ROOT">
+    AllowOverride none
+    Require all granted
+</Directory>
+```
+
+그런데 나중에 소스배포 하고나서는 위 DocumentRoot 가 필요 없다.
+
 ```
 <VirtualHost *:80>
 ServerName ip or domain
@@ -450,3 +462,33 @@ at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 - server.xml 에서 AJP 포트 부분에 아래 처럼 변경한다.
   - 기존 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>`
   - 변경 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443" address="0.0.0.0" secretRequired="false"/>`
+
+## 7. Apache Method 제한
+
+- 서버 운영 시 중요한 부분 중 하나인 바로 보안 부분이다.
+- 보안 문제로 apache 에서 사용 가능한 method 를 제한하는 경우가 있다.
+- 보통 허용하는 method 는 GET, POST, HEAD 이며 조금씩 다를 수 있다.
+
+- apache 의 httpd.conf 파일 수정
+
+```
+LoadModule jk_module modules/mod_jk.so
+<VirtualHost *:80>
+ ServerName IP OR DOMAIN
+         <Directory "/data/projectName">
+                Options None
+                AllowOverride None
+                Order allow,deny
+                Allow from all # 모든 접근 허용
+                Require all granted
+                <LimitExcept GET HEAD POST> # GET HEAD POST 를 제외한 나머지는 허용을 하지 않는다는 의미.
+                        Order allow,deny
+                        Deny from all
+                </LimitExcept>
+        </Directory>
+ JkMount /* tomcat
+</VirtualHost>
+Include conf.modules.d/*.conf
+```
+
+## 8. 톰캣 메모리 설정
