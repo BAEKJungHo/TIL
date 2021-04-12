@@ -415,6 +415,29 @@ JkMount /*.do tomcat
 </VirtualHost>
 ```
 
+또는 아래와 같은 방식으로도 할 수 있다.
+
+```
+<VirtualHost *:80>
+        ServerAdmin xxx@xxx.net
+        ServerName weave.xxx.net
+        DocumentRoot /usr/local/apache2/htdocs
+
+        RemoteIPHeader X-Forwarded-For
+        #<Location />
+        #         Require all denied
+        #         Require ip 192.168.x.x/24
+        #</Location>
+
+        ErrorLog logs/weave.xxx.net_error_log
+        CustomLog logs/weave.xxx.net_access_log common
+
+        JkMount /* tomcat8
+        JkUnMount /robots.txt tomcat8
+</VirtualHost>
+```
+
+
 ### 5. 아파치 재시작
 
 `service httpd restart`
