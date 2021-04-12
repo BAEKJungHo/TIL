@@ -499,4 +499,41 @@ Include conf.modules.d/*.conf
  
 ## 8. 톰캣 메모리 설정
 
+- Window
+  - /bin 아래에 catalina.bat
+- Linux
+  - /bin 아래에 catalina.sh
+
 > [JDK 8 부터는 Perm 영역이 삭제되고 Metaspace 영역이 추가되었다.](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
+
+- 왜 Perm이 제거됐고 Metaspace 영역이 추가된 것인가?
+
+> 최근 Java 8에서 JVM 메모리 구조적인 개선 사항으로 Perm 영역이 Metaspace 영역으로 전환되고 기존 Perm 영역은 사라지게 되었다. Metaspace 영역은 Heap이 아닌 Native 메모리 영역으로 취급하게 된다. (Heap 영역은 JVM에 의해 관리된 영역이며, Native 메모리는 OS 레벨에서 관리하는 영역으로 구분된다) Metaspace가 Native 메모리를 이용함으로서 개발자는 영역 확보의 상한을 크게 의식할 필요가 없어지게 되었다.
+> 
+> 즉, 각종 메타 정보를 OS가 관리하는 영역으로 옮겨 Perm 영역의 사이즈 제한을 없앤 것이라 할 수 있다.
+
+그에 따라 톰캣 메모리 설정 옵션 명도 변경 되었다.
+
+- 옵션
+  - `Xms`: 최초 JVM 이 로드될 때 부여할 메모리
+  - `Xmx`: 최대 JVM 이 가질 수 있는 메모리
+
+- JDK 8
+  - `-XX:MetaspaceSize`
+  - `-XX:MaxMetaspaceSize`
+
+- JDK 7
+  - `-XX:PermSize`
+  - `-XX:MaxPermSize`
+
+```
+JAVA_HOME="/usr/lib/jvm/jre-1.7.0-openjdk"
+CATALINA_OPTS="$CATALINA_OPTS -server -Xms1G -Xmx10G -XX:PermSize=1G -XX:MaxPermSize=2G -Dorg.owasp.esapi.resources=/data/projectName/WEB-INF/classes/egovframework/egovProps -Dhttps.protocols=TLSv1.1,TLSv1.2 -Djava.awt.headless=true -Duser.timezone=GMT+9"
+```
+
+톰캣 7 의 경우 위의 경우와 비슷하게 설정한다.
+
+- 취약점 점검 [ESAPI](https://owasp.org/www-project-enterprise-security-api/) API 를 사용하는 경우 
+  - `-Dorg.owasp.esapi.resources=/data/projectName/WEB-INF/classes/egovframework/egovProps` 의 경우 웹 취약점을 대비해서 Path 를 잡아둔 것이다.
+
+- -Djava.awt.headless=true 옵션은 비윈도우 환경에서 GUI 클래스를 사용할수 있게 하는 옵션이다.
