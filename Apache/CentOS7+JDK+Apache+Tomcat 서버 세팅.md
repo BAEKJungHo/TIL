@@ -542,3 +542,11 @@ CATALINA_OPTS="$CATALINA_OPTS -server -Xms1G -Xmx10G -XX:PermSize=1G -XX:MaxPerm
   - `-Dorg.owasp.esapi.resources=/data/projectName/WEB-INF/classes/egovframework/egovProps` 의 경우 웹 취약점을 대비해서 Path 를 잡아둔 것이다.
 
 - -Djava.awt.headless=true 옵션은 비윈도우 환경에서 GUI 클래스를 사용할수 있게 하는 옵션이다.
+
+## 9. 서버 부팅 시 톰캣 재시작
+
+어떠한 에러로 인해 서버가 부팅되는 경우 톰캣을 재시작 하게끔 설정해야 한다.
+
+## 10. 서버 부팅 시 MariaDB 재시작
+
+어떠한 에러로 인해 서버가 부팅되는 경우 데이터베이스를 재시작 하게끔 설정해야 한다.
