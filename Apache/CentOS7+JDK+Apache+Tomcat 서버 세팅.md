@@ -469,6 +469,8 @@ at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 - 보안 문제로 apache 에서 사용 가능한 method 를 제한하는 경우가 있다.
 - 보통 허용하는 method 는 GET, POST, HEAD 이며 조금씩 다를 수 있다.
 
+> [HTTP 메서드 수동 점검 방법](https://webhack.dynu.net/?idx=20161110.001&print=friendly)
+
 - apache 의 httpd.conf 파일 수정
 
 ```
@@ -491,4 +493,10 @@ LoadModule jk_module modules/mod_jk.so
 Include conf.modules.d/*.conf
 ```
 
+- 허용 되지 않은 메서드 테스트 방법
+  - `curl -v -X OPTIONS http://webhack.dynu.net/icons/`
+  - 허용 되지 않은 경우 콘솔에 에러가 발생한다.
+ 
 ## 8. 톰캣 메모리 설정
+
+> [JDK 8 부터는 Perm 영역이 삭제되고 Metaspace 영역이 추가되었다.](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
