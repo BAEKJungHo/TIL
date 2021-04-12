@@ -323,7 +323,7 @@ mod_jk 를 이용한 연동 방법에 대해서만 설명하겠다.
 
 ### 2. mod_jk 설정파일을 수정한다.
 
-`/etc/httpd/conf.d` 또는 `conf.modules.d` 안에 있을것이다.
+`/etc/httpd/conf.modules.d` 로 들어가면 mod_jk.conf 파일이 있다.
 
 ```
 <IfModule mod_jk.c>
@@ -337,7 +337,7 @@ JkLogStampFormat "[%y %m %d %H:%M:%S] "
 
 ### 3. workers.properties 만들기
 
-- `/etc/httpd/conf/` 에서 `vi workers.properties`
+- `/etc/httpd/conf` 에서 `vi workers.properties`
 
 
 ```
