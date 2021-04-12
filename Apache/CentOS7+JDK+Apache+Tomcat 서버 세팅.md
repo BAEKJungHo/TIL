@@ -424,6 +424,10 @@ Tomcat 의 server.xml 에서 58009 로 수정하고 workers.propertiese 에서 A
 
 ## 6. AJP 취약점
 
+최근 Apache Tomcat의 원격코드실행 취약점(CVE-2020-1938)을 악용할 수 있는 개념증명코드(Proof of concept code, PoC)가 인터넷상에 공개되어 사용자의 보안 강화 필요.
+
+즉, 내 Apache 랑 Tomcat 만 서로 통신하게 하는 설정이다. (외부 다른 Apache 에서 내 Tomcat 에 접근하지 못하도록 설정.)
+
 - 2020.03.10 기준
   - tomcat7 의 경우 7.0.100 버전 으로
   - tomcat8 의 경우 8.5.51 버전 으로
