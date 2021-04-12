@@ -441,3 +441,34 @@ JkMount /*.do tomcat
 ### 5. 아파치 재시작
 
 `service httpd restart`
+
+### 6. AJP 포트 변경
+
+AJP 포트도 기본이 8009 인데 58009 이런식으로 사용해야 한다.
+
+Tomcat 의 server.xml 에서 58009 로 수정하고 workers.propertiese 에서 AJP 포트만 수정하면 아래와 같은 에러가 발생한다.
+
+`[error] ajp_service::jk_ajp_common.c (2795): (tomcat) connecting to tomcat failed (rc=-3, errors=14, client_errors=0).`
+
+그러면 아래와 같이 문제를 해결해야 한다.
+
+#### SELinux 보안 문제 해결(PORT)
+
+위와 같은 ajp 연결 실패라는 로그가 발생할 경우 해결 방법이다.
+
+1. semanage설치(selinux 관리 패키지)
+
+`yum install -y policycoreutils-python`
+
+2. 현재 설정된 포트보기
+
+`semanage port -l|grep http_port_t`
+
+(80,443,8080,8009,8443 등의 selinux가 허용한 기본 포트만 나열됨)
+
+3. 포트추가(ajp 설정한 포트를 추가 해주시면 됩니다.)
+
+`semanage port -a -p tcp -t http_port_t 포트`
+
+
+
