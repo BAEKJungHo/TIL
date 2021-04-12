@@ -449,4 +449,4 @@ at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 
 - server.xml 에서 AJP 포트 부분에 아래 처럼 변경한다.
   - 기존 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>`
-  - 변경 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443" address="0.0.0.0" secretRequired="false"/>;`
+  - 변경 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443" address="0.0.0.0" secretRequired="false"/>`
