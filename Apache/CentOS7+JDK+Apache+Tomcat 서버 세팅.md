@@ -550,3 +550,7 @@ CATALINA_OPTS="$CATALINA_OPTS -server -Xms1G -Xmx10G -XX:PermSize=1G -XX:MaxPerm
 ## 10. 서버 부팅 시 MariaDB 재시작
 
 어떠한 에러로 인해 서버가 부팅되는 경우 데이터베이스를 재시작 하게끔 설정해야 한다.
+
+## 11. 아파치 톰캣 동시 접속자 세팅
+
+사람이 별로 안 몰리는 사이트의 경우에는 1000 명 정도로 하면된다. 디폴트가 250 명 정도로 되어있다.
