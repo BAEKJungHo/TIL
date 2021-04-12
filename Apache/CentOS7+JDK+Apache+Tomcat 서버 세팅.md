@@ -522,6 +522,11 @@ Include conf.modules.d/*.conf
   - `-XX:MetaspaceSize`
   - `-XX:MaxMetaspaceSize`
 
+```
+JAVA_HOME="/usr/lib/jvm/jre-1.8.0-openjdk"
+CATALINA_OPTS="$CATALINA_OPTS -server -Xms1G -Xmx2G -XX:MetaspaceSize=1G -XX:MaxMetaspaceSize=2G"
+```
+
 - JDK 7
   - `-XX:PermSize`
   - `-XX:MaxPermSize`
