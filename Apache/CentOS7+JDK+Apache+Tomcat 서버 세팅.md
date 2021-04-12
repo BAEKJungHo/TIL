@@ -290,7 +290,6 @@ mod_proxy 가 mod_jk 에 비해 설정이 간편하고 __AJP 같은 특정 WAS �
 - 그래서 짤라서 여러 번 보내는 것 같다(시퀀셜하게, Body Chunk 또한 64K 씩 잘라서 보낸다.).
 - Secure하지 않다. 단지 포워드 용도이기 때문이다. Secure하기 위해서는 HTTPS를 포워딩 하면 된다
 
-
 mod_jk 를 설치 하려면 `gcc, gcc-c++, httpd-devel` 세가지 패키지가 설치되어 있어야 한다.
 
 `yum -y install gcc gcc-c++ httpd-devel`
@@ -351,14 +350,20 @@ worker.tomcat.lbfactor=1
 
 ```
 <VirtualHost *:80>
-ServerName localhost
+ServerName ip or domain
 
 # 확장자 jsp, json, xml, do를 가진 경로는 woker tomcat으로 연결하는 구문.
+JkMount /* tomcat
+</VirtualHost>
+```
+
+- 원하는 확장자마다 지정할 수도 있다.
+
+```
 JkMount /*.jsp tomcat
 JkMount /*.json tomcat
 JkMount /*.xml tomcat
 JkMount /*.do tomcat
-</VirtualHost>
 ```
 
 또는 아래와 같은 방식으로도 할 수 있다.
@@ -382,7 +387,6 @@ JkMount /*.do tomcat
         JkUnMount /robots.txt tomcat8
 </VirtualHost>
 ```
-
 
 ### 5. 아파치 재시작
 
@@ -415,6 +419,3 @@ Tomcat 의 server.xml 에서 58009 로 수정하고 workers.propertiese 에서 A
 3. 포트추가(ajp 설정한 포트를 추가 해주시면 됩니다.)
 
 `semanage port -a -p tcp -t http_port_t 포트`
-
-
-
