@@ -204,63 +204,9 @@ export CATALINA_HOME=/usr/local/victolee/tomcat8.0.52
 - `ps -ef | grep tomcat`
 - 주소창에 IP:port 입력 후 톰캣 화면이 나오는지 확인
 
-### 6. 서비스 등록
+### 6. Tomcat Manager 설정
 
-tomcat이 자동으로 실행되도록 서비스를 등록한다.
-
-서비스를 등록하지 않으면 매 번 /usr/local/victolee/tomcat8.0.52/bin/catalina.sh start 명령으로 tomcat을 실행해야 한다.
-
-서비스를 등록하기 전에 실행되고 잇는 tomcat 프로세스를 종료 하고 진행한다.
-
-- `/usr/local/victolee/tomcat8.0.52/bin/catalina.sh stop`
-- `vi /usr/lib/systemd/system/tomcat.service`
-
-```
-[Unit]
-Description=tomcat8
-After=network.target syslog.target
-
-[Service]
-Type=forking
-
-Environment=JAVA_HOME=/usr/local/jdk1.8
-User=root
-Group=root
-
-ExecStart=/usr/local/tomcat8/bin/startup.sh
-ExecStop=/usr/local/tomcat8/bin/shutdown.sh
-
-UMask=0007
-RestartSec=10
-Restart=always
-
-
-
-SuccessExitStatus=143
-
-
-[Install]
-WantedBy=multi-user.target
-```
-
-### 7. 서비스 관리
-
-마지막으로 서비스를 활성화 시킨다.
-
-서비스가 등록이 되었는지 확인하기 위해 재부팅을 한 후, 프로세스를 확인하는 것으로 테스트를 마친다.
-
-재부팅을 했는데 톰캣이 돌아가고 있으면 서비스 등록이 성공적으로 된 것이다.
-
-```
-# systemctl enable tomcat.service
-# systemctl start tomcat.service
-# ps -ef | grep tomcat
-
-# reboot
-# ps -ef | grep tomcat
-```
-
-### 8. Tomcat Manager 설정
+> Tomcat Manager 의 경우에는 개발서버는 해도 되지만, 운영 서버의 경우에는 사용하지 않는다.
 
 다음으로는 톰캣에 설치된 애플리케이션 관리 및 톰캣 서버를 관리하는 GUI 환경의 Tomcat Manager 를 사용한다.
 
@@ -442,7 +388,7 @@ JkMount /*.do tomcat
 
 `service httpd restart`
 
-### 6. AJP 포트 변경
+## 5. AJP 포트 변경
 
 AJP 포트도 기본이 8009 인데 58009 이런식으로 사용해야 한다.
 
@@ -452,7 +398,7 @@ Tomcat 의 server.xml 에서 58009 로 수정하고 workers.propertiese 에서 A
 
 그러면 아래와 같이 문제를 해결해야 한다.
 
-#### SELinux 보안 문제 해결(PORT)
+### SELinux 보안 문제 해결(PORT)
 
 위와 같은 ajp 연결 실패라는 로그가 발생할 경우 해결 방법이다.
 
