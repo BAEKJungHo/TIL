@@ -633,6 +633,8 @@ ServerLimit 옵션과 MaxRequestWorkers 옵션을 같이 수정하면된다.
 
 ## 12. SSL 적용
 
+> [참고 사이트](https://steady-snail.tistory.com/187)
+
 아파치랑 톰캣을 같이 사용하는 경우에는 아파치에만 적용하면된다. 톰캣만 사용하는경우에는 톰캣에 적용하면 된다.
 
 보통 SSL 인증서를 받으면 가이드까지 들어있다. 참고로 톰캣 버전 별로 server.xml 설정이 다르므로 찾아보면서 해야한다. 
