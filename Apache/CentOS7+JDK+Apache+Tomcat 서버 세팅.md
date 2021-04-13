@@ -634,6 +634,8 @@ ServerLimit 옵션과 MaxRequestWorkers 옵션을 같이 수정하면된다.
 ## 12. SSL 적용
 
 > [참고 사이트](https://steady-snail.tistory.com/187)
+> 
+> [VirtualHost](https://httpd.apache.org/docs/2.2/ko/vhosts/name-based.html)
 
 아파치랑 톰캣을 같이 사용하는 경우에는 아파치에만 적용하면된다. 톰캣만 사용하는경우에는 톰캣에 적용하면 된다.
 
