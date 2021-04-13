@@ -633,3 +633,9 @@ ServerLimit 옵션과 MaxRequestWorkers 옵션을 같이 수정하면된다.
 > [SSL 적용기](https://yultory.com/12)
 > 
 > [인증서 파일 형식 및 확장자의 차이점 비교 설명 (Certificate file format & extensions)](https://www.letmecompile.com/certificate-file-format-extensions-comparison/)
+
+- 443 포트 열어줘야 함.
+
+## 13. 아파치 https 리다이렉트
+
+
