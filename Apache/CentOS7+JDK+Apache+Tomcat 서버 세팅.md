@@ -2,7 +2,14 @@
 
 CentOS7 에서 JDK 1.8 과 Apache 와 Tomcat 을 사용한 서버 세팅 방법
 
-## 1. Apache 설치
+## 1. DB 설치
+
+- 부팅 시 재시작
+  - systemctl enable mysqld
+- 상태 확인
+  - systemctl status mysqld
+
+## 2. Apache 설치
 
 CentOS 에서 아파치를 설치하는 방식은 2가지가 있다.
 
@@ -74,7 +81,7 @@ CentOS 에서 아파치를 설치하는 방식은 2가지가 있다.
   - 아파치가 자동으로 실행이 안된다면 `chkconfig httpd on` 명령어 입력
   - 자동 재시작 명령어 : `systemctl enable httpd`
 
-## 2. JDK 설치
+## 3. JDK 설치
 
 JDK 1.8 을 기준으로 설명.
 
@@ -134,7 +141,7 @@ public class HelloWorld{
 Hello World!!
 ```
 
-## 3. Tomcat 설치
+## 4. Tomcat 설치
 
 Tomcat 8 을 기준으로 설명.
 
@@ -249,7 +256,7 @@ ID 와 PW 를 설정한다.
   - `systemctl restart tomcat.service`
 - Tomcat Manager 에 접속이 되는지 확인(IP/manager)
 
-## 4. Apache 와 Tomcat 연동
+## 5. Apache 와 Tomcat 연동
 
 아파치와 톰캣을 연동하는 방법은 세 가지가 있다.
 
@@ -406,7 +413,7 @@ JkMount /*.do tomcat
 
 `service httpd restart`
 
-## 5. AJP 포트 변경
+## 6. AJP 포트 변경
 
 AJP 포트도 기본이 8009 인데 58009 이런식으로 사용하는 것을 추천한다.(취약점 때문에 변경하는걸 추천하는데 굳이 안해도 상관은 없다.)
 
@@ -434,7 +441,7 @@ Tomcat 의 server.xml 에서 58009 로 수정하고 workers.propertiese 에서 A
 
 `semanage port -a -p tcp -t http_port_t 포트`
 
-## 6. AJP 취약점
+## 7. AJP 취약점
 
 최근 Apache Tomcat의 원격코드실행 취약점(CVE-2020-1938)을 악용할 수 있는 개념증명코드(Proof of concept code, PoC)가 인터넷상에 공개되어 사용자의 보안 강화 필요.
 
@@ -463,7 +470,7 @@ at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   - 기존 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>`
   - 변경 : `<Connector port="8009" protocol="AJP/1.3" redirectPort="8443" address="0.0.0.0" secretRequired="false"/>`
 
-## 7. Apache Method 제한
+## 8. Apache Method 제한
 
 - 서버 운영 시 중요한 부분 중 하나인 바로 보안 부분이다.
 - 보안 문제로 apache 에서 사용 가능한 method 를 제한하는 경우가 있다.
@@ -497,7 +504,7 @@ Include conf.modules.d/*.conf
   - `curl -v -X OPTIONS http://webhack.dynu.net/icons/`
   - 허용 되지 않은 경우 콘솔에 에러가 발생한다.
  
-## 8. 톰캣 메모리 설정
+## 9. 톰캣 메모리 설정
 
 - Window
   - /bin 아래에 catalina.bat
@@ -543,7 +550,7 @@ CATALINA_OPTS="$CATALINA_OPTS -server -Xms1G -Xmx10G -XX:PermSize=1G -XX:MaxPerm
 
 - -Djava.awt.headless=true 옵션은 비윈도우 환경에서 GUI 클래스를 사용할수 있게 하는 옵션이다.
 
-## 9. 서버 부팅 시 톰캣 재시작
+## 10. 서버 부팅 시 톰캣 재시작
 
 어떠한 에러로 인해 서버가 부팅되는 경우 톰캣을 재시작 하게끔 설정해야 한다.
 
@@ -554,14 +561,15 @@ CATALINA_OPTS="$CATALINA_OPTS -server -Xms1G -Xmx10G -XX:PermSize=1G -XX:MaxPerm
 
 ```
 [Unit]
-Description=Apache Tomcat 8
+Description=tomcat8
 After=network.target syslog.target
 
 [Service]
 Type=forking
-User=webservice
-Group=webservice
-
+Environment="JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk"
+Environment="CATALINA_HOME=/usr/local/tomcat8"
+User=web
+Group=web
 ExecStart=/usr/local/tomcat8/bin/startup.sh
 ExecStop=/usr/local/tomcat8/bin/shutdown.sh
 
@@ -577,14 +585,18 @@ WantedBy=multi-user.target
 
 `$ systemctl enable /usr/lib/systemd/system/tomcat.service`
 
+- 테스트
+  - `systemctl start tomcat`
+  - `systemctl status tomcat.service`
+
 ### 4. 재부팅
 
 `$ reboot`
 
-## 10. 서버 부팅 시 MariaDB 재시작
+## 11. 서버 부팅 시 MariaDB 재시작
 
 어떠한 에러로 인해 서버가 부팅되는 경우 데이터베이스를 재시작 하게끔 설정해야 한다.
 
-## 11. 아파치 톰캣 동시 접속자 세팅
+## 12. 아파치 톰캣 동시 접속자 세팅
 
 사람이 별로 안 몰리는 사이트의 경우에는 1000 명 정도로 하면된다. 디폴트가 250 명 정도로 되어있다.
