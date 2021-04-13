@@ -547,6 +547,40 @@ CATALINA_OPTS="$CATALINA_OPTS -server -Xms1G -Xmx10G -XX:PermSize=1G -XX:MaxPerm
 
 어떠한 에러로 인해 서버가 부팅되는 경우 톰캣을 재시작 하게끔 설정해야 한다.
 
+### 1. tomcat.service 파일 생성
+
+모든 작업은 root 권한으로 진행한다.
+/usr/lib/systemd/system 디렉토리에 아래와 같은 내용으로 tomcat.service 파일을 생성한다.
+
+```
+[Unit]
+Description=Apache Tomcat 7
+After=network.target syslog.target
+
+[Service]
+Type=forking
+User=webservice
+Group=webservice
+
+ExecStart=/usr/local/tomcat7/bin/startup.sh
+ExecStop=/usr/local/tomcat7/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 2. 데몬 재로드
+
+`$ systemctl daemon-reload`
+
+### 3. 시작 서비스 등록
+
+`$ systemctl enable /usr/lib/systemd/system/tomcat.service`
+
+### 4. 재부팅
+
+`$ reboot`
+
 ## 10. 서버 부팅 시 MariaDB 재시작
 
 어떠한 에러로 인해 서버가 부팅되는 경우 데이터베이스를 재시작 하게끔 설정해야 한다.
