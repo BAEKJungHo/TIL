@@ -593,10 +593,30 @@ WantedBy=multi-user.target
 
 `$ reboot`
 
-## 11. 서버 부팅 시 MariaDB 재시작
-
-어떠한 에러로 인해 서버가 부팅되는 경우 데이터베이스를 재시작 하게끔 설정해야 한다.
-
-## 12. 아파치 톰캣 동시 접속자 세팅
+## 11. 아파치 톰캣 동시 접속자 세팅
 
 사람이 별로 안 몰리는 사이트의 경우에는 1000 명 정도로 하면된다. 디폴트가 250 명 정도로 되어있다.
+
+`/etc/httpd/conf.modules.d` 에 mpm.conf 라는 파일이 있는데 거기서 수정해야한다.
+
+ServerLimit 옵션과 MaxRequestWorkers 옵션을 같이 수정하면된다.
+
+```
+<IfModule mpm_prefork_module>
+    ServerLimit            1024
+    StartServers             5
+    MinSpareServers          5
+    MaxSpareServers         10
+    MaxRequestWorkers      1024
+    MaxConnectionsPerChild   0
+</IfModule>
+```
+
+> 참고1.
+>
+> 대부분 prefork 방식이 기본적으로 사용되며, 사용자가 많은 경우에는 worker방식을 사용한다. 요즘 몇 몇 사이트에서 사용자 폭주로 인하여 worker 방식을 사용하는 경우가 간혹 있다.
+
+> 참고2.
+>
+> apache 설치 시에 아래와 같이, 반드시 –with-mpm=worker 옵션을 설정 하고 설치한다. 이 옵션을 주지 않을 경우, Default인 Prefork방식으로 설치된다(Linux에 한함)
+
