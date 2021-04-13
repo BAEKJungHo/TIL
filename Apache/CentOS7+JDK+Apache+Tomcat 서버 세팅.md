@@ -620,3 +620,16 @@ ServerLimit 옵션과 MaxRequestWorkers 옵션을 같이 수정하면된다.
 >
 > apache 설치 시에 아래와 같이, 반드시 –with-mpm=worker 옵션을 설정 하고 설치한다. 이 옵션을 주지 않을 경우, Default인 Prefork방식으로 설치된다(Linux에 한함)
 
+## 12. SSL 적용
+
+아파치랑 톰캣을 같이 사용하는 경우에는 아파치에만 적용하면된다. 톰캣만 사용하는경우에는 톰캣에 적용하면 된다.
+
+보통 SSL 인증서를 받으면 가이드까지 들어있다. 참고로 톰캣 버전 별로 server.xml 설정이 다르므로 찾아보면서 해야한다. 
+
+> [Tomcat 싱글 인증서 설치](https://www.ucert.co.kr/wiki/w/Tomcat_%EC%8B%B1%EA%B8%80%EC%9D%B8%EC%A6%9D%EC%84%9C_%EC%84%A4%EC%B9%98)
+
+구글 검색해서 하는게 빠름.
+
+> [SSL 적용기](https://yultory.com/12)
+> 
+> [인증서 파일 형식 및 확장자의 차이점 비교 설명 (Certificate file format & extensions)](https://www.letmecompile.com/certificate-file-format-extensions-comparison/)
