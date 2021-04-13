@@ -509,6 +509,12 @@ Include conf.modules.d/*.conf
   - `curl -v -X OPTIONS http://webhack.dynu.net/icons/`
   - 허용 되지 않은 경우 콘솔에 에러가 발생한다.
  
+> 참고로 아파치 2.4 이상 버전에서 VirtualHost 설정할 때 `Allow Deny` 지시자가 `Require`로 변경되었다.
+> 
+> deny from all -> Require all denied // allow from all -> Require all granted
+> 
+> https://m.blog.naver.com/PostView.nhn?blogId=itcools&logNo=221354902402&proxyReferer=https:%2F%2Fwww.google.com%2F
+ 
 ## 9. 톰캣 메모리 설정
 
 - Window
