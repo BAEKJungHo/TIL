@@ -554,7 +554,7 @@ CATALINA_OPTS="$CATALINA_OPTS -server -Xms1G -Xmx10G -XX:PermSize=1G -XX:MaxPerm
 
 ```
 [Unit]
-Description=Apache Tomcat 7
+Description=Apache Tomcat 8
 After=network.target syslog.target
 
 [Service]
@@ -562,8 +562,8 @@ Type=forking
 User=webservice
 Group=webservice
 
-ExecStart=/usr/local/tomcat7/bin/startup.sh
-ExecStop=/usr/local/tomcat7/bin/shutdown.sh
+ExecStart=/usr/local/tomcat8/bin/startup.sh
+ExecStop=/usr/local/tomcat8/bin/shutdown.sh
 
 [Install]
 WantedBy=multi-user.target
