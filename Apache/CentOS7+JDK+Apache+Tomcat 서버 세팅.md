@@ -636,6 +636,37 @@ ServerLimit 옵션과 MaxRequestWorkers 옵션을 같이 수정하면된다.
 
 - 443 포트 열어줘야 함.
 
+### 아파치 재시작 시 SSL 패스워드 자동 입력 설정
+  
+서버에 SSL 인증서 설치 하고 나서 아파치를 재시작 할때 마다 패스워드를 넣어줘야 아파치가 정상적으로 실행되는 경우 엄청 불편하다.
+ 
+이때, 아래의 방법을 이용하면 간편하게 해결 된다.
+ 
+SSL.conf 에서 아래 열 주석처리
+
+`#SSLPassPhraseDialog  builtin`
+ 
+아래 열을 적당한 위치에 넣는다.
+
+`SSLPassPhraseDialog  exec:/usr/local/apache/conf/extra/sslpass.sh`
+ 
+sslpass.sh 파일을 생성한다.
+
+SSL 암호가 "1234" 라면
+ 
+`vim /usr/local/apache/conf/extra/sslpass.sh`
+ 
+```
+#!/bin/sh
+echo "1234" 
+```
+
+파일에 실행 권한을 주기
+ 
+`chmod 755 sslpass.sh`
+ 
+이렇게 하고 서버를 리스타스 해보면 깔끔히 해결 됨을 확인 할 수 있다.
+
 ## 13. 아파치 https 리다이렉트
 
-
+구글 검색
