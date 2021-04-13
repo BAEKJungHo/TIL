@@ -650,7 +650,7 @@ SSL.conf 에서 아래 열 주석처리
 
 `SSLPassPhraseDialog  exec:/usr/local/apache/conf/extra/sslpass.sh`
  
-sslpass.sh 파일을 생성한다.
+sslpass.sh 파일을 생성한다. (혹시 기존 ssl.conf 파일에 pass 관련된 파일이 이미 생성되어있으면 해당 위치로 가서 패스워드만 수정한다.)
 
 SSL 암호가 "1234" 라면
  
