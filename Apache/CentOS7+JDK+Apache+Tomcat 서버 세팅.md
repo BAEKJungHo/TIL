@@ -684,4 +684,59 @@ echo "1234"
 
 ## 13. 아파치 https 리다이렉트
 
-구글 검색
+### 기존에 httpd.conf 에 작성한 VirtualHost 수정
+
+```
+LoadModule jk_module modules/mod_jk.so
+<VirtualHost *:80>
+ ServerName www.ilje.or.kr
+ RewriteEngine On
+ RewriteCond %{HTTPS} off
+ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+Include conf.modules.d/*.conf
+```
+
+### ssl.conf 에 VirtualHost 수정
+
+```
+<VirtualHost *:443>
+# General setup for the virtual host, inherited from global configuration
+#DocumentRoot "/var/www/html"
+ServerName domain
+ServerAlias domain *.domain
+<Directory "/data/projectSource">
+      Options None
+      AllowOverride None
+      Order allow,deny
+      Require all granted
+      <LimitExcept GET HEAD POST>
+              Order allow,deny
+              Require all denied
+      </LimitExcept>
+</Directory>
+JkMount /* tomcat
+```
+
+## 14. SSL 버전 명시
+
+[Apache 2.4.x version 에 대한 사용 가능한 SSL](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslprotocol)
+
+[TLS 1.0 & TLS 1.1 지원중지 TLS 1.2 / TLS 1.3 권장사용](https://xinet.kr/?p=2012)
+
+TLS 1.3 이상 지원하려면 apache 버전 최소 2.4.37 이상 / openssl 1.1.1 이상
+
+>모든 주요 웹 브라우저는 2020 년 TLS 1.0 및 TLS 1.1 지원을 제거합니다.
+Google , Microsoft , Apple 및 Mozilla의 4 대 주요 회사에서 발표 한 보도 자료에 따르면 웹 브라우저는
+2020 년 상반기에 TLS 1.0 및 1.1 지원을 완전히 삭제합니다.
+10 년 전에 발표 된 TLS 1.2 TLS 1.0 및 1.1의 약점은 그 이후로 널리 채택되어 현재 개발 단계에있는 TLS 1.3이 없으면 기본 TLS 버전이됩니다.
+Microsoft에 따르면 TLS 1.0의 시대가 도래함에 따라 많은 웹 사이트가 이미 새로운 버전의 프로토콜로 이동했습니다. 현재 사이트의 94 %는 이미 TLS 1.2를 지원하고 있으며 Microsoft Edge의 일일 연결 수는 TLS 1.0 또는 1.1을 사용하고 있습니다.
+애플은 또한 TLS 1.2가 플랫폼상의 표준이며 TLS 1.0과 1.1이 모든 연결의 0.36 퍼센트 미만을 차지하는 반면 사파리로 만들어진 TLS 연결의 99.6 퍼센트를 대표한다고 말한다.
+Google은 더 이상 동의 할 수 없으며 현재 Chrome에서 만든 HTTPS 연결의 0.5 %만이 TLS 1.0 또는 1.1을 사용한다고 말합니다.
+모든 기술 회사는 TLS 1.2 이상을 지원하지 않는 웹 사이트를 가능한 한 빨리 구형 프로토콜에서 벗어나 실용적으로 권장했습니다.
+
+```
+# -all : 모든 것을 제외
+# +TLSv1.2, +TLSv1.3 : TLS 1.2 와 1.3 추가
+SSLProtocol -all +TLSv1.2 +TLSv1.3
+```
