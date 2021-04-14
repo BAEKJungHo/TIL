@@ -718,7 +718,7 @@ ServerAlias domain *.domain
 JkMount /* tomcat
 ```
 
-## 14. SSL 버전 명시
+## 14. 사용 가능한 SSL 버전만 명시
 
 [Apache 2.4.x version 에 대한 사용 가능한 SSL](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslprotocol)
 
@@ -745,3 +745,11 @@ SSLProtocol -all +TLSv1.2 +TLSv1.3
 
 `openssl ciphers -v | grep TLSv1.3`
 
+## 15. Apache, Tomcat 정보 숨기기
+
+- httpd.conf
+
+```
+ServerTokens Prod
+ServerSignature Off
+```
