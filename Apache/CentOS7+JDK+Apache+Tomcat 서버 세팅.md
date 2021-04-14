@@ -756,6 +756,13 @@ ServerSignature Off
 
 ## 16. MySQL DB 자동 백업
 
+- crontab 서비스 시작
+  - `systemctl start crond`
+  - `ps -ef | grep crond`
+- CentOS 시작 시 crontabl 이 자동으로 실행 되도록 설정
+  - `systemctl enable crond`
+  - `systemctl list-unit-files`
+
 - 루트 디렉터리 아래에 backup directory 를 만든다.
   - `mkdir backup`
 - sh 파일이 저장되는 위치로 가서(/usr/libexec) db_backup.sh 를 만든다.
