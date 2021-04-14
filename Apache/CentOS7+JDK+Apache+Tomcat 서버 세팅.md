@@ -753,3 +753,48 @@ SSLProtocol -all +TLSv1.2 +TLSv1.3
 ServerTokens Prod
 ServerSignature Off
 ```
+
+## 16. MySQL DB 자동 백업
+
+- 루트 디렉터리 아래에 backup directory 를 만든다.
+  - `mkdir backup`
+- sh 파일이 저장되는 위치로 가서(/usr/libexec) db_backup.sh 를 만든다.
+  - `vim db_bakcup.sh`
+
+```
+#!/bin/sh
+DATE=`date +"%Y%m%d"` 
+PREV_DATE=`date --date '3 days ago' +"%Y%m%d"` # 3 일 지난 것은 삭제 
+/usr/bin/mysqldump -u사용자ID -p패스워드 DB 명 > /data/backup/db/db_bak_${DATE}.sql
+chown root:root  /data/backup/db/db_bak_${DATE}.sql
+chmod 755  /data/backup/db/db_bak_${DATE}.sql
+rm -Rf  /data/backup/db/db_bak_${PREV_DATE}.sql 
+```
+
+- ./db_backup.sh 로 잘 동작하는지 확인하고, 백업 디렉터리에 백업 파일이 생성되었는지 확인
+
+- crontab 에 작업 등록하기
+  - `crontab -e`
+  - `00 01 * * * /usr/libexec/db_backcup.sh`
+    - 매일 새벽 1시에 db 백업 실행
+    - crontab: installing new crontab 문구가 나오면 재시작을 안해도 작업이 잘 반영 되었다는 것이다.
+- `crontab -l` 로 등록된 작업 확인하기
+
+## 17. 소스 자동 백업
+
+- 루트 디렉터리 아래에 backup directory 를 만든다.
+- sh 파일이 저장되는 위치로 가서 source_backup.sh 를 만든다.
+
+```
+#!/bin/bash
+tar -zcvf /backup/source/project_source.`date +%Y%m%d%H%M%S`.tgz 압축할폴더
+find /backup/source -type f -mtime +3 | sort | xargs rm -f
+```  
+
+- crontab 에 작업 등록하기
+  - `crontab -e`
+  - `00 02 * * * /usr/libexec/source_backcup.sh`
+    - 매일 새벽 2시에 db 백업 실행
+    - crontab: installing new crontab 문구가 나오면 재시작을 안해도 작업이 잘 반영 되었다는 것이다.
+- `crontab -l` 로 등록된 작업 확인하기
+
