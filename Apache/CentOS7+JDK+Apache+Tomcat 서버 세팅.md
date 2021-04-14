@@ -740,3 +740,8 @@ Google은 더 이상 동의 할 수 없으며 현재 Chrome에서 만든 HTTPS �
 # +TLSv1.2, +TLSv1.3 : TLS 1.2 와 1.3 추가
 SSLProtocol -all +TLSv1.2 +TLSv1.3
 ```
+
+- TLS 1.3 지원 체크
+
+`openssl ciphers -v | grep TLSv1.3`
+
