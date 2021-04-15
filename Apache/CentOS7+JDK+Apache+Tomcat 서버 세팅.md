@@ -761,6 +761,7 @@ ServerSignature Off
   - `ps -ef | grep crond`
 - CentOS 시작 시 crontabl 이 자동으로 실행 되도록 설정
   - `systemctl enable crond`
+  - `systemctl status crond`
   - `systemctl list-unit-files`
 
 - 루트 디렉터리 아래에 backup directory 를 만든다.
