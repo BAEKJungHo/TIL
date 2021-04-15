@@ -1,5 +1,8 @@
 # JDK Histories
 
+- 자바 릴리즈별 정보
+  - https://docs.oracle.com/en/java/javase/index.html > 원하는 JDK 버전 클릭 > What's New 클릭
+
 
 ## References
 
