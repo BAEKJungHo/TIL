@@ -17,5 +17,3 @@
 > https://docs.microsoft.com/ko-kr/azure/developer/java/fundamentals/reasons-to-move-to-java-11
 > 
 > [자바 11 로 전환해야 하는 이유](https://okky.kr/article/784365)
-> 
-> [자바 버전별 특징](https://www.skyer9.pe.kr/wordpress/?p=287)
