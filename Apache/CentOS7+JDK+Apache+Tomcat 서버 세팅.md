@@ -803,3 +803,5 @@ MAILTO=root
 
 - wget 명령어로 sh 파일 잘 실행되는지 확인
 - 서비스 재시작 : `service crond restart`
+- 만약에 crontab 이 잘 동작 안하면 아래와 같이 확인
+  - `vim /var/spool/mail/root` 여기에 에러 메시지가 나와있을 것임.
