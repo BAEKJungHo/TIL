@@ -782,8 +782,8 @@ rm -Rf  /data/backup/db/db_bak_${PREV_DATE}.sql
 - ./db_backup.sh 로 잘 동작하는지 확인하고, 백업 디렉터리에 백업 파일이 생성되었는지 확인
 
 - crontab 에 작업 등록하기
-  - `crontab -e`
-  - `00 01 * * * /usr/libexec/db_backcup.sh`
+  - `vim /etc/crontab`
+  - `00 01 * * * root /usr/libexec/db_backcup.sh`
     - 매일 새벽 1시에 db 백업 실행
     - crontab: installing new crontab 문구가 나오면 재시작을 안해도 작업이 잘 반영 되었다는 것이다.
 - `crontab -l` 로 등록된 작업 확인하기
@@ -800,8 +800,8 @@ find /backup/source -type f -mtime +3 | sort | xargs rm -f
 ```  
 
 - crontab 에 작업 등록하기
-  - `crontab -e`
-  - `00 02 * * * /usr/libexec/source_backcup.sh`
+  - `vim /etc/crontab`
+  - `00 02 * * * root /usr/libexec/source_backcup.sh`
     - 매일 새벽 2시에 db 백업 실행
     - crontab: installing new crontab 문구가 나오면 재시작을 안해도 작업이 잘 반영 되었다는 것이다.
 - `crontab -l` 로 등록된 작업 확인하기
