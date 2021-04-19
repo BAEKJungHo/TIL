@@ -786,6 +786,7 @@ rm -Rf  /data/backup/db/db_bak_${PREV_DATE}.sql
   - `00 01 * * * root /usr/libexec/db_backcup.sh`
     - 매일 새벽 1시에 db 백업 실행
     - crontab: installing new crontab 문구가 나오면 재시작을 안해도 작업이 잘 반영 되었다는 것이다.
+- 서비스 재시작 : `service crond restart`
 - `crontab -l` 로 등록된 작업 확인하기
 
 ## 17. 소스 자동 백업
@@ -804,5 +805,6 @@ find /backup/source -type f -mtime +3 | sort | xargs rm -f
   - `00 02 * * * root /usr/libexec/source_backcup.sh`
     - 매일 새벽 2시에 db 백업 실행
     - crontab: installing new crontab 문구가 나오면 재시작을 안해도 작업이 잘 반영 되었다는 것이다.
+- 서비스 재시작 : `service crond restart`
 - `crontab -l` 로 등록된 작업 확인하기
 
