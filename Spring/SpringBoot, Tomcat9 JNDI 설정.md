@@ -34,6 +34,29 @@
 
 ## Application 클래스에서 SpringBootServletInitializer 상속받기
 
+[SpringBootServletInitializer 를 상속 받아야 하는 이유](https://github.com/BAEKJungHo/TIL/blob/master/Spring/SpringBootServletInitializer%20%EB%A5%BC%20%EC%83%81%EC%86%8D%20%EB%B0%9B%EC%95%84%EC%95%BC%20%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
+
+```java
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
+
+  public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+  }
+  
+  /**
+   * Tomcat 서버가 시작될 때 호출된다.
+   * WAS 에 war 파일을 배포할 때 Spring Boot 의 내용을 Servlet 으로 초기화
+   * war 프로젝트로 생성할 경우 위와 같이 WAS 에 deploy 될 때 Spring Boot Application 을 Servlet 으로 등록하여 서비스할 수 있게 해준다.
+   */
+  @Override
+  protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+    return builder.sources(Application.class);
+  }
+
+}
+```
+
 ## References
 
 > https://www.youtube.com/watch?v=Kg0ZSHKT3Qw
