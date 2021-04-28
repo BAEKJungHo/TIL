@@ -67,3 +67,5 @@ public class Application extends SpringBootServletInitializer {
 ## References
 
 > https://www.youtube.com/watch?v=Kg0ZSHKT3Qw
+> 
+> [JNDI 의 장점](https://ss-o.tistory.com/133)
