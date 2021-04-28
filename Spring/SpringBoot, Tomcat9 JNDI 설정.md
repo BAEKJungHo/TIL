@@ -22,6 +22,18 @@
 
 `<GlobalNamingResources>` 부분 설정
 
+## application.yml 설정
+
+`spring.datasource.jndi-name=java:comp/env/jdbc/TestDB` jndi-name 설정 이름은, tomcat 의 server.xml `<GlobalNamingResources>` 부분의 `<Resource name="jdbc/TestDB" ~~ />` 여기에 설정이 되어 있어야 한다.
+
+## tomcat context.xml 설정
+
+> tomcat 폴더 - conf - context.xml
+
+`<ResourceLink>` 부분 설정 name 과 global 에 server.xml 에서 설정한 것처럼 jdbc/TestDB 이름으로 들어가야한다.
+
+## Application 클래스에서 SpringBootServletInitializer 상속받기
+
 ## References
 
 > https://www.youtube.com/watch?v=Kg0ZSHKT3Qw
