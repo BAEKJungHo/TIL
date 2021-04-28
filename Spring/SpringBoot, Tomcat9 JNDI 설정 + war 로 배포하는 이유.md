@@ -1,5 +1,10 @@
 # SpringBoot, Tomcat9 JNDI 설정
 
+Spring Boot 에서 Jar 배포 시 JSP 사용이 불가능하고 webapp 폴더를 무시하기 때문에, jsp 를 사용하는 경우에는 무조건 war 배포를 해야한다. 따라서 pom.xml 패키징 설정이 war 로 되어있어야 하고,
+보통 내장 톰캣이 아닌 외장 톰캣을 사용한다.
+
+국내 솔루션 업체들이 license 를 제공하는 방식이 WEB-INF 안에 파일유무를 체크하는데, Jar 로 배포하면 사용하지 못한다.
+
 ## pom.xml 설정
 
 내장 톰캣이 아닌 외부 톰캣을 사용할 것이기 때문에 의존성 설정을 해야 한다.
@@ -35,6 +40,8 @@
 ## Application 클래스에서 SpringBootServletInitializer 상속받기
 
 [SpringBootServletInitializer 를 상속 받아야 하는 이유](https://github.com/BAEKJungHo/TIL/blob/master/Spring/SpringBootServletInitializer%20%EB%A5%BC%20%EC%83%81%EC%86%8D%20%EB%B0%9B%EC%95%84%EC%95%BC%20%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
+
+> Tomcat 8 이상, JDK 7 이상은 Servlet 3.1 이상의 버전을 사용한다.
 
 ```java
 @SpringBootApplication
