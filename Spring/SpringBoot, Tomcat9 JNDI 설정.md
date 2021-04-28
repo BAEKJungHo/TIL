@@ -15,3 +15,13 @@
 > For example, a web server that already provides the Servlet API at runtime, thus in our project, those dependencies can be defined with the provided scope:
 >
 > provided 설정은 [Servlet API](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/) 와 [JavaEE API](https://docs.oracle.com/javaee/7/api/toc.htm) 를 runtime 에 웹 컨테이너가 제공한다.
+
+## tomcat server.xml 설정
+
+> tomcat 폴더 - conf - server.xml
+
+`<GlobalNamingResources>` 부분 설정
+
+## References
+
+> https://www.youtube.com/watch?v=Kg0ZSHKT3Qw
