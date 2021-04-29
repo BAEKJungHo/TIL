@@ -64,6 +64,23 @@ public class Application extends SpringBootServletInitializer {
 }
 ```
 
+## war 파일 추출
+
+SNAPSHOT.war
+
+## tomcat 의 webapps 안에 war 파일 넣기
+
+## JAVA_HOME 환경 변수 설정
+
+- 시스템 변수에 JAVA_HOME 추가
+
+> https://deftkang.tistory.com/99
+
+## 외부 톰캣 실행
+
+- cmd > tomcat dir > bin > catalina.bat
+- http://localhost:8080/SNAPSHOT/cms
+
 ## References
 
 > https://www.youtube.com/watch?v=Kg0ZSHKT3Qw
