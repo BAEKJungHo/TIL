@@ -27,6 +27,35 @@ Spring Boot 에서 Jar 배포 시 JSP 사용이 불가능하고 webapp 폴더를
 
 `<GlobalNamingResources>` 부분 설정
 
+```xml
+  <!-- Global JNDI resources
+       Documentation at /docs/jndi-resources-howto.html
+  -->
+  <GlobalNamingResources>
+    <!-- Editable user database that can also be used by
+         UserDatabaseRealm to authenticate users
+    -->
+    <Resource name="UserDatabase" auth="Container"
+              type="org.apache.catalina.UserDatabase"
+              description="User database that can be updated and saved"
+              factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+              pathname="conf/tomcat-users.xml" />
+
+     <Resource name="jdbc/TestDB"
+	global="jdbc/TestDB"
+	auth="Container"
+	type="javax.sql.DataSource"
+	driverClassName="net.sf.log4jdbc.DriverSpy"
+	url="jdbc:log4jdbc:mysql://192.168.0.1:3307/testDB"
+	username="test"
+	password="test"
+	maxTotal="100"
+	maxIdle="20"
+	minIdle="5"
+	maxWaitMillis="10000" />
+  </GlobalNamingResources>
+```
+
 ## application.yml 설정
 
 `spring.datasource.jndi-name=java:comp/env/jdbc/TestDB` jndi-name 설정 이름은, tomcat 의 server.xml `<GlobalNamingResources>` 부분의 `<Resource name="jdbc/TestDB" ~~ />` 여기에 설정이 되어 있어야 한다.
@@ -76,6 +105,25 @@ mybatis:
 > tomcat 폴더 - conf - context.xml
 
 `<ResourceLink>` 부분 설정 name 과 global 에 server.xml 에서 설정한 것처럼 jdbc/TestDB 이름으로 들어가야한다.
+
+```xml
+<Context>
+
+    <!-- Default set of monitored resources. If one of these changes, the    -->
+    <!-- web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <!-- 이 부분을 추가해야 함                                  -->
+    <ResourceLink name="jdbc/TestDB" global="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" />
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+</Context>
+```
 
 ## Application 클래스에서 SpringBootServletInitializer 상속받기
 
