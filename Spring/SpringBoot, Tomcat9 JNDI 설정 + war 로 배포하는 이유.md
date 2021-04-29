@@ -110,6 +110,9 @@ SNAPSHOT.war
 
 ## tomcat 의 webapps 안에 war 파일 넣기
 
+- ex) C:\Users\weave\Desktop\dev\apache-tomcat-9.0.45\webapps
+- war 파일명 수정 (ex. SNAPSHOT.war)
+
 ## JAVA_HOME 환경 변수 설정
 
 - 시스템 변수에 JAVA_HOME 추가
