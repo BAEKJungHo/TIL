@@ -35,7 +35,7 @@ JNDI 를 사용하게 되면 DB 커넥션을 WAS 에서 생성하므로, applica
 
 mybatis 를 사용하는 경우 아래와 같이 설정을 해야 한다.
 
-```
+```yml
 spring:
   datasource:
     driver-class-name: net.sf.log4jdbc.DriverSpy
