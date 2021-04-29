@@ -31,6 +31,46 @@ Spring Boot 에서 Jar 배포 시 JSP 사용이 불가능하고 webapp 폴더를
 
 `spring.datasource.jndi-name=java:comp/env/jdbc/TestDB` jndi-name 설정 이름은, tomcat 의 server.xml `<GlobalNamingResources>` 부분의 `<Resource name="jdbc/TestDB" ~~ />` 여기에 설정이 되어 있어야 한다.
 
+JNDI 를 사용하게 되면 DB 커넥션을 WAS 에서 생성하므로, application.yml 에 있는 datasource 설정의 값이 이상하더라도 동작해야한다.
+
+mybatis 를 사용하는 경우 아래와 같이 설정을 해야 한다.
+
+```
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.DriverSpy
+    tomcat:
+      max-active: 400
+      max-wait: 10000
+      max-idle: 20
+      test-on-borrow: true
+      test-while-idle: true
+      validation-query: select 1 from dual
+      validation-query-timeout: 100000
+      time-between-eviction-runs-millis: 600000
+    test-on-borrow: true
+    test-while-idle: true
+    validation-query: select 1 from dual
+    validation-query-timeout: 10000
+    time-between-eviction-runs-millis: 60000
+    jndi-name: java:comp/env/jdbc/TestDB
+  http:
+    multipart:
+      max-file-size: 200MB # 파일 하나 당 업로드 가능 용량
+      max-request-size: 200MB # 요청 한번 당 파일 총 업로드 가능 용량
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  messages:
+    basename: messages/message # 국제화 언어 설정
+
+mybatis:
+  type-aliases-package: com.weave.core.module
+  config-location: classpath:mybatis/config/Mybatis_Config.xml
+  mapper-locations: classpath:mybatis/mapper/**/*_MySQL.xml
+```
+
 ## tomcat context.xml 설정
 
 > tomcat 폴더 - conf - context.xml
