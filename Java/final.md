@@ -26,7 +26,7 @@ void test_final_primitive_variables() {
 
 객체 변수에 final 로 선언하면 그 변수에 다른 참조 값을 지정할 수 없다. 단 객체 자체가 `immutable`하다는 의미는 아니다. 객체의 속성은 변경 가능하다.
 
-```
+```java
 @Test
 void test_final_reference_variables() {
   final User user = new User();
