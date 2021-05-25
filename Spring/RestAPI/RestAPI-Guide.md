@@ -78,3 +78,24 @@
         return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 ```
+
+```javascript
+var data = {'user_id' : user_id, 'pwd' : pwd};
+$.ajax({
+    url : url,
+    type : 'post',
+    data : JSON.stringify(data),
+    datatype:'json',
+    contentType:"application/json",
+    success : function(res) {
+    // HttpStatus.OK
+	if(res === 'SUCCESS_LOGIN') {
+	} 
+    },
+    error : function(err) {
+    // HttpStatus.BAD_REQUEST
+	alert(err.responseText);
+	return false;
+    }
+});
+```
