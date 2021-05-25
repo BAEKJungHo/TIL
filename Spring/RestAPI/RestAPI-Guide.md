@@ -1,10 +1,12 @@
 # RestAPI Guide
 
+## Http 상태코드
+
 ## Http 메시지 
 
 ## @RequetBody 와 @ResponseBody
 
-## AJAX 를 통한 클라이언트와 서버 통신
+## 클라이언트와 서버의 비동기 통신
 
 ## ResponseEntity
 
@@ -17,6 +19,8 @@
 - ajax 에서 dataType : json 으로 설정하면, 서버에서 항상 ObjectMapper 를 사용하여 변경해줘야함(writeValueAsString), 클라이언트에서 받은 json 문자열을 읽으려면 readValue
 
 ## Exception
+
+## DTO 를 사용해야 하는 이유
 
 ## Example
 
