@@ -15,7 +15,8 @@
 - INTERNAL_SERVER_ERROR(500) 은 정말 심각할 때만 반환해야 하며, 보통 클라이언트에서 잘못된 값을 넘겨서 발생하는 경우 BAD_REQUEST(400) 을 던져야함
   - BAD_REQUEST 를 던지면 ajax 에서 error callback 을 탐
   - OK 를 던지면 ajax 에서 success callback 을 탐
-- client -> server 로 항상 json 으로 보냄
+- client -> server 로 거의 일반적으로 json 으로 보냄
+	- @RequestBody String params -> id=baek&pw=123 이런 형식의 문자열로 담겨 있어서, json -> dto 로 파싱해야 함.
 - ajax 에서 dataType : json 으로 설정하면, 서버에서 항상 ObjectMapper 를 사용하여 변경해줘야함(writeValueAsString), 클라이언트에서 받은 json 문자열을 읽으려면 readValue
 
 ## Exception
