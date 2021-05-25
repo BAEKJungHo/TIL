@@ -26,57 +26,57 @@
 
 ```java
 @RequestMapping(value = "/validateCanLogin", method = RequestMethod.POST, produces = "application/json; charset=utf8")
-    public ResponseEntity validateCanLogin(@RequestBody String params) {
-    	String result = "";
-    	ObjectMapper objectMapper = new ObjectMapper();
-      UserDto.ValidationLogin requestDto;
-        try {
-            requestDto = objectMapper.readValue(params, UserDto.ValidationLogin.class);
-        } catch(IOException e) {
-            throw new BusinessException(egovMessageSource.getMessage("fail.user.validateId"));
-        }
-        
-        // 로그인이 가능한지 검증
-        if(siteUserValidator.validateCanLogin(requestDto)) {
-        	try {
-        		result = objectMapper.writeValueAsString(ValidationLoginResponse.SUCCESS_LOGIN);
-          } catch (Exception e) {
-            throw new BusinessException(Message.FAIL_LOGIN.getMsg()); 
-          } 
-        	return new ResponseEntity(result, HttpStatus.OK);
-        }
-        
-        
-        userVO.setUser_id(requestDto.getUser_id());
-        int failCountCheck = userService.failCountCheck(userVO);
-        UserVO idPwdCheck = userService.findUserByUserId(userVO);
-        
-        // 로그인 실패횟수 5번이면 임시비밀번호 발급 후 로그인 할 수 있도록 변경
-        if(failCountCheck == 5) {
-        	try {
-        		result = objectMapper.writeValueAsString(ValidationLoginResponse.EXCEED_FAIL_COUNT);
+public ResponseEntity validateCanLogin(@RequestBody String params) {
+	String result = "";
+	ObjectMapper objectMapper = new ObjectMapper();
+	UserDto.ValidationLogin requestDto;
+	try {
+	    requestDto = objectMapper.readValue(params, UserDto.ValidationLogin.class);
+	} catch(IOException e) {
+	    throw new BusinessException(egovMessageSource.getMessage("fail.user.validateId"));
+	}
+
+	// 로그인이 가능한지 검증
+	if(siteUserValidator.validateCanLogin(requestDto)) {
+	  try {
+		result = objectMapper.writeValueAsString(ValidationLoginResponse.SUCCESS_LOGIN);
+	  } catch (Exception e) {
+	    throw new BusinessException(Message.FAIL_LOGIN.getMsg()); 
+	  } 
+		return new ResponseEntity(result, HttpStatus.OK);
+	}
+
+
+	userVO.setUser_id(requestDto.getUser_id());
+	int failCountCheck = userService.failCountCheck(userVO);
+	UserVO idPwdCheck = userService.findUserByUserId(userVO);
+
+	// 로그인 실패횟수 5번이면 임시비밀번호 발급 후 로그인 할 수 있도록 변경
+	if(failCountCheck == 5) {
+		try {
+			result = objectMapper.writeValueAsString(ValidationLoginResponse.EXCEED_FAIL_COUNT);
 			} catch (Exception e) {
 			} 
-        	return new ResponseEntity(result, HttpStatus.OK);
-        }
-        
-        // 로그인이 실패했을때 실패횟수 증가
-        if(!requestDto.getPwd().equals(idPwdCheck.getPwd())) {
-        	userService.updateFailCount(userVO);
-        	try {
-        		result = objectMapper.writeValueAsString(ValidationLoginResponse.FAIL_LOGIN);
-        } catch (Exception e) {
-        } 
-        	return new ResponseEntity(result, HttpStatus.OK);
-        }
-        
-        return new ResponseEntity(HttpStatus.BAD_REQUEST);
-    }
-    
-    @org.springframework.web.bind.annotation.ExceptionHandler(BusinessException.class)
-    public ResponseEntity businessException(BusinessException e) {
-        return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-    }
+		return new ResponseEntity(result, HttpStatus.OK);
+	}
+
+	// 로그인이 실패했을때 실패횟수 증가
+	if(!requestDto.getPwd().equals(idPwdCheck.getPwd())) {
+		userService.updateFailCount(userVO);
+		try {
+			result = objectMapper.writeValueAsString(ValidationLoginResponse.FAIL_LOGIN);
+	} catch (Exception e) {
+	} 
+		return new ResponseEntity(result, HttpStatus.OK);
+	}
+
+	return new ResponseEntity(HttpStatus.BAD_REQUEST);
+}
+
+@org.springframework.web.bind.annotation.ExceptionHandler(BusinessException.class)
+public ResponseEntity businessException(BusinessException e) {
+	return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+}
 ```
 
 ```javascript
