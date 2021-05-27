@@ -651,6 +651,16 @@ ServerLimit 옵션과 MaxRequestWorkers 옵션을 같이 수정하면된다.
 
 - 443 포트 열어줘야 함.
 
+__만약에 ssl 인증서를 두 개 적용해야 하는데 패스워드 key or key.pem 파일이 있는 경우, 패스워드를 제거한 파일로 다시 생성해야 한다.__
+
+- 비밀번호 제거
+
+`root]~]# openssl rsa -in ssl.key -out ssl_nopass.key`
+
+- 비밀번호 생성
+
+`root]~]# openssl rsa -in ssl_nopass.key -passout pass:'password123' -out ssl.key -des3`
+
 ### 아파치 재시작 시 SSL 패스워드 자동 입력 설정
   
 서버에 SSL 인증서 설치 하고 나서 아파치를 재시작 할때 마다 패스워드를 넣어줘야 아파치가 정상적으로 실행되는 경우 엄청 불편하다.
