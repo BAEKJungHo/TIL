@@ -815,3 +815,12 @@ MAILTO=root
 - 서비스 재시작 : `service crond restart`
 - 만약에 crontab 이 잘 동작 안하면 아래와 같이 확인
   - `vim /var/spool/mail/root` 여기에 에러 메시지가 나와있을 것임.
+
+## Proxy pass
+
+예를들어, fomo.or.kr/museum 을 museum.ilje.or.kr 로 리다이렉트 시키고 싶을때 `proxy pass` 라는 것을 사용한다.
+
+- 먼저 cmd > nslookup museum.ilje.or.kr 으로 해당 ip 주소를 얻는다.
+- 그런 다음 proxy pass 를 설정한다.
+	- https://velog.io/@always0ne/Proxy-Pass%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-Apache-Web-Server%EC%97%90-WAS-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0
+	- https://playon.tistory.com/87
