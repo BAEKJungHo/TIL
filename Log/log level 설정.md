@@ -3,6 +3,8 @@
 - Log level 을 DEBUG 나 INFO 로 하면 실행한 쿼리가 찍힌다.
 - Log level 을 ERROR 로 하면 ERROR 발생시에만 로그가 찍힌다.
 
+> 로그 레벨은 회사마다 상황마다 알맞게 설정하면 된다.
+
 - logback.xml
 
 ```java
