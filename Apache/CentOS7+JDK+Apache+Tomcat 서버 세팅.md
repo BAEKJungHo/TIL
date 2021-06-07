@@ -261,6 +261,8 @@ ID 와 PW 를 설정한다.
   - `systemctl restart tomcat.service`
 - Tomcat Manager 에 접속이 되는지 확인(IP/manager)
 
+> 톰캣을 2개 띄우고 싶은 경우가 있다. 예를 들어 관리자 cms 의 경우에는 아파치와 연동을 안하고 톰캣으로만 띄우고 싶으면, 똑같이 톰캣을 하나 더 설치한 후에, 기존 톰캣 server.xml 에 있는 server, tomcat, ajp 포트와 다르게 설정한 후에 위와 동일하게 진행하면 된다.
+
 ## 5. Apache 와 Tomcat 연동
 
 아파치와 톰캣을 연동하는 방법은 세 가지가 있다.
