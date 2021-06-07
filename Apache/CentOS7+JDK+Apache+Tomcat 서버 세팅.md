@@ -212,6 +212,12 @@ export CATALINA_HOME=/usr/local/victolee/tomcat8.0.52
 
 그리고 cmd 창에서 `telnet ip port` 로 해당 포트에 접근이 되는지 확인한다.
 
+- 톰캣 server.xml reloadable false 설정
+
+class 파일 반영 후 서버 자동 재시작을 막는 기능이다.
+
+`<Context docBase="/data/project/site" path="/" reloadable="false" allowLinking="true" />`
+
 ### 5. 톰캣 실행 및 테스트
 
 - `/usr/local/tomcat8/bin/startup.sh`
