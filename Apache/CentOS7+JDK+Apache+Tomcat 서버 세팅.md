@@ -232,6 +232,12 @@ class 파일 반영 후 서버 자동 재시작을 막는 기능이다.
 </Connector>
 ```
 
+#### 톰캣 서버 정보 지우기
+
+에러 페이지에 톰캣 버전 정보가 노출이 되면 취약점에 걸리기 때문에 버전 정보를 노출 되지 않게 지워야 한다.
+
+- https://mingzz1.github.io/pentesting/web/2020/04/05/tomcat_hide_version_on_error_page_.html
+
 ### 5. 톰캣 실행 및 테스트
 
 - `/usr/local/tomcat8/bin/startup.sh`
