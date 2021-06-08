@@ -218,6 +218,20 @@ class 파일 반영 후 서버 자동 재시작을 막는 기능이다.
 
 `<Context docBase="/data/project/site" path="/" reloadable="false" allowLinking="true" />`
 
+#### 톰캣 SSL 설정
+
+```
+<Connector port="28443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+       maxThreads="150" scheme="https" secure="true" SSLEnabled="true">
+<SSLHostConfig>
+    <Certificate certificateKeyFile="/etc/pki/tls/private/cms_fomo/_wildcard_fomo_or_kr_nopass.key"
+		 certificateFile="/etc/pki/tls/private/cms_fomo/_wildcard_fomo_or_kr.crt"
+		 certificateChainFile="/etc/pki/tls/private/cms_fomo/ChainCA/rsa-dv.chain-bundle.pem"
+		 type="RSA" />
+</SSLHostConfig>
+</Connector>
+```
+
 ### 5. 톰캣 실행 및 테스트
 
 - `/usr/local/tomcat8/bin/startup.sh`
@@ -834,3 +848,8 @@ MAILTO=root
 - 그런 다음 proxy pass 를 설정한다.
 	- https://velog.io/@always0ne/Proxy-Pass%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-Apache-Web-Server%EC%97%90-WAS-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0
 	- https://playon.tistory.com/87
+
+## Aapche, Tomcat SSL 설정 시 주의 사항
+
+예를 들어 권한이 ROOT 와 WEB 으로 구분되는 경우, 부모 디렉터리 권한이 ROOT 인곳에 WEB 을 넣으면 권한 관리하기가 불편하다. 따라서
+Apache 의 SSL 저장 위치랑, Tomcat 의 SSL 의 저장 위치를 다르게 가져가는게 권한 관리하기에 편한다.
