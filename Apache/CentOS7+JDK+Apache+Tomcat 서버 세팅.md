@@ -883,3 +883,24 @@ Apache 의 SSL 저장 위치랑, Tomcat 의 SSL 의 저장 위치를 다르게 �
 보통 GET, POST 를 제외하고 method 를 제한 해야 한다.
 
 > https://shyrilla.tistory.com/19
+
+```
+<VirtualHost *:9000>
+        ServerName www.weave.net:9000
+        DocumentRoot /home/web/web_html
+        <Directory "/home/web/web_html">
+                Options None
+                AllowOverride None
+                Order allow,deny
+                Allow from all
+                Require all granted
+                <LimitExcept GET POST>
+                        Order allow,deny
+                        Deny from all
+                </LimitExcept>
+        </Directory>
+
+        ErrorLog logs/www.weave.net_error_log
+        CustomLog logs/www.weave.net_access_log common
+</VirtualHost>
+```
