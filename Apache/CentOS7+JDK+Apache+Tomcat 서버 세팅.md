@@ -787,11 +787,29 @@ SSLProtocol -all +TLSv1.2 +TLSv1.3
 
 ## 15. Apache, Tomcat 정보 숨기기
 
+### apache 정보 숨기기
+
 - httpd.conf
 
 ```
 ServerTokens Prod
 ServerSignature Off
+```
+
+### tomcat 정보 숨기기
+
+```
+<Host name="localhost" appBase="/data/mec_ilje/core" unpackWARs="true" autoDeploy="true">
+
+<Context docBase="/data/mec_ilje/core" path="/" reloadable="false" allowLinking="true" />
+<Context docBase="/data/mec_ilje/core" path="/cms" reloadable="false" allowLinking="true" />
+
+<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+       prefix="localhost_access_log" suffix=".txt"
+       pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+
+<Valve className="org.apache.catalina.valves.ErrorReportValve" showReport="false" showServerInfo="false"/>
+</Host>
 ```
 
 ## 16. MySQL DB 자동 백업 + 소스 자동 백업
@@ -859,3 +877,9 @@ MAILTO=root
 
 예를 들어 권한이 ROOT 와 WEB 으로 구분되는 경우, 부모 디렉터리 권한이 ROOT 인곳에 WEB 을 넣으면 권한 관리하기가 불편하다. 따라서
 Apache 의 SSL 저장 위치랑, Tomcat 의 SSL 의 저장 위치를 다르게 가져가는게 권한 관리하기에 편한다.
+
+## Apache method 제한
+
+보통 GET, POST 를 제외하고 method 를 제한 해야 한다.
+
+> https://shyrilla.tistory.com/19
