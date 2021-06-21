@@ -68,3 +68,7 @@ void test_final_method_arguments(final int age) {
 ## final 클래스
 
 클래스를 final 로 선언하면 상속이 불가능하다. immutable 한 클래스를 만들고 싶거나, 주로 Util 성 클래스나 Constants 를 모아둔 클래스에서 자주 사용한다.
+
+## References
+
+> [final keyword in java](https://www.geeksforgeeks.org/final-keyword-java/?ref=rp)
