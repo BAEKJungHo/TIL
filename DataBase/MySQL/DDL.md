@@ -1,0 +1,3 @@
+# 데이터베이스 생성
+
+`CREATE DATABASE DB_NAME default CHARACTER SET UTF8;`
