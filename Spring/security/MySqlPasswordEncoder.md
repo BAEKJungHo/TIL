@@ -2,6 +2,9 @@
 
 DB 패스워드 암호화를 MySQL 의 password() 함수를 사용하는 경우, 스프링 시큐리티를 사용할 때 `MySqlPasswordEncoder` 클래스를 만들어서 빈으로 등록해줘야 한다.
 
+1. 스프링 시큐리티는 입력한 ID 를 통해서 DB 에서 정보를 조회해오고 (암호화된 패스워드가 vo 에 담겨있다.)
+2. credenctials 에 들어있는 (자신이 입력한 패스워드, 암호화 되지 않은 패스워드) 패스워드와, 시큐리티의 PasswordEncoder 를 사용하여 암호화 한 다음 패스워드를 비교한다.
+
 ```java
 public class MySqlPasswordEncoder implements PasswordEncoder {
 
