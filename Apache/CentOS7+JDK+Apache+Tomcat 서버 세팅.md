@@ -904,3 +904,16 @@ Apache 의 SSL 저장 위치랑, Tomcat 의 SSL 의 저장 위치를 다르게 �
         CustomLog logs/www.weave.net_access_log common
 </VirtualHost>
 ```
+
+## 톰캣 JessionId 비활성화
+
+- web.xml
+
+```xml
+<session-config>
+    <session-timeout>600</session-timeout>
+    <tracking-mode>COOKIE</tracking-mode>
+</session-config>
+```
+
+> https://offbyone.tistory.com/339
