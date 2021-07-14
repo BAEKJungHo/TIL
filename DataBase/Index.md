@@ -5,3 +5,5 @@
 ## References
 
 > https://kwonnam.pe.kr/wiki/database/mysql/index
+>
+> [MySQL 실행 계획 보는 법](https://denodo1.tistory.com/306)
