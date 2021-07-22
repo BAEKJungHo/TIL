@@ -79,6 +79,21 @@ searchRequest.source(searchSourceBuilder);
 searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
 ```
 
+- SearchHits : 검색매칭결과
+    - totalHits : 매칭 개수
+    - maxScore : 얼만큼 매칭 되는지
+
+```
+SearchHits searchHits = searchResponse.getHits();
+for (SearchHit hit : searchHits) {
+    try {
+        SearchVo vo = mapper.readValue(hit.getSourceAsString(), SearchVo.class);
+    } catch (Exception e) {
+    }
+}
+```
+
+
 #### [QueryBuilder](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-query-builders.html)
 
 쿼리 작성을 위해 제공되는 Builder 이다.
