@@ -2,7 +2,7 @@
 
 - `Appearance`
   - Theme : High contrast
-  - Use Custom font : Lucida Fax, Size 12
+  - Use Custom font : Lucida Fax or Malgun Gothic, Size 12
   - Presentation Mode : Font Size 24
 
 - `Plugins`
@@ -18,6 +18,9 @@
   - Rainbow Brackets
   - SonarLint
   - String Manipulation
+  - JPA Buddy
+  - Database Navigator
+  - Handlebars/Mustache
 
 - `Live Templates`
   - custom
