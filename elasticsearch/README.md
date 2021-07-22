@@ -62,4 +62,23 @@ client.close();
 
 ### [Java Low Level Rest client](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-low-usage-requests.html#java-rest-low-usage-request-options)
 
+### [검색 API](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-search.html)
 
+- SearchRequest : 검색 요청
+
+```java
+SearchRequest searchRequest = new SearchRequest();
+searchRequest.indices(indexName);
+searchRequest.source(searchSourceBuilder);
+```
+
+- SearchResponse : 검색 응답
+
+```java
+// client is RestHighLevelClient
+searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
+```
+
+#### [QueryBuilder](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-query-builders.html)
+
+쿼리 작성을 위해 제공되는 Builder 이다.
