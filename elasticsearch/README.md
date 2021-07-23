@@ -100,4 +100,7 @@ for (SearchHit hit : searchHits) {
 
 쿼리 작성을 위해 제공되는 Builder 이다.
 
+- 정확도(Relevancy)
+    - [Match Query](https://blog.naver.com/PostView.nhn?blogId=olpaemi&logNo=222003279473&categoryNo=26&parentCategoryNo=-1&viewDate=&currentPage=&postListTopCurrentPage=&isAfterWrite=true)
+
 ### [Index API](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/_index_apis.html)
