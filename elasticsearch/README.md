@@ -1,5 +1,8 @@
 # Elasticsearch
 
+- [Guide Book](https://esbook.kimjmin.net/)
+- [Docs](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html)
+
 ## [Java High Level Rest Client](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html)
 
 엘라스틱 서치가 6.3.0 으로 올라가면서 내부 client 로 SQL 문법을 지원하게 되었다.
