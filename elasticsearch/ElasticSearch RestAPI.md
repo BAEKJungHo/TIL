@@ -8,6 +8,20 @@
 
 GET : `http://localhost:9200/_cat/indices?v`
 
+- RESULT
+
+결과는 아래와 같은 형태로 나온다.
+
+```
+health status index   uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+green  open   menu   Mq0MIU6UT76mYfOAvhH_pQ   1   0       1132            0    283.5kb        283.5kb
+green  open   contents   ND-u0s0LSpqzl02UWJlpJw   1   0        878            0    177.3kb        177.3kb
+green  open   media   S64FmICRQQ-SnpP8auHL9g   1   0       8695            0     23.1mb         23.1mb
+green  open   keyword Ohpb58r7RH-SKJ-nHcmILA   1   0        302            0     26.3kb         26.3kb
+green  open   file   Y9T6C2yERQWJ2F_q8-KvcA   1   0      12234            0      3.5mb          3.5mb
+green  open   article   jQ0a2JSqTyyjKk7a4AD0Zg   1   0      21846            0     32.1mb         32.1mb
+```
+
 ## 검색 API 테스트
 
 POST : `http://localhost:9200/bdata/_search`
