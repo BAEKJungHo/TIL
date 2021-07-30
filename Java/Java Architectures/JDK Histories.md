@@ -3,6 +3,8 @@
 - 자바 릴리즈별 정보
   - https://docs.oracle.com/en/java/javase/index.html > 원하는 JDK 버전 클릭 > What's New 클릭
 
+- [자바 14 레코드(Record)](https://coding-start.tistory.com/355)
+  - [Example Source](https://github.com/levi-yo/jdk_14_record_sample)
 
 ## References
 
