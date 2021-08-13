@@ -10,8 +10,6 @@ author: BAEKJungHo
 * content
 {:toc}
 
-![logo](/images/posts/logo/okkycon2021.JPG)
-
 # OKKYCON: 2021. 협업의 기술
 
 컨퍼런스 시작 도입부부터 이런 말이 나왔다.
