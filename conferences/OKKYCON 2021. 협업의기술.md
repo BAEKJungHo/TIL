@@ -1,15 +1,3 @@
----
-title: "OKKYCON: 2021. 협업의 기술"
-layout: post
-category: Conference
-tags: [Conference]
-excerpt: "OKKYCON: 2021 협업의기술 개발자와 개발조직의 생산성을 높이는 스마트한 협업 세미나 정리"
-author: BAEKJungHo
----
-
-* content
-{:toc}
-
 # OKKYCON: 2021. 협업의 기술
 
 컨퍼런스 시작 도입부부터 이런 말이 나왔다.
