@@ -1,6 +1,6 @@
 # @MapperScan
 
-MapperScan에서 scan 을 진행할 Annotation 클래스를 지정하고 basePacke 를 설정해준다. 
+MapperScan 에서 scan 을 진행할 Annotation 클래스를 지정하고 basePacke 를 설정해준다. 
 
 지정된 Annotation 이 설정되어 있는 클래스는 scan 을 진행하고 해당 클래스들은 아래의 SqlSessionFactoryBean 을 주입 받는다. 
 
