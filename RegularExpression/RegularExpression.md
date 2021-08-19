@@ -14,6 +14,6 @@ public class RegularExpression {
     Pattern NUMBER = Pattern.compile("[0-9]+");
 }
 ```   
-```
+```java
 boolean result = PHONE.matcher(phone).matches();
 ```
