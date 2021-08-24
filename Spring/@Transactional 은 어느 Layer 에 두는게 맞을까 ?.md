@@ -1,4 +1,4 @@
-# @Transactional 은 어느 Layer 에 두는게 맞을까?
+# @Transactional 은 어느 Layer 에 두는게 맞을까 ?
 
 ```
 📌 분류 : Spring
