@@ -41,6 +41,7 @@ WHERE 1=1 AND TOURISM_YEAR = '2021'
 - FALSE 가 아니라 무시된다.
 - NULL 조건은 IS NULL, IS NOT NULL로 처리해야된다.
 - `=` 이나 `!=` `<>` 에 NULL을 붙이면 항상 `FALSE` 가 나온다.
+ - Ex. DISCRHASH = NULL ... FALSE
 - `모든 DB 벤더에 상관없이 동일하게 적용 된다.`
 
 따라서 NULL 을 포함된 결과를 출력하고 싶으면 다음과 같이 해야한다.
