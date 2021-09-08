@@ -44,7 +44,7 @@ WHERE 1=1 AND TOURISM_YEAR = '2021'
   - Ex. DISCRHASH = NULL ... FALSE
 - `모든 DB 벤더에 상관없이 동일하게 적용 된다.`
 
-따라서 NULL 을 포함된 결과를 출력하고 싶으면 다음과 같이 해야한다.
+NULL 을 포함된 결과를 출력하고 싶으면 다음과 같이 해야한다.
 
 - 세 번째 쿼리
 
@@ -59,3 +59,5 @@ WHERE 1=1 AND TOURISM_YEAR = '2021'
   AND DEL_STS = 'N'
   AND (DISCRHASH NOT IN '123' OR DISCRHASH IS NULL)
 ```
+
+__쿼리 WHERE 조건에 NOT 연산(NOT IN, `<>`, `!=`)이 들어가는 경우 그 컬럼이 NOT NULL 제약 조건이 걸려있는지 꼭 확인해야 한다. 만약, NULL 허용 컬럼이라면 NULL 결과를 포함 시킬껀지, 아닌지의 여부에 따라 조건 쿼리가 달라진다.__
