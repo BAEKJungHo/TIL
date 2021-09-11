@@ -118,7 +118,7 @@ CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
 export JAVA_HOME PATH CLASSPATH
 ```
 
-환경 변수를 등록했다면 ssh 연결을 재시작하거나 `source /etc/profile` 명렁어를 입력해준다.
+환경 변수를 등록했다면 ssh 연결을 재시작하거나 `source /etc/profile` 명령어를 입력해준다.
 
 등록한 환경 변수가 제대로 적용되었는지 테스트한다.
 
