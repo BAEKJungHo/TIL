@@ -16,6 +16,19 @@
 
 > Ref. [TIL - Spring](https://github.com/BAEKJungHo/TIL/tree/master/Spring), [Tech-Interview-Study - Spring](https://github.com/BAEKJungHo/tech-interview-study/tree/main/Spring)
 
+### 디자인 패턴과 리팩토링 공부하기
+
+- [디자인 패턴](https://github.com/BAEKJungHo/designpattern/tree/master/DESIGNPATTERN)
+- [리팩토링](https://github.com/BAEKJungHo/designpattern/tree/master/REFACTORING)
+
+### 알고리즘과 자료구조 공부하기
+
+- [알고리즘 및 자료구조](https://github.com/BAEKJungHo/algorithms)
+
+### 클린 프로그래밍 공부하기
+
+- [클린 프로그래밍](https://github.com/BAEKJungHo/clean-programming)
+
 ## 프레임워크 등의 기술을 공부할 때
 
 1. 소개 페이지보면서 추구하는 철학이 어떤 것인지 확인
