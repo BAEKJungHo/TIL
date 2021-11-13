@@ -4,6 +4,16 @@
 
 ## Study GuideLine
 
+### 자바 공부하기
+
+- [Effective Java](https://github.com/BAEKJungHo/effectiveJava)
+- [The Java 8](https://github.com/BAEKJungHo/the-java-8)
+- [Modern Java In Action](https://github.com/BAEKJungHo/modern-java-in-action)
+- [자바 코드를 조작하는 다양한 방법](https://github.com/BAEKJungHo/the_java_manipulate_code)
+- [Java Network Programming](https://github.com/BAEKJungHo/java_network_programming)
+
+> Ref. [TIL - Java](https://github.com/BAEKJungHo/TIL/tree/master/Java)
+
 ### 스프링 공부하기
 
 - [HTTP 웹 기본 지식](https://github.com/BAEKJungHo/inflearn-http)
