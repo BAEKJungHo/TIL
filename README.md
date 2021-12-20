@@ -34,8 +34,8 @@
 
 ### 디자인 패턴과 리팩토링 공부하기
 
-- [디자인 패턴](https://github.com/BAEKJungHo/designpattern/tree/master/DESIGNPATTERN)
-- [리팩토링](https://github.com/BAEKJungHo/designpattern/tree/master/REFACTORING)
+- [디자인 패턴](https://github.com/BAEKJungHo/designpattern/tree/master/designpatterns)
+- [리팩토링](https://github.com/BAEKJungHo/designpattern/tree/master/refactorings)
 
 ### 알고리즘과 자료구조 공부하기
 
