@@ -70,3 +70,19 @@ Feature: 최단 경로 구하기
 - 규칙 9: 게터/세터/프로퍼티를 쓰지 않는다.
 
 > [Thoughtworks Anthology](https://github.com/BAEKJungHo/thoughtworks-anthology/blob/master/06.%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%83%9D%ED%99%9C%EC%B2%B4%EC%A1%B0.md)
+
+## 테스트 도구
+
+- __DatabaseCleanup__
+  - EntityManager 를 활용하여 @Entity 어노테이션을 활용하여 테이블을 조회
+  - 해당 테이블들을 Truncate 함
+  - 그리고 ID 자동 증가 숫자를 1로 복구 시킴
+
+> [Rest Assured](https://rest-assured.io/)
+>
+> [SpringBoot Application Test](https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/spring-boot-features.html#boot-features-testing-spring-boot-applications)
+>
+> [MockMvc vs RestAssured](https://tecoble.techcourse.co.kr/post/2020-08-19-rest-assured-vs-mock-mvc/)
+>
+> [JsonPath](https://github.com/json-path/JsonPath)
+
