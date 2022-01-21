@@ -107,3 +107,44 @@ void createLine() {
 >
 > [JsonPath](https://github.com/json-path/JsonPath)
 
+## Live Templates
+
+#### Settings/Preferences > Editor > Live Templates.
+
+#### 우측 Template Group 에서 other 하위에 새로운 Live Template 을 추가
+
+1. + 버튼 클릭 후 Live Template 선택
+2. Abbreviation(단축어)와 Description을 입력
+3. Template test 에 아래 코드를 복사
+4. Define > Java > Statement 선택
+5. 우측 Options에서 Reformat according to style 선택 (Shorten FQ names는 선택되어 있음)
+
+#### Template test - 파라미터 없는 케이스
+
+```java
+// when
+io.restassured.response.ExtractableResponse<io.restassured.response.Response> response = io.restassured.RestAssured
+        .given().log().all()
+        .when().$METHOD$("$URI$")
+        .then().log().all().extract();
+
+// then
+org.assertj.core.api.Assertions.assertThat(response.statusCode()).isEqualTo(org.springframework.http.HttpStatus.$STATUS$.value());
+```
+
+#### Template test - 파라미터 있는 케이스
+
+```java
+// when
+java.util.Map<String, String> params = new java.util.HashMap<>();
+io.restassured.response.ExtractableResponse<io.restassured.response.Response> response = io.restassured.RestAssured
+        .given().log().all()
+        .body(params)
+        .contentType(org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+        .when().$METHOD$("$URI$")
+        .then().log().all().extract();
+
+// then
+org.assertj.core.api.Assertions.assertThat(response.statusCode()).isEqualTo(org.springframework.http.HttpStatus.$STATUS$.value());
+```
+
