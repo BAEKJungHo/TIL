@@ -112,7 +112,7 @@ void createLine() {
 - Settings/Preferences > Editor > Live Templates.
 - 우측 Template Group 에서 other 하위에 새로운 Live Template 을 추가
 
-1. + 버튼 클릭 후 Live Template 선택
+1. 버튼 클릭 후 Live Template 선택
 2. Abbreviation(단축어)와 Description을 입력
 3. Template test 에 아래 코드를 복사
 4. Define > Java > Statement 선택
