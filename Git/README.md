@@ -1,4 +1,4 @@
-# ForkingWorkflow 방식으로 협업하기
+# Forking Workflow 방식으로 협업하기
 
 - __중앙 원격 리포지토리를 fork 한다.__
   - 중앙 원격 리포지토리의 브랜치 상태
