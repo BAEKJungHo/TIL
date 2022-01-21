@@ -147,3 +147,23 @@ io.restassured.response.ExtractableResponse<io.restassured.response.Response> re
 org.assertj.core.api.Assertions.assertThat(response.statusCode()).isEqualTo(org.springframework.http.HttpStatus.$STATUS$.value());
 ```
 
+## AcceptanceTest
+
+```java
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class AcceptanceTest {
+    @LocalServerPort
+    int port;
+
+    @Autowired
+    private DatabaseCleanup databaseCleanup;
+
+    @BeforeEach
+    public void setUp() {
+        RestAssured.port = port;
+        databaseCleanup.execute();
+    }
+}
+```
+
+다른 도메인에 대한 시나리오 기반으로 테스트 진행할 때, 위 클래스를 상속 받아서 사용
