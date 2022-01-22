@@ -16,9 +16,17 @@ public class UserService {
 
 위 처럼 사용하는게 좋을까 아니면, class 맨 위에 @Transcation 를 설정하고 각각 @Transcational(readOnly = true) 을 설정하는게 좋을까?
 
-나는 코드에 적힌 방식이 더 좋다고 생각한다.
+__벤더마다 다르게 가져가야 한다고 판단한다.__
 
 그 이유는 다음과 같다.
+
+MySQL 의 경우 @Transactional(readOnly = true) 이 설정되어있는 상태에서 CUD 를 호출하면 에러를 발생시키지만, H2 의 경우에는 그냥 커밋된다고 한다.
+
+> http://wonwoo.ml/index.php/post/839
+
+따라서 DB 벤더마다 다르게 가져가야 할 것 같다.
+
+## @Transactional(readOnly = true) 의 성능 향상
 
 스프링 부트에서 트랜젝션을 읽기 전용으로 설정할 수 있다.
 
