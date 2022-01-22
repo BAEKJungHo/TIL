@@ -37,7 +37,7 @@ public ResponseEntity<ExchangeRateCalculatingResponse> showReceivingMoney(
 
 ## Ajax Get Request : 데이터 2개 이상 보낼 때
 
-```java
+```javascript
 $.ajax({
     type: "GET",
     url: `/exchangeRates`,
