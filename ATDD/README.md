@@ -1,5 +1,9 @@
 # ATDD 
 
+![IMAGES](./images/atddcycle.png)
+
+![IMAGES](./images/tddcycle.png)
+
 ## 인수 테스트
 
 - __인수 테스트__
@@ -204,3 +208,16 @@ public class AcceptanceTest {
 - 테스트를 위한 서버에 요청을 보내기 위한 클라이언트 객체 설정
   - ex. MockMvc, RestAssured, WebTestClient
 - 테스트의 성격에 맞는 클라이언트를 선택해야 함
+
+# TDD
+
+단위 테스트는 특정 단위(테스트 대상)가 의도한대로 작동하는지 검증
+
+![IMAGES](./images/tdd.png)
+
+## 단위란?
+
+- 단위에 대한 정의는 하는 사람마다 다 다를 수 있음
+- 소프트웨어 시스템의 작은 부분에 초점을 맞춘 저수준이라는 개념
+- 다른 종류의 테스트보다 훨씬 빠르고 작음
+- 단일 메서드에서 전체 클래스에 이르기 까지 다양함
