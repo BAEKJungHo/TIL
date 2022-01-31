@@ -291,3 +291,122 @@ public class GraphTest {
     }
 }
 ```
+
+## Test Double
+
+- 테스트 목적으로 실제 객체 대신 사용되는 모든 종류의 척도 객체에 대한 일반 용어
+- 즉, 실제 (예 : 클래스, 모듈 또는 함수)를 가짜 버전으로 대체한다는 의미입니다.
+- 가짜 버전은 실제와 같은 것처럼 보이고 (동일한 메소드 호출에 대한 답변) 단위 테스트 시작시 스스로 정의한 미리 준비된 답변으로 답변합니다.
+- Test Double에는 종류가 여러가지가 있지만 대체 한다는 큰 의미에서는 같다고 할 수 있음
+
+![IMAGES](./images/testdouble.png)
+
+## Stubbing
+
+- 테스트 동안 호출이 되면 미리 지정된 답변으로 응답
+- 미리 프로그램된 것 외의 것에 대해서는 응답하지 않음
+
+![IMAGES](./images/stubbing.png)
+
+### Mockito 활용
+
+```java
+@DisplayName("단위 테스트 - mockito를 활용한 가짜 협력 객체 사용")
+public class MockitoTest {
+    @Test
+    void findAllLines() {
+        // given
+        LineRepository lineRepository = mock(LineRepository.class);
+        StationRepository stationRepository = mock(StationRepository.class);
+
+        when(lineRepository.findAll()).thenReturn(Lists.newArrayList(new Line()));
+        LineService lineService = new LineService(lineRepository, stationRepository);
+
+        // when
+        List<LineResponse> responses = lineService.findAllLines();
+
+        // then
+        assertThat(responses).hasSize(1);
+    }
+}
+```
+
+### MockitoExtension 활용
+
+```java
+@DisplayName("단위 테스트 - mockito의 MockitoExtension을 활용한 가짜 협력 객체 사용")
+@ExtendWith(MockitoExtension.class)
+public class MockitoExtensionTest {
+    @Mock
+    private LineRepository lineRepository;
+    @Mock
+    private StationRepository stationRepository;
+
+    @Test
+    void findAllLines() {
+        // given
+        when(lineRepository.findAll()).thenReturn(Lists.newArrayList(new Line()));
+        LineService lineService = new LineService(lineRepository, stationRepository);
+
+        // when
+        List<LineResponse> responses = lineService.findAllLines();
+
+        // then
+        assertThat(responses).hasSize(1);
+    }
+}
+```
+
+### Spring 을 활용한 Stubbing
+
+```java
+@DisplayName("단위 테스트 - SpringExtension을 활용한 가짜 협력 객체 사용")
+@ExtendWith(SpringExtension.class)
+public class SpringExtensionTest {
+    @MockBean
+    private LineRepository lineRepository;
+    @MockBean
+    private StationRepository stationRepository;
+
+    @Test
+    void findAllLines() {
+        // given
+        when(lineRepository.findAll()).thenReturn(Lists.newArrayList(new Line()));
+        LineService lineService = new LineService(lineRepository, stationRepository);
+
+        // when
+        List<LineResponse> responses = lineService.findAllLines();
+
+        // then
+        assertThat(responses).hasSize(1);
+    }
+}
+```
+
+### 협력 객체, 테스트 더블은 언제?
+
+> 원래 stub을 하려면 세부 구현에 의존할 수 밖에 없는 것인가요?
+
+- 네 맞습니다.
+- 테스트 더블을 사용 할 경우 테스트에서 협력 객체의 세부 구현을 알아야 합니다.
+- __테스트 대상이 협력 객체를 가질 때__
+  - 실제 객체를 사용 하면 협력 객체의 행위를 협력 객체 스스로가 정의
+  - 가짜 객체를 사용 하면 협력 객체의 행위를 테스트가 정의
+- __가짜 객체 특징__
+  - 가짜 객체를 사용 할 경우 테스트 대상을 검증할 때 외부 요인(협력 객체)으로 부터 철저히 격리
+  - 하지만 테스트가 협력 객체의 상세 구현을 알아야 함
+- __실제 객체 특징__
+  - 실제 객체를 사용 할 경우 협력 객체의 상세 구현에 대해서 알 필요가 없음
+  - 하지만 협력 객체의 정상 동작 여부에 영향을 받음
+- __테스트 코드를 작성 할 때__
+  - 가짜 객체를 활용하면 실제 객체를 사용할 때 보다 조금 더 편하게 테스트를 작성할 수 있음
+  - 하지만 상세 구현에 의존하는 테스트가 될 수 있음
+- __추천하는 방법__
+  - 우선 TDD 를 연습할 때 가급적이면 실제 객체를 활용하는 것을 우선으로 진행
+  - 테스트 작성이 어렵거나 흐름이 잘 이어지지 않는다면 테스트 더블을 활용하는 방법으로 접근하시는 것을 추천
+
+## References
+
+- https://joont92.github.io/tdd/상태검증과-행위검증-stub과-mock-차이/
+- https://martinfowler.com/articles/mocksArentStubs.html
+- https://medium.com/@adrianbooth/test-driven-development-wars-detroit-vs-london-classicist-vs-mockist-9956c78ae95f
