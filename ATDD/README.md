@@ -405,6 +405,94 @@ public class SpringExtensionTest {
   - 우선 TDD 를 연습할 때 가급적이면 실제 객체를 활용하는 것을 우선으로 진행
   - 테스트 작성이 어렵거나 흐름이 잘 이어지지 않는다면 테스트 더블을 활용하는 방법으로 접근하시는 것을 추천
 
+## 통합 테스트란?
+
+- 우리가 만드는 대부분의 애플리케이션은 데이터베이스, 파일 시스템, 외부 라이브러리 등과 같이 다른 애플리케이션과 통합되어 개발하는 경우가 많음
+- 적은 비용과 빠른 테스트를 위해 단위 테스트를 주로 사용하지만 실제로 상호 작용하는 내용에 대한 검증도 반드시 필요함
+- 예를 들면 데이터베이스와의 통합을 테스트하는 경우 테스트를 실행할 때 데이터베이스를 실행해야함
+
+![IMAGES](./images/itest.png)
+
+- __테스트 필요성__
+  - 외부 라이브러리 기능에 대해 검증 할 필요는 없음
+  - 단, 그 부분을 사용하는 부분에 대한 검증이 필요
+- __변경할 수 없는 코드 검증 시 실제 객체 사용__
+  - 외부 라이브러리 코드의 작동 원리를 깊이 있게 이해하기 쉽지 않음
+  - 목 객체의 행위와 실제 객체의 행위를 일치 시키기 쉽지 않을 수 있음
+
+```java
+@Test
+void findPath() {
+    // graphService에서 활용하는 Jgrpah라이브러리의 객체를 실제 객체로 사용한다.
+    List<Long> stationIds = graphService.findPath(
+            Lists.list(line1, line2), 
+            station3.getId(), 
+            station5.getId(), 
+            PathType.DISTANCE
+    );
+
+    assertThat(stationIds).hasSize(5);
+    assertThat(stationIds.get(0)).isEqualTo(3L);
+    assertThat(stationIds.get(1)).isEqualTo(2L);
+    assertThat(stationIds.get(2)).isEqualTo(1L);
+    assertThat(stationIds.get(3)).isEqualTo(4L);
+    assertThat(stationIds.get(4)).isEqualTo(5L);
+}
+```
+
+### 예시 - 데이터 베이스
+
+- 실제는 다른 DB를 사용하지만 테스트를 쉽게 실행할 수 있도록 테스트는 메모리 내 H2 데이터베이스에 연결
+- 결국 통합 테스트는 프로덕션 환경과 다른 유형의 데이터베이스에 대해 실행됨
+
+```java
+@DataJdbcTest
+public class StationRepositoryTest {
+    @Autowired
+    private StationRepository stationRepository;
+
+    @Test
+    void saveStation() {
+        String stationName = "강남역";
+        stationRepository.save(new Station(stationName));
+
+        assertThrows(DbActionExecutionException.class, () -> 
+            stationRepository.save(new Station(stationName))
+        );
+    }
+}
+```
+
+### 통합 테스트 vs 단위 테스트
+
+- 통합 테스트는 통합하고 있는 부분을 실제와 가까운 환경에서 검증하여 기능이 정상적으로 여부를 검증
+- 단위 테스트는 통합하고 있는 부분이 정상적으로 동작한다고 가정하고 단일 기능에 대해서만 검증
+
+## 학습 테스트 실습
+
+- 학습 테스트를 통해 단위 테스트 기능 익히기
+
+### UnitTest
+
+- 객체의 단위 테스트를 작성
+- 협력 객체를 사용한 단위 테스트를 작성
+
+### MockitoTest
+
+- mockito 를 활용하여 가짜 협력 객체를 사용한 단위 테스트 작성
+
+### MockitoExtensionTest
+
+- mockito 의 MockitoExtension 을 활용하여 가짜 협력 객체를 사용한 단위 테스트 작성
+
+### SpringExtensionTest
+
+- SpringExtension 을 활용하여 가짜 협력 객체를 사용한 단위 테스트 작성
+
+### JGraphTest
+
+= 경로 탐색을 위한 라이브러리 JGraph의 학습 테스트
+
 ## References
 
 - https://joont92.github.io/tdd/상태검증과-행위검증-stub과-mock-차이/
