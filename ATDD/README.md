@@ -221,3 +221,73 @@ public class AcceptanceTest {
 - 소프트웨어 시스템의 작은 부분에 초점을 맞춘 저수준이라는 개념
 - 다른 종류의 테스트보다 훨씬 빠르고 작음
 - 단일 메서드에서 전체 클래스에 이르기 까지 다양함
+
+```java
+@DisplayName("구간 추가")
+@Test
+void addSection() {
+    // given
+    Station 강남역 = new Station("강남역");
+    Station 잠실역 = new Station("잠실역");
+    Station 역삼역 = new Station("역삼역");
+    Line line = new Line("2호선", "green", 강남역, 잠실역, 10);
+
+    // when
+    line.addSection(잠실역, 역삼역, 5);
+
+    // then
+    assertThat(line.getStations()).containsExactlyElementsOf(Arrays.asList(강남역, 잠실역, 역삼역));
+}
+```
+
+## 통합과 고립(Sociable and Solitary)
+
+- 단위 테스트 작성 시 관계를 맺고있는 대상(협력 객체)이 있는 경우를 고려해야 함
+- 협력 객체를 실제 객체로 사용하는지 Mock(가짜) 객체로 사용하는지에 따라 테스트 구현이 달라짐
+
+> 통합 테스트의 통합(Integration)과는 다름
+> 단위의 정의를 논하기 앞서 테스트하는 단위가 통합(Sociable)되어야 하는지 고립(Solitary)되어야 하는지 먼저 고려해야 함
+
+![IMAGES](./images/sociable.png)
+
+### Sociable Unit Test
+
+```java
+public class GraphTest {
+    private Lines lines;
+    ...
+    @BeforeEach
+    void setUp() {
+        lines = new Lines(lines1, lines2, lines3);
+    }
+
+    @Test
+    public void findPath() {
+        Graph graph = new Graph(lines);
+        List<Station> result = graph.findPath(station1, station3);
+        assertThat(result.getStations().size).isEqualTo(3);
+    }
+}
+```
+
+### Solitary Unit Test (with Mock)
+
+```java
+public class GraphTest {
+    private Lines lines;
+    ...
+    @BeforeEach
+    void setUp() {
+        lines = mock(Lines.class);
+    }
+
+    @Test
+    public void findPath() {
+        when(lines.getStation()).thenReturn(expecedStations)
+        Graph graph = new Graph(lines);
+        List<Station> result = graph.findPath(station1, station3);
+        assertThat(result.getStations().size).isEqualTo(3);
+        verify(lines).findStation(station1.getId());
+    }
+}
+```
