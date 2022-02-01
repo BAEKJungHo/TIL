@@ -30,3 +30,13 @@
 - TDD 사이클을 이어나가기가 상대적으로 어려움
 - __도메인 설계를 먼저 해야함 → Line 을 만들고 → Line 에 대한 단위테스트를 만들고 → 그 기능을 구현__
 - `도메인 → 서비스 → 컨트롤러 순`
+
+## 테스트 코드 작성을 위해서, 기존에 Production Code 에서 필요 없던 생성자를 만든다 던지, 접근 제한자를 public 으로 바꿔주는 작업이 필요할까?
+
+- 테스트 코드 작성을 위해서 Production Code 에 변경이 가해진다면, 나중에 다른 사람이 내 코드를 유지보수할 때, 테스트 코드 작성을 위해 생성한 메서드, 필드 등을 오용할 수 있다.
+- `ReflectionUtils` 를 사용하여 리플렉션을 이용할 수 있다.
+
+```java
+private Station 서초역 = new Station("서초역");
+ReflectionTestUtils.setField(서초역, "id", 1L);
+```
