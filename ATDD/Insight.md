@@ -64,6 +64,19 @@ ReflectionTestUtils.setField(서초역, "id", 1L);
 > 
 > 우선 순위를 두자면 실제 객체를 사용해서 TDD 를 하고, 실제 객체로 TDD 가 어렵다면 MOCK 을 사용하는 방식을 추천. 하지만 절대적인것은 아니다. 상황에 따라 적절하게 선택해야 한다.
 
+## Cucumber
+
+- resources
+  - wooteco
+    - prolog
+      - ```java
+        @api
+        
+        Scenario : 
+         Given : 
+         ...
+        ```
+
 ## 피드백
 
 - LineService 테스트가 큰 로직이 없고 출력만 한다는 것은 도메인 내부에 주요 도메인 로직이 잘 응집되어서 그런 것 같아요 :)
