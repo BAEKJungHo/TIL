@@ -26,6 +26,15 @@
     - `Black Box Test` : 세부 구현에 영향을 받지 않게 구현하기 
     > 인수 테스트는 블랙 박스 테스트의 성격을 가지는게 좋다. 시스템 내부 코드를 가능한 직접 호출하지 말고 외부에서 요청하는 방식으로 검증하는 것을 추천
     
+```
+Feature : 테스트에 대상의 기능/책임을 명시한다.
+
+Scenario : 테스트 목적에 대한 상황을 설명한다.
+  Given : 시나리오 진행에 필요한 값을 설정한다.
+  When : 시나리오를 진행하는데 필요한 조건을 명시한다.
+  Then : 시나리오를 완료했을 때 보장해야 하는 결과를 명시한다.
+```
+    
 > [Acceptance Test Driven Development](https://mysoftwarequality.wordpress.com/2013/11/12/when-something-works-share-it/)  
 
 ## ATDD 란 ?
