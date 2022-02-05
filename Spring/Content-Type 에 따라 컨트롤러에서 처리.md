@@ -35,7 +35,7 @@ name=baek&age=29
 ```
 
 ```java
-// StringHttpMessageConverter (content-type: application/x-www-form-urlencoded)
+// StringHttpMessageConverter
 @PostMapping(value = "/add", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 public String postHandlerForFormRequest(Person person) { // @ModelAttribute 생략
   // 생략
@@ -53,7 +53,7 @@ Headers: 	Accept=application/json
 ```
 
 ```java
-// StringHttpMessageConverter (content-type: application/x-www-form-urlencoded)
+// StringHttpMessageConverter
 @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public ResponseEntity<PathResponse> findShortedPath(PathRequest pathRequest) {
     return ResponseEntity.ok().body(pathService.findShortestPath(pathRequest));
