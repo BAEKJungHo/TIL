@@ -26,7 +26,6 @@ name=baek&age=29
 }
 ```
 
-
 ## References
 
 - https://blog.naver.com/PostView.naver?blogId=writer0713&logNo=221853596497&redirect=Dlog&widgetTypeCall=true&directAccess=false
