@@ -310,6 +310,12 @@ public class GraphTest {
 
 ![IMAGES](./images/testdouble.png)
 
+```java
+when(stationService.findStationById(1L)).thenReturn(교대역);
+when(stationService.findStationById(2L)).thenReturn(역삼역);
+when(lineRepository.findById(1L)).thenReturn(Optional.of(이호선));
+```
+
 ## Stubbing
 
 - 테스트 동안 호출이 되면 미리 지정된 답변으로 응답
