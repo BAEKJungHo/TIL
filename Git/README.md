@@ -61,4 +61,5 @@ PR에서 충돌이 발생하는데 어떻게 해결하면 좋을까요?
 
 ## References
 
+- [Git rebase](https://junwoo45.github.io/2019-10-23-rebase/)
 - https://github.com/next-step/nextstep-docs/blob/master/codereview/review-step3.md
