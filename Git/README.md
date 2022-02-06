@@ -1,3 +1,17 @@
+# GitHub Process
+
+![githubprocess](https://user-images.githubusercontent.com/47518272/152691360-4b6aa8de-a63b-4e80-a48b-f613d08b6d9f.JPG)
+
+- __Working Directory : `USER`__
+  - 내가 작업하려는 PC 내의 디렉터리
+- __Staging Area : `INDEX`__
+  - git commit 하기 전에 저장되는 git 의 공간
+  - 커밋 예정인 파일, 디렉터리들이 모여있는 공간
+- __Local Repository : `HEAD`__
+  - 내 PC 에 파일이 저장되는 개인용 저장소
+- __Remote Repository : `GITHUB`__
+  - 깃허브(원격 저장소)
+
 # Forking Workflow 방식으로 협업하기
 
 - __중앙 원격 리포지토리를 fork 한다.__
