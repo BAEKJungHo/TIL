@@ -64,6 +64,9 @@ PR에서 충돌이 발생하는데 어떻게 해결하면 좋을까요?
 
 - fetch 는 원격 저장소에 있는 브랜치 내용을 Local Repository 로 가져오는 것을 의미한다.
 - 원격 저장소에서 가져온  커밋들을 base 라고 하는데, 작업을 하고 PR 을 날린 상태에서 다른 사람의 작업물이 먼저 merge 되었다면 base 가 달라져서 이것을 맞추는 동기화 작업을 해야한다. 이것을 rebase 라고 한다.
+- rebase : base 를 갱신하다
+  - base : 각 저장소(원격 저장소, fork 한 내 저장소, clone 한 내 Local Repository)에 있는 `커밋 해시값들의 묶음` 이라고 생각하면 된다.
+  - push 는 base 가 같아야만 할 수있다.
 
 ## References
 
