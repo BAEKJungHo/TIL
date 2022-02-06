@@ -137,7 +137,10 @@ commitB
 
 ## merge vs rebase
 
-- merge 를 할 경우에는 새로운 merge commmit 이 생기지만 rebas e는 merge commit 처럼 남는 커밋이 생기지 않는다.
+- merge 를 할 경우에는 새로운 merge commmit 이 생기지만 rebase 는 merge commit 처럼 남는 커밋이 생기지 않는다.
+- 따라서 커밋 히스토리를 깔끔하게 가져가려면 rebase 를 하는 것이 개인적으로 좋은 것 같다.
+
+![mergecommit](https://user-images.githubusercontent.com/47518272/152691143-accb406e-cf99-4452-894d-62c3288b71bf.png)
 
 ## References
 
