@@ -59,6 +59,11 @@ PR에서 충돌이 발생하는데 어떻게 해결하면 좋을까요?
 - git merge 본인_아이디(예: git merge jungho)
 - 위 명령을 실행하면 충돌이 발생할 것이다. 충돌을 해결한 후 add, commit, push를 진행하면 PR 충돌이 해결되어 리뷰 요청을 할 수 있다.
 
+## fetch / rebase
+
+- fetch 는 원격 저장소에 있는 브랜치 내용을 Local Repository 로 가져오는 것을 의미한다.
+- 원격 저장소에서 가져온  커밋들을 base 라고 하는데, 작업을 하고 PR 을 날린 상태에서 다른 사람의 작업물이 먼저 merge 되었다면 base 가 달라져서 이것을 맞추는 동기화 작업을 해야한다. 이것을 rebase 라고 한다.
+
 ## References
 
 - [Git rebase](https://junwoo45.github.io/2019-10-23-rebase/)
