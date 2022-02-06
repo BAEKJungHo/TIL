@@ -20,6 +20,7 @@
 - __중앙 원격 리포지토리에서 MERGE 된 이후__
 - __기존에 작업했던 브랜치를 삭제한다.__
   - 터미널 : `git checkout 본인_아이디`
+    - `git fetch <remote>`
     - Ex. git branch -D 삭제할_브랜치이름
 - __중앙 저장소와 동기화를 위해 중앙 저장소 추가__
   - git remote add 명령은 최초 1회만 진행
