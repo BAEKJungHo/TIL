@@ -68,7 +68,79 @@ PR에서 충돌이 발생하는데 어떻게 해결하면 좋을까요?
   - base : 각 저장소(원격 저장소, fork 한 내 저장소, clone 한 내 Local Repository)에 있는 `커밋 해시값들의 묶음` 이라고 생각하면 된다.
   - push 는 base 가 같아야만 할 수있다.
 
+### 초기 상태
+
+```java
+// feature branch 는 release branch 가 commitX 일때 만들어진 브랜치
+<release branch> <your feature branch>
+commitX              commitX
+commitY              commitA
+commitZ              commitB
+```
+
+- 현재 release branch 는 다른 사람의 코드가 merge 된 상태여서 commitY, commitZ 가 추가되었다.
+- 즉, `base 가 달라졌다.`
+- 따라서 release branch 에 내 코드를 반영하기 위해서는 base 를 맞춰줘야 한다.
+
+### STEP1
+
+- 명령어를 입력하는 순간 Feature 브랜치의 루트 커밋(commitA)은 Release 브랜치의 가장 최근 커밋(commitZ)을 가리키게 된다.
+- 이렇게 Feature 브랜치는 기존의 commitA 와 commitB 를 버리고(실제로 버리진않고 이걸 활용하긴 함) commitX, commitY, commitZ 를 가지게 된다.
+
+```java
+// STEP1
+commitX
+commitY
+commitZ
+```
+
+### STEP2
+
+- 이제 깃은 commitA 를 commitZ 뒤에 추가하려고 하는데, 이말은 즉 commitA 의 부모커밋이 commitX 에서 commitZ 로 변경이 된다는 말이다.
+- 부모커밋이 변경됬으니 새로만들 commitA 의 해쉬값이 변경된다.
+- 이 말은 즉, 새로운 커밋이 생성된다는 말이며, `커밋 메시지는 같다.` 부모의 해쉬값이 달라졌기때문에 당연히 commitA 의 해쉬값도 달라지게 된다.
+- 만약 여기서 아무런 내용 충돌이 없다면 바로 commitZ 뒤에 commitA 를 추가하게 된다. 
+- 이때 가장 중요한것은 지금의 commitA 의 해쉬값과 rebase 를 진행하기 전의 commitA 의 해쉬값은 다르다.
+- 또한 위와 다르게 충돌이 발생한다면, 깃이 저희에게 이러한 내용을 알려줄것이고 저희는 이것을 직접 수동으로 충돌난 내용을 해결해야한다.
+- 충돌을 해결하고 나면 아래의 명령어를 통해서 rebase 를 계속 해 나간다.
+- 아래의 git add를 하게되면 staging 영역에 수정한 파일이 올라가게되고 git은 이 내용을 가지고 리베이스를 계속 진행하게 됩니다.
+  - `git add fixedfile` : 충돌 난 파일을 add 해줌 
+  - `git rebase --continue`
+
+```java
+// STEP2
+commitX
+commitY
+commitZ
+commitA
+```
+
+### STEP3
+
+- STEP2 와 동일한 작업을 거친다.
+
+```java
+// STEP2
+commitX
+commitY
+commitZ
+commitA
+commitB
+```
+
+커밋로그는 실제로 일자로 정렬이 된다.
+
+![rebase](https://user-images.githubusercontent.com/47518272/152691012-5210125d-a0ec-4524-8201-a8668a8a5dbf.png)
+
+이때 주의해서 볼것이 feature1 커밋(63e63b5)과 feature2 커밋(e81df68)인데, rebase 하기전의 이 커밋들의 값은 분명히 e261561 과 9dc8d0b 였다. 
+하지만 이 커밋은 parent commit 이 initial commit 일때의 해쉬값이며 rebase 진행후에는 Release3 을 parent commit 으로 rebase 를 진행했으므로 commitA 의 해쉬값이 바뀌었고 commitA 의 해쉬값이 바뀌었으니 당연히 commitB 의 입장에선 부모(commitA)의 해쉬값이 바뀌었으니 자신의 해쉬값도 바뀌게 된다.
+
+## merge vs rebase
+
+- merge 를 할 경우에는 새로운 merge commmit 이 생기지만 rebas e는 merge commit 처럼 남는 커밋이 생기지 않는다.
+
 ## References
 
 - [Git rebase](https://junwoo45.github.io/2019-10-23-rebase/)
+- https://godtaehee.tistory.com/24
 - https://github.com/next-step/nextstep-docs/blob/master/codereview/review-step3.md
