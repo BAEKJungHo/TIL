@@ -31,6 +31,8 @@
 - __중앙 저장소에서 자기 브랜치 가져오기(갱신하기)__
   - `git fetch upstream {본인_아이디}`
     - Ex. git fetch upstream jungho
+    - ![head](https://user-images.githubusercontent.com/47518272/152691302-8d78dac8-cca6-41d6-87ea-4d5d77d49f75.png)
+    - HEAD(Local Repository) 에 지금 내 이름으로된 branch 와 원격 저장소에 있는 내 브랜치 2개가 존재하는 것이다.
   - fetch 이후 `git branch -a` 로 확인하면 `remotes/upstream/baekjungho` 와 같은 브랜치가 생성된 것을 확인할 수 있다.
 - __중앙 저장소와 동기화__
   - 현재 상태는 중앙 저장소 브랜치를 가져오기는 했지만 아직까지 로컬 저장소에 최신 버전의 코드가 반영된 것은 아니다.
@@ -64,7 +66,7 @@ PR에서 충돌이 발생하는데 어떻게 해결하면 좋을까요?
 
 - fetch 는 원격 저장소에 있는 브랜치 내용을 Local Repository 로 가져오는 것을 의미한다.
 - 원격 저장소에서 가져온  커밋들을 base 라고 하는데, 작업을 하고 PR 을 날린 상태에서 다른 사람의 작업물이 먼저 merge 되었다면 base 가 달라져서 이것을 맞추는 동기화 작업을 해야한다. 이것을 rebase 라고 한다.
-- rebase : base 를 갱신하다
+- rebase : `base 를 갱신하다`
   - base : 각 저장소(원격 저장소, fork 한 내 저장소, clone 한 내 Local Repository)에 있는 `커밋 해시값들의 묶음` 이라고 생각하면 된다.
   - push 는 base 가 같아야만 할 수있다.
 
