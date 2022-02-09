@@ -39,7 +39,7 @@ Suggested change
 newLine.sections.addFirst(Section.of(newLine, upStation, downStation, distance));
 만약에, 현구님이 피드백 주신 것처럼 리팩토링을 하게되면, Line 엔티티 생성 규칙(노선과 첫 구간 등록)을 DTO 에서 담당하기 때문에
 
-`엔티티 생성 규칙이 DTO 에 의존` 한다고 생각이 드는데요,,
+__엔티티 생성 규칙이 DTO 에 의존 한다고 생각이 드는데요__
 
 현구님 리뷰를 참고해서, Line.of 에 같은 타입의 객체를 넘기는 것 말고, 아래와 같이 리팩토링 하는 것에 대해서는 어떻게 생각하시나요?
 
