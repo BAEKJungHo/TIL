@@ -4,6 +4,8 @@
 
 ![IMAGES](./images/tddcycle.png)
 
+![atddcycle2](https://user-images.githubusercontent.com/47518272/153404870-e048b9aa-8642-45e5-82af-000f11890169.png)
+
 ## 인수 테스트
 
 - __인수 테스트__
