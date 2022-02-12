@@ -110,7 +110,7 @@ thread.setPriority(Thread.MIN_PRIORITY);
 
 > 출처 : https://gompangs.tistory.com/entry/JAVA-ExecutorService-%EA%B4%80%EB%A0%A8-%EA%B3%B5%EB%B6%80
 
-여기서 Customer라는건 Application에서 해당 ExecutorService를 사용하는 클래스 정도로 해석하면 될 것 같고, 해당 클래스에서 ExecutorService 에 작업을 submit 을 하게 되면, ExecutorService 내부에서 해당 작업을 내부적으로 스케쥴링 하면서 적절하게 일을 처리한다.
+여기서 Customer 라는건 Application 에서 해당 ExecutorService 를 사용하는 클래스 정도로 해석하면 될 것 같고, 해당 클래스에서 ExecutorService 에 작업을 submit 을 하게 되면, ExecutorService 내부에서 해당 작업을 내부적으로 스케쥴링 하면서 적절하게 일을 처리한다.
 
 ## Callable 
 
@@ -136,7 +136,7 @@ public interface Callable<V> {
 
 > Ex. 단골 세탁소에 한 무더기의 옷을 드라이클리닝 서비스를 맡기는 동작에 비유할 수 있다. 세작소 주인은 드라이클리닝이 언제 끝날지 적힌 `영수증(Future)`를 줄 것이며, 드라이니클리닝이 진행되는 동안 우리들은 다른 일을 할 수 있다.
 
-Future 를 사용하려면 시간이 오래 걸리는 작업ㅇ르 `Callable` 객체 내부로 감싼 다음에 `ExecutorService` 에 제출해야 한다.
+Future 를 사용하려면 시간이 오래 걸리는 작업을 `Callable` 객체 내부로 감싼 다음에 `ExecutorService` 에 제출해야 한다.
 
 ### 자바 8 이전의 코드
 
@@ -167,15 +167,15 @@ try {
 
 이 시나리오의 문제는 오래 걸리는 작업이 영원히 끝나지 않으면 문제가 생길 수 있다는 것이다. 따라서, get 메서드를 오버로드해서 우리 스레드가 대기할 최대 타임아웃 시간을 정하는 것이 좋다.
 
-Future 는 기본적으로 isDone, isCanceled 와 같은 기본사항 체크를 할 수 있는 메서드를 제공한다. 하지만 이들로는 충분치 않다. 예를들어, 각기 다른 실행시간을 가지는 Future 들을 조합해서 계산을 한다든지 다른 질의의 결과와 같이 계산을 한다든지 하는 복잡한 (현실세계의 문제를 해결하는데 꼭 필요한) 로직을 다루기 힘들다. 또한 Future 는 체이닝이 불가능하다.
+### Future 의 단점
+
+Future 인터페이스는 java5부터 java.util.concurrency 패키지에서 비동기의 결과값을 받는 용도로 사용했다. 하지만 `비동기의 결과값을 조합`하거나, `error 핸들링`을 할 수가 없었다.
 
 이러한 단점을 개선하고자 Java 8 에서 CompletableFuture 가 등장했다.
 
 ## CompletableFuture
 
-- CompletableFuture is an extension to Java’s Future API which was introduced in Java.
-- CompletableFuture는 `Future` 및 `CompletionStage` 인터페이스를 구현하고 여러 Future를 생성, 연결 및 결합하기 위한 다양한 편의 메서드를 제공한다.
-- Completable 이라는 네이밍에서 알 수 있듯이 완료될 수 있는 Future 라고 생각하면된다.
+CompletableFuture 는 Future 인터페이스를 구현함과 동시에 CompletionStage 인터페이스를 구현한다. `CompletionStage` 는 비동기 연산 Step 을 제공해서 계속 `체이닝(Chaining)` 형태로 조합이 가능하다.
 
 ```java
 public Future<Double> getPriceAsync(String product) {
