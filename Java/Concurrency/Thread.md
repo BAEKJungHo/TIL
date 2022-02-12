@@ -103,6 +103,14 @@ thread.setPriority(Thread.NORM_PRIORITY);
 thread.setPriority(Thread.MIN_PRIORITY);
 ```
 
+## ExecutorService
+
+![executorservice](https://user-images.githubusercontent.com/47518272/153707952-8c1279ab-579c-4d71-8119-0502f14e5ba7.jpg)
+
+> 출처 : https://gompangs.tistory.com/entry/JAVA-ExecutorService-%EA%B4%80%EB%A0%A8-%EA%B3%B5%EB%B6%80
+
+여기서 Customer라는건 Application에서 해당 ExecutorService를 사용하는 클래스 정도로 해석하면 될 것 같고, 해당 클래스에서 ExecutorService 에 작업을 submit 을 하게 되면, ExecutorService 내부에서 해당 작업을 내부적으로 스케쥴링 하면서 적절하게 일을 처리한다.
+
 ## Callable 
 
 Callable 은 Runnable 의 단점을 보완하기 위해서 만들어졌다.
@@ -157,6 +165,13 @@ try {
 ![executor](https://user-images.githubusercontent.com/47518272/153706901-a2e3b001-ff66-4806-94aa-4f235d2ade2b.png)
 
 이 시나리오의 문제는 오래 걸리는 작업이 영원히 끝나지 않으면 문제가 생길 수 있다는 것이다. 따라서, get 메서드를 오버로드해서 우리 스레드가 대기할 최대 타임아웃 시간을 정하는 것이 좋다.
+
+## CompletableFuture
+
+- CompletableFuture is an extension to Java’s Future API which was introduced in Java.
+- CompletableFuture는 `Future` 및 `CompletionStage` 인터페이스를 구현하고 여러 Future를 생성, 연결 및 결합하기 위한 다양한 편의 메서드를 제공한다.
+
+> [Future vs CompletableFuture](https://www.linkedin.com/pulse/java-8-future-vs-completablefuture-saral-saxena)
 
 ## 동기 API vs 비동기 API
 
