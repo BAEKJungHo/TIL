@@ -7,6 +7,7 @@ Thread 를 배우기 전에, Process 와 Thread 의 개념에 대해서 아래�
 - [OS : Process and Thread](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md)
     - [동시성 이슈 : 공유 객체를 사용할 때의 주의점](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%9D%B4%EC%8A%88)
     - [ThreadLocal](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#threadlocal)
+- [Scheduling Algorithms](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/CPU%20%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81.md#%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 
 ## Thread 란?
 
@@ -115,7 +116,7 @@ public interface Runnable {
 run() 메소드는 결과 값을 리턴하지 않기 때문에, run() 메소드의 실행 결과를 구하기 위해서는 공용 메모리나 파이프와 같은 것들을 사용해서 결과 값을 받아야만 했다. 이런 Runnable 인터페이스의 단점을 없애기 위해 추가된 것이 바로 Callable 인터페이스이다.
 
 ```java
-public Interface Callable<V> {
+public interface Callable<V> {
     V call() throws Exception
 }
 ```
@@ -156,6 +157,16 @@ try {
 ![executor](https://user-images.githubusercontent.com/47518272/153706901-a2e3b001-ff66-4806-94aa-4f235d2ade2b.png)
 
 이 시나리오의 문제는 오래 걸리는 작업이 영원히 끝나지 않으면 문제가 생길 수 있다는 것이다. 따라서, get 메서드를 오버로드해서 우리 스레드가 대기할 최대 타임아웃 시간을 정하는 것이 좋다.
+
+## 동기 API vs 비동기 API
+
+- __동기 API__
+    - 동기 API 에서는 메서드를 호출한 다음 메서드가 계산을 완료할 때까지 기다렸다가 메서드가 반환되면 호출자는 반환된 값으로 계속 다른 동작을 수행한다. 
+이처럼 호출자는 피호출자의 `작업 완료`를 기다리며, 동기 API 를 사용하는 상황을 `블록 호출(blocking call)`이라고 한다.
+- __비동기 API__
+    - 비동기 API 에서는 메서드가 즉시 반환되며 끝내지 못한 나머지 작업을 호출자 스레드와 동기적으로 실행될 수 있도록 다른 스레드에 할당한다. 이와 같은 비동기 API 를 사용하는 상황을 `비블록 호출(non-blocking call)` 이라고 한다.
+
+> [동기 vs 비동기, 블로킹 vs 논블로킹](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%EB%8F%99%EA%B8%B0_%EB%B9%84%EB%8F%99%EA%B8%B0_%EB%B8%94%EB%A1%9C%ED%82%B9_%EB%85%BC%EB%B8%94%EB%A1%9C%ED%82%B9.md)
 
 ## References
 
