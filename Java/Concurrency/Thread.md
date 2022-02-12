@@ -2,7 +2,11 @@
 
 Thread 를 배우기 전에, Process 와 Thread 의 개념에 대해서 아래의 링크를 통해서 먼저 공부하고 오면 좋다. 왜냐하면 이번 글에서는 프로세스, 쓰레드, 멀티 프로세스, 멀티 쓰레드에 대한 개념을 숙지했다고 가정하고 설명할 것이기 때문이다.
 
-[OS : Process and Thread](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md)
+> Thread 면접 포인트는 아래 포스팅 안에서 많이 나오지 않을까 생각한다.
+
+- [OS : Process and Thread](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md)
+    - [동시성 이슈 : 공유 객체를 사용할 때의 주의점](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%9D%B4%EC%8A%88)
+    - [ThreadLocal](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#threadlocal)
 
 ## Thread 란?
 
@@ -97,16 +101,6 @@ thread.setPriority(Thread.MAX_PRIORITY);
 thread.setPriority(Thread.NORM_PRIORITY);
 thread.setPriority(Thread.MIN_PRIORITY);
 ```
-
-## 공유 객체를 사용할 때의 주의점
-
-공유 객체를 사용할 때에 동시성 이슈가 발생할 수 있다.
-
-[동시성 이슈](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%9D%B4%EC%8A%88) 해당 글에 자세히 설명 되어있다.
-
-## ThreadLocal
-
-[ThreadLocal](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#threadlocal) 글을 참고 하도록 하자.
 
 ## Callable 
 
