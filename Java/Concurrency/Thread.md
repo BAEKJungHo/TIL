@@ -2,12 +2,13 @@
 
 Thread 를 배우기 전에, Process 와 Thread 의 개념에 대해서 아래의 링크를 통해서 먼저 공부하고 오면 좋다. 왜냐하면 이번 글에서는 프로세스, 쓰레드, 멀티 프로세스, 멀티 쓰레드에 대한 개념을 숙지했다고 가정하고 설명할 것이기 때문이다.
 
-> Thread 면접 포인트는 아래 포스팅 안에서 많이 나오지 않을까 생각한다.
+> Thread 면접 포인트는 아래 링크 안에서 많이 나오지 않을까 생각한다. 만약에, 회사에서 Thread 를 직접 생성해서 비동기로 처리해야할 일이 있다고하면, `모던 자바 인 액션` 책을 사서 보는 것을 추천한다.
 
 - [OS : Process and Thread](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md)
     - [동시성 이슈 : 공유 객체를 사용할 때의 주의점](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%9D%B4%EC%8A%88)
     - [ThreadLocal](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#threadlocal)
 - [Scheduling Algorithms](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/CPU%20%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81.md#%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+- [동기 vs 비동기, 블로킹 vs 논블로킹](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%EB%8F%99%EA%B8%B0_%EB%B9%84%EB%8F%99%EA%B8%B0_%EB%B8%94%EB%A1%9C%ED%82%B9_%EB%85%BC%EB%B8%94%EB%A1%9C%ED%82%B9.md)
 
 ## Thread 란?
 
@@ -222,8 +223,6 @@ System.out.println("Price returned after " + retrievalTime + " msecs");
 이처럼 호출자는 피호출자의 `작업 완료`를 기다리며, 동기 API 를 사용하는 상황을 `블록 호출(blocking call)`이라고 한다.
 - __비동기 API__
     - 비동기 API 에서는 메서드가 즉시 반환되며 끝내지 못한 나머지 작업을 호출자 스레드와 동기적으로 실행될 수 있도록 다른 스레드에 할당한다. 이와 같은 비동기 API 를 사용하는 상황을 `비블록 호출(non-blocking call)` 이라고 한다.
-
-> [동기 vs 비동기, 블로킹 vs 논블로킹](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%EB%8F%99%EA%B8%B0_%EB%B9%84%EB%8F%99%EA%B8%B0_%EB%B8%94%EB%A1%9C%ED%82%B9_%EB%85%BC%EB%B8%94%EB%A1%9C%ED%82%B9.md)
 
 ## References
 
