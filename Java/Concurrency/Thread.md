@@ -166,10 +166,52 @@ try {
 
 이 시나리오의 문제는 오래 걸리는 작업이 영원히 끝나지 않으면 문제가 생길 수 있다는 것이다. 따라서, get 메서드를 오버로드해서 우리 스레드가 대기할 최대 타임아웃 시간을 정하는 것이 좋다.
 
+Future 는 기본적으로 isDone, isCanceled 와 같은 기본사항 체크를 할 수 있는 메서드를 제공한다. 하지만 이들로는 충분치 않다. 예를들어, 각기 다른 실행시간을 가지는 Future 들을 조합해서 계산을 한다든지 다른 질의의 결과와 같이 계산을 한다든지 하는 복잡한 (현실세계의 문제를 해결하는데 꼭 필요한) 로직을 다루기 힘들다. 또한 Future 는 체이닝이 불가능하다.
+
+이러한 단점을 개선하고자 Java 8 에서 CompletableFuture 가 등장했다.
+
 ## CompletableFuture
 
 - CompletableFuture is an extension to Java’s Future API which was introduced in Java.
 - CompletableFuture는 `Future` 및 `CompletionStage` 인터페이스를 구현하고 여러 Future를 생성, 연결 및 결합하기 위한 다양한 편의 메서드를 제공한다.
+- Completable 이라는 네이밍에서 알 수 있듯이 완료될 수 있는 Future 라고 생각하면된다.
+
+```java
+public Future<Double> getPriceAsync(String product) {
+    // 계산 결과를 포함할 CompletableFuture 를 생성한다.
+    CompletableFuture<Double> futurePrice = new CompletableFuture<>();
+    new Thread(() -> {
+        double price = calcaulatePrice(amount); // 다른 스레드에서 비동기적으로 계산을 수행한다.
+        futurePrice.complete(price); // 오랜 시간이 걸리는 계산이 완료되면 Future 에 값을 설정한다.
+    }).start();
+    return futurePrice; // 계산 결과가 완료되길 기다리지 않고 Future 를 반환한다.
+}
+```
+
+해당 메서드를 사용하는 코드는 다음과 같다.
+
+```java
+Shop shop = new Shop("BestShop");
+long start = System.nanoTime();
+Future<Double> futurePrice = shop.getPriceAsync("my favorite product"); // 상점에 제품 가격 요청
+long invocationTime = ((System.nanoTime() - start) / 1_000_000); 
+System.out.println("Invocation returned after " + invocationTime + " msecs");
+
+// 제품의 가격을 계산하는 동안 다른 상점 검색 등 다른 작업 수행
+doSomethingElse();
+
+try {
+    double price = futurePrice.get(); // 가격 정보가 있으면 Future 에서 가격 정보를 일고, 가격 정보가 없으면 가격 정보를 받을 때 까지 블록한다.
+    System.out.println("Price is %.2f%n", price);
+} catch (Exception e) {
+    throw new RuntimeExceptione(e);
+}
+long retrievalTime = ((System.nanoTime() - start) / 1_000_000);
+System.out.println("Price returned after " + retrievalTime + " msecs");
+```
+
+상점은 비동기 API 를 제공하므로 즉시 `Future`를 반환한다. 클라이언트는 반환된 Future 를 이용하여 나중에 결과를 얻을 수 있다. 그 사이 클라이언트는 다른 상점에 가격 정보를 요청하는 등
+첫 번째 상점의 결과를 기다리면서 대기하지 않고 다른 작업을 처리할 수 있다.
 
 > [Future vs CompletableFuture](https://www.linkedin.com/pulse/java-8-future-vs-completablefuture-saral-saxena)
 
@@ -191,3 +233,4 @@ try {
 - https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism
 - https://stackoverflow.com/questions/34689709/java-threads-and-number-of-cores/34689857#34689857
 - https://javacan.tistory.com/entry/134
+- https://pjh3749.tistory.com/280
