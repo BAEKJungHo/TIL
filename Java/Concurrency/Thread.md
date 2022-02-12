@@ -108,6 +108,24 @@ thread.setPriority(Thread.MIN_PRIORITY);
 
 [ThreadLocal](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#threadlocal) 글을 참고 하도록 하자.
 
+## Callable 
+
+Callable 은 Runnable 의 단점을 보완하기 위해서 만들어졌다.
+
+```java
+public interface Runnable {
+    public void run();
+}
+```
+
+run() 메소드는 결과 값을 리턴하지 않기 때문에, run() 메소드의 실행 결과를 구하기 위해서는 공용 메모리나 파이프와 같은 것들을 사용해서 결과 값을 받아야만 했다. 이런 Runnable 인터페이스의 단점을 없애기 위해 추가된 것이 바로 Callable 인터페이스이다.
+
+```java
+public Interface Callable<V> {
+    V call() throws Exception
+}
+```
+
 ## Future
 
 자바 5부터 미래의 어느 시점에 결과를 얻는 모델로 `Future` 인터페이스를 제공하고 있다. 비동기 계산을 모델링하는데 주로 사용되며, 시간이 걸릴 수 있는 작업을 Future 내부로 설정하면된다.
@@ -148,6 +166,8 @@ try {
 ## References
 
 - [이것이 자바다](http://www.yes24.com/Product/Goods/15651484)
+- [Modern Java In Action](http://www.yes24.com/Product/Goods/77125987?pid=123487&cosemkid=go15646485055614872&gclid=Cj0KCQiA0p2QBhDvARIsAACSOONw97-MO96DgAzl2A1bNi53QOCFceL8n6E2VRdPnxDE-U0Q-vD6Lj4aAggPEALw_wcB)
 - https://www.eginnovations.com/blog/java-threads/
 - https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism
 - https://stackoverflow.com/questions/34689709/java-threads-and-number-of-cores/34689857#34689857
+- https://javacan.tistory.com/entry/134
