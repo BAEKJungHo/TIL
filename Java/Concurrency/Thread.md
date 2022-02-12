@@ -108,6 +108,43 @@ thread.setPriority(Thread.MIN_PRIORITY);
 
 [ThreadLocal](https://github.com/NKLCWDT/cs/blob/main/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md#threadlocal) 글을 참고 하도록 하자.
 
+## Future
+
+자바 5부터 미래의 어느 시점에 결과를 얻는 모델로 `Future` 인터페이스를 제공하고 있다. 비동기 계산을 모델링하는데 주로 사용되며, 시간이 걸릴 수 있는 작업을 Future 내부로 설정하면된다.
+
+> Ex. 단골 세탁소에 한 무더기의 옷을 드라이클리닝 서비스를 맡기는 동작에 비유할 수 있다. 세작소 주인은 드라이클리닝이 언제 끝날지 적힌 `영수증(Future)`를 줄 것이며, 드라이니클리닝이 진행되는 동안 우리들은 다른 일을 할 수 있다.
+
+Future 를 사용하려면 시간이 오래 걸리는 작업ㅇ르 `Callable` 객체 내부로 감싼 다음에 `ExecutorService` 에 제출해야 한다.
+
+### 자바 8 이전의 코드
+
+```java
+// ThreadPool 에 task 를 제출하려면 ExecutorService 를 만들어야 한다.
+// Callable 을 ExecutorService 에 제출한다.
+ExecutorService executor = Executors.newCachedThreadPool();
+Future<Double> future = executor.submit((Callable<Double>) () -> {
+    return doSomeLongComputation(); // 시간이 오래 걸리는 작업은 다른 스레드에서 비동기적으로 실행한다.
+});
+
+doSomethingElse(); // 비동기 작업을 수행하는 동안 다른 작업 수행
+
+try {
+    // 비동기 작업의 결과를 가져온다. 결과가 준비되어 있지 않으면 호출 스레드(doSomethingElse())가 블록된다. 
+    // 하지만 최대 1초까지만 기다린다.
+    Double result = future.get(1, TimeUnit.SECONDS); 
+} catch (ExecutionException e) {
+    // 계산 중 예외 발생
+} catch (InterruptedException e) {
+    // 현재 스레드에서 대기 중 인터럽트 발생
+} catch (TimeoutException e) {
+    // Future 가 완료되기 전에 타임아웃 발생
+}
+```
+
+![executor](https://user-images.githubusercontent.com/47518272/153706901-a2e3b001-ff66-4806-94aa-4f235d2ade2b.png)
+
+이 시나리오의 문제는 오래 걸리는 작업이 영원히 끝나지 않으면 문제가 생길 수 있다는 것이다. 따라서, get 메서드를 오버로드해서 우리 스레드가 대기할 최대 타임아웃 시간을 정하는 것이 좋다.
+
 ## References
 
 - [이것이 자바다](http://www.yes24.com/Product/Goods/15651484)
