@@ -224,6 +224,65 @@ System.out.println("Price returned after " + retrievalTime + " msecs");
 - __비동기 API__
     - 비동기 API 에서는 메서드가 즉시 반환되며 끝내지 못한 나머지 작업을 호출자 스레드와 동기적으로 실행될 수 있도록 다른 스레드에 할당한다. 이와 같은 비동기 API 를 사용하는 상황을 `비블록 호출(non-blocking call)` 이라고 한다.
 
+## Blocking I/O vs Non-Blocking I/O
+
+웹 애플리케이션에서 외부 API 를 호출하여 사용하는 경우 `RestTemplate` 혹은 `WebClient` 를 사용할 것이다. RestTemplate 은 동기 방식으로 동작하며, WebClient 는 비동기 방식으로 동작한다.
+
+
+
+### Blokcing I/O
+
+```java
+@Test
+public void blocking() {
+    final RestTemplate restTemplate = new RestTemplate();
+
+    final StopWatch stopWatch = new StopWatch();
+    stopWatch.start();
+
+    for (int i = 0; i < 3; i++) {
+        final ResponseEntity<String> response =
+                restTemplate.exchange(THREE_SECOND_URL, HttpMethod.GET, HttpEntity.EMPTY, String.class);
+        assertThat(response.getBody()).contains("success");
+    }
+
+    stopWatch.stop();
+
+    System.out.println(stopWatch.getTotalTimeSeconds());
+}
+```
+
+Spring 의 HTTP 요청 라이브러리인 RestTemplate 을 사용하여 3초가 걸리는 API를 3번 호출하였다. 결과는 9.xx초가 나온다. 이유는 I/O가 요청 중일 때에는 아무 작업도 할 수 없기 때문이다. (Blocked)
+
+### Non-Blocking I/O
+
+```java
+@Test
+public void nonBlocking3() throws InterruptedException {
+    final StopWatch stopWatch = new StopWatch();
+    stopWatch.start();
+    for (int i = 0; i < LOOP_COUNT; i++) {
+        this.webClient
+                .get()
+                .uri(THREE_SECOND_URL)
+                .retrieve()
+                .bodyToMono(String.class)
+                .subscribe(it -> {
+                    count.countDown();
+                    System.out.println(it);
+                });
+    }
+
+    count.await(10, TimeUnit.SECONDS);
+    stopWatch.stop();
+    System.out.println(stopWatch.getTotalTimeSeconds());
+}
+```
+
+WebFlux에서 제공하는 WebClient를 사용해서 위와 동일하게 3초가 걸리는 API를 호출하였다. for문 안의 변수인 LOOP_COUNT는 100으로 코드상에서 설정되어있다. 3초 걸리는 API를 100번 호출한다 하더라도 3.xx초 밖에 걸리지 않는다. Blocking I/O 와 비교해봤을 때 정말 효율적이라고 볼 수 있다.
+
+
+
 ## References
 
 - [이것이 자바다](http://www.yes24.com/Product/Goods/15651484)
@@ -233,3 +292,5 @@ System.out.println("Price returned after " + retrievalTime + " msecs");
 - https://stackoverflow.com/questions/34689709/java-threads-and-number-of-cores/34689857#34689857
 - https://javacan.tistory.com/entry/134
 - https://pjh3749.tistory.com/280
+- https://stackoverflow.com/questions/1241429/blocking-io-vs-non-blocking-io-looking-for-good-articles
+- https://alwayspr.tistory.com/44
