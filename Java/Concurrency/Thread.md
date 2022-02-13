@@ -228,60 +228,35 @@ System.out.println("Price returned after " + retrievalTime + " msecs");
 
 웹 애플리케이션에서 외부 API 를 호출하여 사용하는 경우 `RestTemplate` 혹은 `WebClient` 를 사용할 것이다. RestTemplate 은 동기 방식으로 동작하며, WebClient 는 비동기 방식으로 동작한다.
 
+- __Blocking__
+    - 다른 메서드를 실행하고 종료를 기다림 (Block)
+- __Non-Blocking__
+    - 다른 메서드를 실행하고 종료를 기다리지 않음 (Non-block)
 
+### non-blocking API는 요청 처리가 완료된것을 어떻게 통지할까?
 
-### Blokcing I/O
+- non-blocking API 를 호출하면 호출측은 처리가 완료되었다는것을 반드시 알아야한다.
+- 호출측은 어떻게 알게될까?
+- CPU 는 인스트럭션(명령어)을 순차적으로 처리한다. 어떻게 처리가 완료되었다는것을 통지할까?
+- 운영체제 ready queue 에 들어가지 않고 바로 응답을 한다. 바로 응답하기 힘든경우 에러를 반환하는데 정상데이터를 받을 때까지 계속해서 요청을 다시 보낸다.
+- blocking 방식의 비효율적인 부분을 해결하기 위해서 non-blocking 을 사용하는데 계속해서 요청을 다시 보내면서 자원을 낭비하게 된다(시스템 호출이 빈번하게 발생)
 
-```java
-@Test
-public void blocking() {
-    final RestTemplate restTemplate = new RestTemplate();
+### 이벤트 통지 모델
 
-    final StopWatch stopWatch = new StopWatch();
-    stopWatch.start();
+매번 호출측에서 데이터가 준비되었는지 확인하는것을 비효율적이다. 수신 버퍼나 출력 버퍼측에서 이벤트롤 통지하면 어떨까? I/O 작업 결과 반환 방식에 따라 동기,비동기 모델로 구분할 수 있다.
 
-    for (int i = 0; i < 3; i++) {
-        final ResponseEntity<String> response =
-                restTemplate.exchange(THREE_SECOND_URL, HttpMethod.GET, HttpEntity.EMPTY, String.class);
-        assertThat(response.getBody()).contains("success");
-    }
+- __Synchronous Model__
+    - I/O 작업이 진행되는 동안 유저 프로세스는 결과를 기다렸다가 이벤트를 직접 처리하는 방식
+    - notify 를 유저 프로세스(호출측)이 담당하여 주체적으로 진행하면 커널은 유저 프로세스의 요청에 수동적을 응답한다.
+- __Asynchronous Model__
+    - I/O 작업이 진행되는 동안 유저 프로세스 는 자신의 일을 하다가 이벤트 핸들러에 의해 알림이 오면 처리하는 방식이다.
+    - notify 를 커널이 담당하여 주체적으로 진행(콜백을 넘겨주는 형태)하고 호출측은 수동적인 입장에서 통지가 오면 그때 I/O 결과를 반환 받는다.
 
-    stopWatch.stop();
+### Non-Blocking I/O 는 내부에서 어떻게 처리될까?
 
-    System.out.println(stopWatch.getTotalTimeSeconds());
-}
-```
-
-Spring 의 HTTP 요청 라이브러리인 RestTemplate 을 사용하여 3초가 걸리는 API를 3번 호출하였다. 결과는 9.xx초가 나온다. 이유는 I/O가 요청 중일 때에는 아무 작업도 할 수 없기 때문이다. (Blocked)
-
-### Non-Blocking I/O
-
-```java
-@Test
-public void nonBlocking3() throws InterruptedException {
-    final StopWatch stopWatch = new StopWatch();
-    stopWatch.start();
-    for (int i = 0; i < LOOP_COUNT; i++) {
-        this.webClient
-                .get()
-                .uri(THREE_SECOND_URL)
-                .retrieve()
-                .bodyToMono(String.class)
-                .subscribe(it -> {
-                    count.countDown();
-                    System.out.println(it);
-                });
-    }
-
-    count.await(10, TimeUnit.SECONDS);
-    stopWatch.stop();
-    System.out.println(stopWatch.getTotalTimeSeconds());
-}
-```
-
-WebFlux에서 제공하는 WebClient를 사용해서 위와 동일하게 3초가 걸리는 API를 호출하였다. for문 안의 변수인 LOOP_COUNT는 100으로 코드상에서 설정되어있다. 3초 걸리는 API를 100번 호출한다 하더라도 3.xx초 밖에 걸리지 않는다. Blocking I/O 와 비교해봤을 때 정말 효율적이라고 볼 수 있다.
-
-
+- 대부분의 non-blocking 프레임워크들은 무한루프를 통해 응답데이터가 존재하는지 지속적으로 확인한다.(poll) 이를 `이벤트 루프`라고 부른다.
+    - 즉, 이벤트 루프를 통해서 socket 에서 읽을 데이터가 있는지 계속 확인한다.
+- 리눅스 epoll, io_uring (자바 NIO에서 윈도우는 select, 맥은 kqueue, 리눅스는 epoll을 지원)
 
 ## References
 
@@ -294,3 +269,4 @@ WebFlux에서 제공하는 WebClient를 사용해서 위와 동일하게 3초가
 - https://pjh3749.tistory.com/280
 - https://stackoverflow.com/questions/1241429/blocking-io-vs-non-blocking-io-looking-for-good-articles
 - https://alwayspr.tistory.com/44
+- https://github-wiki-see.page/m/GANGNAM-JAVA/JAVA-STUDY/wiki/Blocking,Non-Blocking,-Synchronous,-Asynchronous
