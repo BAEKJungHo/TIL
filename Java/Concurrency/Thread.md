@@ -216,6 +216,19 @@ System.out.println("Price returned after " + retrievalTime + " msecs");
 
 > [Future vs CompletableFuture](https://www.linkedin.com/pulse/java-8-future-vs-completablefuture-saral-saxena)
 
+# Sync, Async, Blocking, Non-Blocking
+
+- __async__
+    - 작업을 실행하고 요청 스레드는 다른 작업을 실행
+    - 실행 결과를 신경쓰지 않음
+- __sync__
+    - 이벤트를 자신이 직접 처리(확인의 주체가 유저 프로세스이며, 다 될때까지 기다리거나 스스로 확인)
+    - 메소드,작업등을 실행하고 해당 메소드의 결과를 얻어올 때 까지 기다리는 방식
+- __block__
+    - 완료까지 대기(리턴되기 전까지 멈춤)
+- __non-block__
+    - 미완료라도 즉시 리턴
+
 ## 동기 API vs 비동기 API
 
 - __동기 API__
