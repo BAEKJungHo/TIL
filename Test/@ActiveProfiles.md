@@ -1,6 +1,6 @@
 # @ActiveProfiles
 
-```
+```java 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(RestDocumentationExtension.class)
