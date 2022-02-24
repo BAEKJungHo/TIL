@@ -5,7 +5,7 @@
 
 ## Type is Inferred
 
-```java
+```kotlin
 fun sum(a: Int, b: Int): Int {
   return a + b;
 }
@@ -18,7 +18,7 @@ fun sum(a: Int, b: Int) = a + b
 
 - 자바의 Void 타입은 Kotlin 에서 `Unit` 으로 사용된다.
 
-```java
+```kotlin
 fun printSum(a: Int, b: Int) : Unit {
   println("sum of $a and $b is ${a + b}")
 }
@@ -26,7 +26,7 @@ fun printSum(a: Int, b: Int) : Unit {
 
 - Unit 은 생략 가능하다.
 
-```java
+```kotlin
 fun printSum(a: Int, b: Int) {
     println("sum of $a and $b is ${a + b}")
 }
@@ -37,13 +37,13 @@ fun printSum(a: Int, b: Int) {
 - 매개변수는 `파스칼` 표기법을 따른다.
 - 각 매개변수는 콤마로 구분된다.
 
-```java
+```kotlin
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
 - 자바의 Enum 에만 존재했던 `후행 쉼표(trailing comma)` 가 매개변수에도 적용된다.
 
-```java
+```kotlin
 fun powerOf(
     number: Int,
     exponent: Int, // trailing comma
