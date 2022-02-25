@@ -18,6 +18,12 @@ provides a Customer class with the following functionality:
 - copy()
 - component1(), component2(), ..., for all properties (see Data classes)
 
+## 특징
+
+- The primary constructor needs to have at least one parameter.
+- All primary constructor parameters need to be marked as val or var.
+- Data classes cannot be abstract, open, sealed, or inner.
+
 ## Properties declared in the class body
 
 ```kotlin
