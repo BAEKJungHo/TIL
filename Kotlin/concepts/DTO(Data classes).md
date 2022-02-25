@@ -7,7 +7,7 @@ data class Customer(
 )
 ```
 
-> `()` 괄호가 생성자라고 생각하면된다. 정확히 말하면 `class body` 라고 한다.
+> `()` 괄호가 생성자라고 생각하면된다.
 
 provides a Customer class with the following functionality:
 
@@ -26,7 +26,7 @@ data class Person(val name: String) {
 }
 ```
 
-data class 는 equals(), hashCode(), toString(), copy() 등을 자동으로 생성해주는데,` class body 내에 있는 속성`을 대상으로 만들어준다.
+data class 는 equals(), hashCode(), toString(), copy() 등을 자동으로 생성해주는데,` 생성자 내에 있는 속성`을 대상으로 만들어준다.
 
 따라서, 객체를 비교할때 age 값이 달라도, name 만 동일하면 같은 객체라고 판단한다.
 
