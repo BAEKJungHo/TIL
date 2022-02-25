@@ -13,6 +13,7 @@
 - [DTO(Data classes)](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/DTO(Data%20classes).md)
 - [Classes](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Classes.md)
 - [Visibility Modifier](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Visibility%20Modifier(Access%20Modifier).md)
+- [Inheritance](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Inheritance.md)
 
 ## 코틀린이 추구하는 철학
 
