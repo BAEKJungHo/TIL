@@ -11,6 +11,7 @@
 - [Functions](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Functions.md)
 - [val vs var](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/val%2C%20var.md)
 - [DTO(Data classes)](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/DTO(Data%20classes).md)
+- [Classes](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Classes.md)
 
 ## 코틀린이 추구하는 철학
 
