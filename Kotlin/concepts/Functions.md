@@ -14,6 +14,10 @@ fun sum(a: Int, b: Int): Int {
 fun sum(a: Int, b: Int) = a + b
 ```
 
+```kotlin
+fun double(x: Int): Int = x * 2
+```
+
 ## No Meaningful value
 
 - 자바의 Void 타입은 Kotlin 에서 `Unit` 으로 사용된다.
@@ -62,6 +66,40 @@ fun read(
 ) { /*...*/ }
 ```
 
+- Overriding
+
+```kotlin
+open class A {
+    open fun foo(i: Int = 10) { /*...*/ }
+}
+
+class B : A() {
+    override fun foo(i: Int) { /*...*/ }  // No default value is allowed.
+}
+```
+
+- Lambda
+
+```kotlin
+fun foo(
+    bar: Int = 0,
+    baz: Int = 1,
+    qux: () -> Unit,
+) { /*...*/ }
+
+foo(1) { println("hello") }     // Uses the default value baz = 1
+foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1
+foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
+```
+
+- vararg
+
+```kotlin
+fun foo(vararg strings: String) { /*...*/ }
+
+foo(strings = *arrayOf("a", "b", "c"))
+```
+
 ## Function Overriding
 
 - 재정의 메서드는 항상 기본 메서드와 동일한 기본 매개 변수 타입을 사용한다.
@@ -74,6 +112,17 @@ open class A {
 
 class B : A() {
     override fun foo(i: Int) { /*...*/ }  // No default value is allowed.
+}
+```
+
+## Variable number of arguments
+
+```kotlin
+fun <T> asList(vararg ts: T): List<T> {
+    val result = ArrayList<T>()
+    for (t in ts) // ts is an Array
+        result.add(t)
+    return result
 }
 ```
 
