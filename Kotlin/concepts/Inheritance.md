@@ -64,3 +64,25 @@ class Polygon : Shape {
 }
 ```
 
+## Overriding rules
+
+```kotlin
+open class Rectangle {
+    open fun draw() { /* ... */ }
+}
+
+interface Polygon {
+    fun draw() { /* ... */ } // interface members are 'open' by default
+}
+
+class Square() : Rectangle(), Polygon {
+    // The compiler requires draw() to be overridden:
+    override fun draw() {
+        super<Rectangle>.draw() // call to Rectangle.draw()
+        super<Polygon>.draw() // call to Polygon.draw()
+    }
+}
+```
+
+위 와 같은 경우 Square 에서는 draw() 를 재정의 해야 한다. 
+상위 클래스의 메서드는 `super<Base>` 키워드를 사용하여 호출할 수 있다.
