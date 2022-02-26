@@ -80,3 +80,7 @@ const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
 
 @Deprecated(SUBSYSTEM_DEPRECATED) fun foo() { ... }
 ```
+
+## @field
+
+- https://stackoverflow.com/questions/59925099/what-is-the-purpose-of-using-fieldserializedname-annotation-instead-of-serial
