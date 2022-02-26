@@ -1,8 +1,7 @@
 # Kotlin
 
-> https://kotlinlang.org/docs/home.html
->
-> https://play.kotlinlang.org/
+- https://kotlinlang.org/docs/home.html
+- https://play.kotlinlang.org/
 
 ## Table of Contents
 
