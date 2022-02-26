@@ -15,6 +15,7 @@
 ## Property
 
 - 자바에서는 필드 혹은 변수라고 부르는데, 코틀린에서는 클래스 변수를 `프로퍼티(property)`라고 부른다.
+  - Property : 필드 + 접근자 메서드
 - `var` 또는 `val` 키워드를 사용하여 만든다.
 
 > 접근자라고 부르는 getter, equals, hashCode 와 같은 함수가 내장되어 있기 때문에 프로퍼티라고 불린다.
@@ -80,6 +81,29 @@ const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
 
 @Deprecated(SUBSYSTEM_DEPRECATED) fun foo() { ... }
 ```
+
+## Backing Fields
+
+`뒷 받침하는 필드(Backing Fields)` 는 말 그대로 프로퍼티의 필드를 나타낸다.
+
+> 프로퍼티는 필드와 접근 메서드를 통틀어 칭하는 단어이다.
+
+```kotlin
+class Person(name: String, age: Int) { 
+val name = name 
+  get() { 
+    return field
+  } 
+var age = age 
+  get() { 
+    return field 
+  } 
+  set(value) { 
+    field = value 
+  } 
+}
+```
+
 
 ## @field
 
