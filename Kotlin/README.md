@@ -10,7 +10,7 @@
 - [Print to the standard output](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Print%20to%20the%20standard%20output.md)
 - [Functions](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Functions.md)
 - [Property, val vs var](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/val%2C%20var.md)
-- [Late-initialized properties and variables]()
+- [Late-initialized properties and variables](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Late-initialized%20properties%20and%20variables.md)
 - [DTO(Data classes)](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/DTO(Data%20classes).md)
 - [Classes](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Classes.md)
 - [Visibility Modifier](https://github.com/BAEKJungHo/TIL/blob/master/Kotlin/concepts/Visibility%20Modifier(Access%20Modifier).md)
