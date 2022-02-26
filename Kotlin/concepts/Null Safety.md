@@ -83,6 +83,7 @@ for (item in listWithNulls) {
 
 ## Elvis Operator
 
+- 엘비스 연산자는 널값을 허용하지 않는 변수에 널 값이 들어 갔을때 널 값을 변환할 수 있는 함수의 결과를 만들어 준다.
 - 왼쪽에 있는 표현식 `?:` 이 not null 이면 Elvis 연산자가 이를 반환하고, 그렇지 않으면(null 이면) 오른쪽 반환
 
 ```kotlin
