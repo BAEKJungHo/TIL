@@ -107,4 +107,51 @@ var age = age
 
 ## @field
 
+> Shift + Shift -> `Kotlin ByteCode` 검색
+
 - https://stackoverflow.com/questions/59925099/what-is-the-purpose-of-using-fieldserializedname-annotation-instead-of-serial
+
+```kotlin
+data class ErrorResponse(
+        @field:JsonProperty("result_code")
+        var resultCode: String? = null,
+
+        @field:JsonProperty("http_status")
+        var httpStatus: String? = null,
+
+        @JsonProperty("http_method")
+        var httpMethod: String? = null,
+
+        var message: String? = null,
+        var path: String? = null,
+        var timeStamp: LocalDateTime? = null,
+        var errors: MutableList<Error>? = mutableListOf()
+)
+```
+
+`@field:JsonProperty` 와 `@JsonProperty` 는 무슨 차이가 있을까?
+
+일단 컴파일 하게되면 @field 가 붙어있으면 .class 파일에 아래와 같이 나온다.
+
+```kotlin
+public final var httpMethod: kotlin.String? /* compiled code */
+
+@field:com.fasterxml.jackson.annotation.JsonProperty public final var httpStatus: kotlin.String? /* compiled code */
+```
+
+그리고 kotlin 은 java 로 decompile 하면 아래와 같다.
+
+```java
+ @JsonProperty("result_code")
+ @Nullable
+ private String resultCode;
+ 
+ @JsonProperty("http_status")
+ @Nullable
+ private String httpStatus;
+ 
+ @Nullable
+ private String httpMethod;
+```
+
+즉, `@field` 를 붙이지 않으면 자바에서는 `@JsonProperty` 가 붙지 않는다.
