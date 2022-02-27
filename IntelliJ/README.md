@@ -60,3 +60,9 @@
   - SonarLint
   - String Manipulation
   - .ignore
+
+# Other Settings
+
+- Talend API Tester
+- Octotree
+- JSON Viewer
