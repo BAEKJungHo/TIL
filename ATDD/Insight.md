@@ -91,3 +91,7 @@ ReflectionTestUtils.setField(서초역, "id", 1L);
   - __변경할 수 없는 코드 검증 시 실제 객체 사용__
     - 작동 원리를 깊이 이해하기 어려움
     - Mock 객체와 실제 객체의 행위를 일치시키기 어려움
+
+## 경계값 테스트
+
+- https://www.baeldung.com/parameterized-tests-junit-5#first-impression
