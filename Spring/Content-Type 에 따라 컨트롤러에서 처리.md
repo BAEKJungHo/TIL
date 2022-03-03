@@ -12,7 +12,7 @@
 }
 ```
 
-MappingJackson2HttpMessageConverter 는 내부적으로 `read()` 메서드에서 ObjectMapper 를 사용하여 Object 로 전환해주기 때문에 DTO 에 __Setter 가 없어도 된다.__
+__MappingJackson2HttpMessageConverter 는 내부적으로 `read()` 메서드에서 ObjectMapper 를 사용하여 Object 로 전환해주기 때문에 DTO 에 Setter 가 없어도 된다.__
 
 `objectMapper.readValue(inputMessagge.getBody(), javaType);`
 
@@ -60,7 +60,7 @@ public ResponseEntity<PathResponse> findShortedPath(PathRequest pathRequest) {
 }
 ```
 
-StringHttpMessageConverter 가 동작하는 경우 DTO 에 setter 가 존재해야 한다. ObjectMapper 를 사용하지 않기 때문이다.
+__StringHttpMessageConverter 가 동작하는 경우 DTO 에 setter 가 존재해야 한다. ObjectMapper 를 사용하지 않기 때문이다.__
 
 setter 를 제거할 수도 있는데
 
