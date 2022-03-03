@@ -8,6 +8,8 @@
   - ![fontsetting](https://user-images.githubusercontent.com/47518272/155870655-ec52dcbb-5d9f-4567-95b8-d269e25ddd8a.png)
 - __Editor > File Encodings__
   - `UTF-8`
+- __Editor > General > Auto import
+  - ![optimizeimport](https://user-images.githubusercontent.com/47518272/156608752-4bad388f-a867-49e9-9514-0ccaac4b7e89.png)
 - __Editor > Code Style > Java__
   - Use single class import
   - Class count to use import with `*`, Names count to use static import with `*` : 100 으로 설정
