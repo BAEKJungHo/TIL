@@ -2,6 +2,7 @@
 
 - https://kotlinlang.org/docs/home.html
 - https://play.kotlinlang.org/
+- https://namu.wiki/w/Kotlin
 
 ## Table of Contents
 
