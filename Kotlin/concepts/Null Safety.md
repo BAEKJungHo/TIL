@@ -21,6 +21,7 @@ a = null // compilation error
 
 ## nullable
 
+type에 `?`를 붙임으로서 null이 가능한 변수임을 명시적으로 표현한다.
 ```kotlin
 var b: String? = "abc" // can be set to null
 b = null // ok
@@ -47,7 +48,8 @@ if (b != null && b.length > 0) {
 
 ## Safe calls
 
-`?.` 연산자를 사용하여 nullable 한 변수에 안전하게 접근할 수 있다.
+`?.` 연산자를 사용하여 nullable 한 변수에 안전하게 접근할 수 있다. `?.` 연산자를 사용하면, 앞의 변수가 nul l이 아닐때만 오른쪽 함수가 수행되고 null 이면 null 을 반환한다.
+
 
 ```kotlin
 val a = "Kotlin"
@@ -69,6 +71,16 @@ bob?.department?.head?.name
 // If either `person` or `person.department` is null, the function is not called:
 person?.department?.head = managersPool.getManager()
 ```
+
+### Example
+
+```kotlin
+// nullable한 변수를 검사하여 null 이면 NullPointerException 발생하지 않고 그냥 그대로 null을 출력
+var str1 : String? = null
+var len = str1?.length // 원래 자바였으면 str1 이 null 이면 lengh 에 접근하는 순간 NPE 가 발생한다.
+println(len) // 결과 : null
+```
+
 
 ### let
 
@@ -122,3 +134,6 @@ val nullableList: List<Int?> = listOf(1, 2, null, 4)
 val intList: List<Int> = nullableList.filterNotNull()
 ```
 
+## References
+
+- https://tourspace.tistory.com/114
