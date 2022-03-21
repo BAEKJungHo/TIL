@@ -1,5 +1,32 @@
 # Content-Type 에 따라 컨트롤러에서 처리
 
+- 기본 문자처리: StringHttpMessageConverter
+- 기본 객체처리: MappingJackson2HttpMessageConverter
+
+## OKKY QNA 답변
+
+> https://okky.kr/article/1183268
+
+### 질문
+
+post method를 사용하며 body에 
+
+{ "id":123 }
+
+을 보냈습니다.
+
+컨트롤러에서 RequestBody로 받을라면 어떻게 해야하나요?
+
+별도의 Dto말고 그냥 @RequestBody Integer id  이런식으로 받고싶은데 가능한가요?
+
+### 나의 답변
+
+> MessageConverter 에 대해서 찾아보시면 좋을 것 같습니다.
+
+@RequestBody Integer id  로 받을 수 없는 이유는 이때 `MappingJackson2HttpMessageConverter` 가 동작하기 때문이고, 이때 내부적으로 Cannot deserialize value of type `java.lang.Integer` from Object value (token `JsonToken.START_OBJECT`) 이러한 에러가 발생하게 됩니다.
+
+@RequestBody String id 로하면 에러가 발생하진 않고, `StringHttpMessageConverter` 가 동작하게 되어 String 객체에 json 형식의 문자열이 그대로 찍히게 됩니다.
+
 ## MappingJackson2HttpMessageConverter
 
 이 방식은 `@RequestBody` 를 생략할 수 없다. consumes 가 application/json 타입으로 넘어온다.
