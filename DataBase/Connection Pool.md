@@ -35,8 +35,12 @@ pool.getConnection(function(err, conn) {
 })
 ```
 
+## MongoDB Connection Pool
+
+MongoDB 는 따로 설정을 하지 않는 이상 자체적으로 필요한 만큼 커넥션 풀을 생성해서 사용한다고 한다.
 
 ## References
 
 - https://cotak.tistory.com/105
 - https://github.com/mysqljs/mysql/issues/1202
+- https://www.mongodb.com/docs/manual/administration/connection-pool-overview/
