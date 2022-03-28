@@ -83,6 +83,15 @@ MySQL 은 동일한 데이터베이스나 테이블에 대해서도 데이터베
 
 두 시스템 모두에서 적절하게 정의된 인덱스는 쿼리 실행 시간을 크게 줄일 수 있습니다.
 
+## MongoDB Update
+
+MySQL과 마찬가지로. Insert, Update, Delete 쿼리는 Index들을 재구성하기 때문에 신중해야 합니다.
+특히 Update는 maximum-size  초과 시에 기존 doc을 지우고 재 생성하여 디스크에 기록하기 때문에 성능저하는 당연히 발생할 수 밖에 없습니다.
+
+`max-size: power of 2 size (2의 제곱 크기)`
+
+Update로 record의 크기가 36MB 를 넘어섰다면 32 * 2 = 64MB의 공간을 확보하여 새로운 Record를 작성한다.
+
 ## 결론
 
 MongoDB 가 단일 단순 쿼리에서 훨씬 더 빠르게 수행하더라도; 이것이 항상 더 빠르다는 의미는 아니며 이와 같은 구조가 없는 데이터베이스에도 일종의 조직이 필요합니다.
@@ -100,3 +109,4 @@ MongoDB 개발 로드맵 에서 알 수 있듯이
 ## References
 
 - https://www.mongodb.com/docs/manual/faq/concurrency/
+- https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=joebak&logNo=220337489706
