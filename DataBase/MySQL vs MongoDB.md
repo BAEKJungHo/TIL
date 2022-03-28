@@ -40,6 +40,11 @@ _이것은 전체 서버 프로세스가 한 번에 하나의 쓰기 쿼리만 �
 그것은 당신에게 끔찍하게 들릴지 모르지만 MongoDB 의 쿼리가 MySQL 보다 훨씬 빠르게 처리된다는 것을 기억하면 이것이 큰 문제가 아니라는 것을 알게 될 것입니다. 
 물론 이 모든 것은 데이터베이스와 컬렉션을 올바르게 설정한 경우에만 적용됩니다!
 
+* Single write lock (per database)
+* Reader-Writer lock :  allowing concurrent access to multiple threads for reading but restricting access to a single thread for writes (or other changes) to the resource
+
+(from wikipedia) In computer science, a readers-writer or shared-exclusive lock (also known as the multiple readers / single-writer lock[1] or the multi-reader lock,[2] or by typographical variants such as readers/writers lock) is a synchronization primitive that solves one of the readers-writers problems. A readers-writer lock is like a mutex, in that it controls access to a shared resource, allowing concurrent access to multiple threads for reading but restricting access to a single thread for writes (or other changes) to the resource. A common use might be to control access to a data structure in memory that can't be updated atomically and isn't valid (and shouldn't be read by another thread) until the update is complete.
+
 ## MongoDB 는 MySQL과 어떻게 비교됩니까?
 
 단일 쿼리의 성능 면에서 MongoD B는 MySQL 보다 훨씬 빠릅니다. 
