@@ -162,6 +162,10 @@ commitB
 
 ![mergecommit](https://user-images.githubusercontent.com/47518272/152691143-accb406e-cf99-4452-894d-62c3288b71bf.png)
 
+## git stash
+
+https://gmlwjd9405.github.io/2018/05/18/git-stash.html
+
 ## References
 
 - [Git rebase](https://junwoo45.github.io/2019-10-23-rebase/)
