@@ -1,5 +1,7 @@
 # Content-Type 에 따라 컨트롤러에서 처리
 
+> https://jojoldu.tistory.com/407
+
 - 기본 문자처리: StringHttpMessageConverter
 - 기본 객체처리: MappingJackson2HttpMessageConverter
 
