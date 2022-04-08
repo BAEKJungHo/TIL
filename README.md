@@ -58,6 +58,10 @@
 
 - [마크다운(Markdown) 사용법 및 예제](https://theorydb.github.io/envops/2019/05/22/envops-blog-how-to-use-md/)
 
+## OpenSource
+
+- __JPA, QueryDsl, Redis 를 사용한 프로젝트__
+ - https://github.com/f-lab-edu/shoe-auction/tree/develop/src/main/java/com/flab/shoeauction/common
 ## Link
 
 - [나의 링크 메모장](https://baekjh.notion.site/Link-Storage-4d2664990acb4418b4027a4a0e97b715)
