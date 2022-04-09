@@ -1,1 +1,94 @@
-<mxfile host="app.diagrams.net" modified="2022-04-05T13:30:13.329Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" version="17.1.2" etag="By4xtWg4iHnpsnWPhkxP" type="github"><diagram id="IrGgiRlmW6_dUhyTT4IY">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-04-09T08:19:02.601Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" etag="EtkR8qdHum_G-UGjJ2u8" version="17.4.0" type="github">
+  <diagram id="IrGgiRlmW6_dUhyTT4IY" name="Page-1">
+    <mxGraphModel dx="1422" dy="1923" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-3" value="authentication-service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="-1082" width="129" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-5" value="authorization-service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="658" y="-1082" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-6" value="Client - 관리자&lt;br&gt;(호텔,&amp;nbsp; 브랜드,&amp;nbsp; etc...)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="31" y="-1082" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-10" value="&lt;h1&gt;B2B 인증/인가&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="19" y="-1146" width="403" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-11" value="Resource (b2b - service)&lt;br&gt;(호텔, 객실, etc...)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="387" y="-1082" width="172" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-13" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="iuF1NLF-qFcUfZnnZ7mx-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="91" y="-527" as="sourcePoint" />
+            <mxPoint x="81" y="-935" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-16" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="iuF1NLF-qFcUfZnnZ7mx-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="295" y="-531" as="sourcePoint" />
+            <mxPoint x="294" y="-1013" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-17" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="iuF1NLF-qFcUfZnnZ7mx-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="473" y="-534" as="sourcePoint" />
+            <mxPoint x="387" y="-801" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-18" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="iuF1NLF-qFcUfZnnZ7mx-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="718" y="-536" as="sourcePoint" />
+            <mxPoint x="437" y="-801" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-19" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="93.5" y="-984" as="sourcePoint" />
+            <mxPoint x="296.5" y="-984" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-20" value="Login Request (OAuth2, etc ...)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="108" y="-1011" width="178" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-22" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="289" y="-979" width="11" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-28" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="288" y="-936" as="sourcePoint" />
+            <mxPoint x="92" y="-936" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-29" value="Access Token" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="146" y="-963" width="98" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-32" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="91" y="-892" as="sourcePoint" />
+            <mxPoint x="470.5" y="-892" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-33" value="Resource Request with Token" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="107.5" y="-915" width="358" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-34" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="465.5" y="-889" width="11" height="167" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-35" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="479" y="-862" as="sourcePoint" />
+            <mxPoint x="718" y="-862" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-36" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="712.5" y="-860" width="11" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="iuF1NLF-qFcUfZnnZ7mx-38" value="Resource Request with Token" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="426" y="-885" width="358" height="18" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
