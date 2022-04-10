@@ -7,6 +7,8 @@
 - AccessToken 이 만료되었으면 RefreshToken 을 인증 서버에게 보내 RefreshToken 을 확인하여 AccessToken 을 재 발급하는 형식이다.
 - 따라서, JWT 의 방식과 세션 인증 방식의 장점을 혼합해서 사용한다고 보면된다. (물론 RefreshToken 자체를 DB 에 저장하기 때문에 완벽한 JWT 의 이점을 누릴 수는 없다.)
 
+> [RFC-8725](https://datatracker.ietf.org/doc/html/rfc8725)
+
 ## Front
 
 ![jwt2](https://user-images.githubusercontent.com/47518272/162605349-5bfa7dcf-14f8-4101-84c8-df20a85b4949.png)
@@ -19,3 +21,5 @@
 
 - https://tecoble.techcourse.co.kr/post/2021-10-20-refresh-token/
 - https://tansfil.tistory.com/59
+- https://curity.io/resources/learn/jwt-best-practices/#11-do-not-use-jwts-for-sessions
+- https://blog.openreplay.com/jwt-authentication-best-practices
