@@ -22,4 +22,5 @@
 - https://tecoble.techcourse.co.kr/post/2021-10-20-refresh-token/
 - https://tansfil.tistory.com/59
 - https://curity.io/resources/learn/jwt-best-practices/#11-do-not-use-jwts-for-sessions
+- https://sol-devlog.tistory.com/22
 - [jwt-authentication-best-practices](https://blog.openreplay.com/jwt-authentication-best-practices)
