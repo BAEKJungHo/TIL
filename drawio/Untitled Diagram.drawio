@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-10T07:17:51.590Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" etag="umCTue9UNjkopMi4qeHO" version="17.4.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-10T07:20:17.709Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" etag="nx_jiqqmj_21dfbLAg7G" version="17.4.1" type="github">
   <diagram id="IrGgiRlmW6_dUhyTT4IY" name="Page-1">
     <mxGraphModel dx="1422" dy="1923" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -76,7 +76,7 @@
             <mxPoint x="88" y="-775" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="XttH_GJxqyAqiv7cMvlf-8" value="- Front 에서 AccessToken 의 유효기간을 판단하여 만료되거나, 만료되기 직전에 authentication-service 로 재발급 요청 하는 로직이 있다고 가정&lt;br&gt;- Token 과 사용자에 대한 관련 정보들을 Redis(In-memory storage)에 보관&lt;br&gt;- authentication-service Redis 에서는 refresh token 을 저장&lt;br&gt;- authorization-service Redis 에서는&amp;nbsp; User Inforamtion 을 저장 (userId 와 권한정보들을 저장)&lt;br&gt;- authorization-service 에서 token 을 검증하고 payload 에서 userId 를 추출한 다음, 해당 ID 값으로 권한을 조회&lt;br&gt;- 권한이나 유저 정보가 변경될 때마다 redis replica 에 들어있는 정보들을 update 쳐준다고 가정&lt;br&gt;- 로그아웃을 하거나, 첫 로그인 후 3분이 지나면 Refresh Token 사용 불가 (memory 에서 제거 됨)&lt;br&gt;- Access Toeken 이 만료되면 Refresh Token 의 유효성과 Redis 의 Refresh Token 존재 유무를 확인한 후 재발급 진행" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XttH_GJxqyAqiv7cMvlf-8" value="- Front 에서 AccessToken 의 유효기간을 판단하여 만료되거나, 만료되기 직전에 authentication-service 로 재발급 요청 하는 로직이 있다고 가정&lt;br&gt;- Refresh Token 과 사용자에 대한 관련 정보 및 권한들을 Redis(In-memory storage)에 보관&lt;br&gt;&amp;nbsp; &amp;nbsp; - Refresh Token 저장용 Redis 와 사용자/권한 관련 정보를 저장하기 위한 Redis 가 별도로 존재&lt;br&gt;- authentication-service Redis 에서는 refresh token 을 저장&lt;br&gt;- authorization-service Redis 에서는&amp;nbsp; User Inforamtion 을 저장 (userId 와 권한정보들을 저장)&lt;br&gt;- authorization-service 에서 token 을 검증하고 payload 에서 userId 를 추출한 다음, 해당 ID 값으로 권한을 조회&lt;br&gt;- 권한이나 유저 정보가 변경될 때마다 redis replica 에 들어있는 정보들을 update 쳐준다고 가정&lt;br&gt;- 로그아웃을 하거나, 첫 로그인 후 3분이 지나면 Refresh Token 사용 불가 (memory 에서 제거 됨)&lt;br&gt;- Access Toeken 이 만료되면 Refresh Token 의 유효성과 Redis 의 Refresh Token 존재 유무를 확인한 후 재발급 진행" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="25" y="-1103" width="782.5" height="149" as="geometry" />
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-9" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
