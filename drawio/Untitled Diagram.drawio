@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-10T07:29:45.808Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" etag="snqrKnTBthc0htHp4Q8r" version="17.4.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-10T07:31:45.920Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" etag="xKGVH4bflP-vwhBTkP7t" version="17.4.1" type="github">
   <diagram id="IrGgiRlmW6_dUhyTT4IY" name="Page-1">
     <mxGraphModel dx="1422" dy="1923" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -170,6 +170,9 @@
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-31" value="Token 에 대한 유효성 검사&amp;nbsp;&lt;br&gt;Payload 에서 ID 추출 하여&lt;br&gt;ID 값으로 User Information + Grant 조회" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="437" y="-685" width="304.25" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="XttH_GJxqyAqiv7cMvlf-32" value="Find in Redis" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="663" y="-679.5" width="192.5" height="18" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
