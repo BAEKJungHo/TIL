@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-10T07:20:17.709Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" etag="nx_jiqqmj_21dfbLAg7G" version="17.4.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-10T07:29:45.808Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" etag="snqrKnTBthc0htHp4Q8r" version="17.4.1" type="github">
   <diagram id="IrGgiRlmW6_dUhyTT4IY" name="Page-1">
     <mxGraphModel dx="1422" dy="1923" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -81,27 +81,27 @@
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-9" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="462.5" y="-589" as="sourcePoint" />
-            <mxPoint x="89.5" y="-589" as="targetPoint" />
+            <mxPoint x="459" y="-572" as="sourcePoint" />
+            <mxPoint x="86" y="-572" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-10" value="return" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="362.5" y="-616" width="55" height="21" as="geometry" />
+          <mxGeometry x="374" y="-599" width="55" height="21" as="geometry" />
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="83" y="-525" width="11" height="83" as="geometry" />
+          <mxGeometry x="84.75" y="-494" width="11" height="83" as="geometry" />
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-12" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="94.5" y="-515" as="sourcePoint" />
-            <mxPoint x="297.5" y="-515" as="targetPoint" />
+            <mxPoint x="96.25" y="-484" as="sourcePoint" />
+            <mxPoint x="299.25" y="-484" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-13" value="If Expried AccessToken&amp;nbsp;&lt;br&gt;Access Token + Refresh Token" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="106" y="-542" width="193.5" height="18" as="geometry" />
+          <mxGeometry x="107.75" y="-511" width="193.5" height="18" as="geometry" />
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-16" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="286.5" y="-509" width="11" height="81" as="geometry" />
+          <mxGeometry x="288.25" y="-478" width="11" height="81" as="geometry" />
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-17" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="XttH_GJxqyAqiv7cMvlf-16">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -111,12 +111,12 @@
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-18" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="284.5" y="-453" as="sourcePoint" />
-            <mxPoint x="92.5" y="-453" as="targetPoint" />
+            <mxPoint x="286.25" y="-422" as="sourcePoint" />
+            <mxPoint x="94.25" y="-422" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-20" value="Access Token / Refresh Token" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="106" y="-479" width="171" height="21" as="geometry" />
+          <mxGeometry x="107.75" y="-448" width="171" height="21" as="geometry" />
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-21" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -151,12 +151,12 @@
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-28" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="705" y="-628" as="sourcePoint" />
-            <mxPoint x="476" y="-628" as="targetPoint" />
+            <mxPoint x="708.5" y="-605" as="sourcePoint" />
+            <mxPoint x="473" y="-605" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-29" value="return User Information with Grant" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="501" y="-650" width="192.5" height="18" as="geometry" />
+          <mxGeometry x="498" y="-627" width="192.5" height="18" as="geometry" />
         </mxCell>
         <mxCell id="XttH_GJxqyAqiv7cMvlf-30" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.078;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -168,8 +168,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="XttH_GJxqyAqiv7cMvlf-31" value="Find In Redis" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="657" y="-683" width="201" height="21" as="geometry" />
+        <mxCell id="XttH_GJxqyAqiv7cMvlf-31" value="Token 에 대한 유효성 검사&amp;nbsp;&lt;br&gt;Payload 에서 ID 추출 하여&lt;br&gt;ID 값으로 User Information + Grant 조회" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="437" y="-685" width="304.25" height="29" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
