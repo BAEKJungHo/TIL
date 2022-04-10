@@ -7,6 +7,15 @@
 - AccessToken 이 만료되었으면 RefreshToken 을 인증 서버에게 보내 RefreshToken 을 확인하여 AccessToken 을 재 발급하는 형식이다.
 - 따라서, JWT 의 방식과 세션 인증 방식의 장점을 혼합해서 사용한다고 보면된다. (물론 RefreshToken 자체를 DB 에 저장하기 때문에 완벽한 JWT 의 이점을 누릴 수는 없다.)
 
+## Front
+
+![jwt2](https://user-images.githubusercontent.com/47518272/162605349-5bfa7dcf-14f8-4101-84c8-df20a85b4949.png)
+
+- Access Token 만료가 될 때마다 계속 과정 9~11을 거칠 필요는 없다.
+- 사용자(프론트엔드)에서 Access Token 의 Payload 를 통해 유효기간을 알 수 있다.
+- 따라서 프론트엔드 단에서 API 요청 전에 토큰이 만료됐다면 바로 재발급 요청을 할 수도 있다.
+
 ## References
 
 - https://tecoble.techcourse.co.kr/post/2021-10-20-refresh-token/
+- https://tansfil.tistory.com/59
