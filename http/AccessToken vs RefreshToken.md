@@ -25,6 +25,18 @@ RefreshToken 의 등장 배경이,  AccessToken 의 만료기간이 긴 상태�
 
 accessToken 은 Redis 에서 관리하진 않습니다. accessToken 은 클라이언트에서만 관리되는 토큰이고요, refreshToken 만 Redis 에 존재합니다.
 
+## 인증 인가 서버를 분리하는 이유
+
+> refreshToken은 redis에서 이미 제거된 후면 redis에 저장되어있는 refreshToken 이라는점은 확인못하고 존재 유무만 판단해서 재발급 해주는건가여?
+
+존재 유무만 판단해서 재발급해준다면, 해커가 악의적으로 이용할수 있겠죠 ?!, 만약에 RefreshToken 이 유효하지 않다면 재로그인을 하라고 유도해야할 것입니다. 
+
+보통 RefreshToken 은 요청응답이 자주 발생하지 않아서 AccessToken 보다는 탈취 당할일이 훨씬 적을 것이고, 클라이언트에서 안전하게 보관한다면 쉽게 탈취 당하진 않겠죠? ㅎㅎ
+
+> 사용자&권한 관련 정보를 저장하기 위한 Redis 이게 구분되서 2개로 관리되는 이유가 궁금해요!
+
+쉽게 인증 Redis 와 인가(권한) Redis 를 따로 구분하는 것입니다. MSA 의 핵심이 SRP 인데, 그런 관점에서 분리되는게 좋지 않을까 생각합니다. 즉, 서버/DB 가 적절하게 분리된다면 인증 쪽에서 문제가 생기더라도 인가쪽은 건드리지 않아도 되겠죠?
+
 ## Front
 
 ![jwt2](https://user-images.githubusercontent.com/47518272/162605349-5bfa7dcf-14f8-4101-84c8-df20a85b4949.png)
