@@ -24,3 +24,4 @@
 - https://curity.io/resources/learn/jwt-best-practices/#11-do-not-use-jwts-for-sessions
 - https://sol-devlog.tistory.com/22
 - [jwt-authentication-best-practices](https://blog.openreplay.com/jwt-authentication-best-practices)
+- https://han-um.tistory.com/17
