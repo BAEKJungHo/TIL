@@ -9,6 +9,22 @@
 
 > [RFC-8725](https://datatracker.ietf.org/doc/html/rfc8725)
 
+## 로그아웃 시 RefreshToken Redis 에서 삭제, 로그인 시 RefreshToken 과 AccessToken 발급
+
+> refreshToken 이 redis 에서 제거되는거면, accessToken 만료시 refreshToken 으로 유효성을 체크할때 redis 데이터와의 일치 여부는 체크 안하는건가요?! 3분이 지나면 제거되는 이유가 궁금해요!
+
+RefreshToken 의 등장 배경이,  AccessToken 의 만료기간이 긴 상태에서 탈취 당하게 되면 보안상 문제가 있기 때문에  AccessToken 의 만료기간을 짧게 가져가서 보안상의 이점을 누리기 위해서 등장한 것입니다. 따라서 RefreshToken 은 보통 클라이언트 쪽에서도 하나 가지고 있고, Redis 같은 In-memory DB 에서도 관리를 하는데, 클라이언트에서 AccessToken 보다 만료 시간이 긴 RefreshToken 을 탈취 당하게 되면, 해커는 RefreshToken 만료가 되기까지 계속 AccessToken 을 재발급 받을 수 있겠죠 ?ㅎㅎ
+
+> 사실 3분은 짧긴 한 것 같은데,  3분이라는 정책은 회사마다 얼마든지 바뀔 수 있는 부분이고, 중요한 것은 아래 설명할 내용입니다. 
+
+위와 같은 문제점 때문에 로그인할 때, 새로 RefreshToken 을 발급하고, 발급과 동시에 DB 에 저장하는 것이죠. 그리고 재발급시에 클라이언트에서 보낸 RefreshToken 이 DB 에 저장된 것과 동일한지 확인하는 거고요 따라서, 다른 환경에서 새로 로그인한 경우에는 기존 로그인 된 상태에서 관리되던 RefreshToken 은 만료기간이 남아있더라도 재사용할 수 없겠죠 ㅎㅎ
+
+따라서, 첫 로그인 후, 혹은 로그아웃 시에 RefreshToken 을 제거하게 되면 해커가 AccessToken 을 재발급할 수 없겠죠 ! 
+
+> refreshToken, accessToken 이 다른 redis 서버에 있는 이유가 궁금해요!
+
+accessToken 은 Redis 에서 관리하진 않습니다. accessToken 은 클라이언트에서만 관리되는 토큰이고요, refreshToken 만 Redis 에 존재합니다.
+
 ## Front
 
 ![jwt2](https://user-images.githubusercontent.com/47518272/162605349-5bfa7dcf-14f8-4101-84c8-df20a85b4949.png)
