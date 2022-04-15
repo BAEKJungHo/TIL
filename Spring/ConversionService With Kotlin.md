@@ -80,3 +80,23 @@ fun find(
 			}
 		}
     ```
+ 
+ ## 결론
+ 
+ - WebdataBinder 에 의해 ConversionService 가 먼저 동작한다.
+ - Conversion 에 실패한다 > ConversionFailedException
+ - Bytecode 에 적힌 @NotNull 에 의한 검증이 동작하게 되어 최종적으로 NPE 가 발생한다.
+ 	- jetbrains 에서 제공하는 어노테이션이며, 정적 분석 도구(static analysis tools)에서 사용 된다.
+
+```java
+package org.jetbrains.annotations;
+
+import java.lang.annotation.*;
+
+@Documented
+@Retention(RetentionPolicy.CLASS)
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.LOCAL_VARIABLE})
+public @interface NotNull {
+  String value() default "";
+}
+```
