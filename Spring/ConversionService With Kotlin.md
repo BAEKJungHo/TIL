@@ -93,6 +93,14 @@ package org.jetbrains.annotations;
 
 import java.lang.annotation.*;
 
+/**
+ * An element annotated with NotNull claims <code>null</code> value is <em>forbidden</em>
+ * to return (for methods), pass to (parameters) and hold (local variables and fields).
+ * Apart from documentation purposes this annotation is intended to be used by static analysis tools
+ * to validate against probable runtime errors and element contract violations.
+ *
+ * @author max
+ */
 @Documented
 @Retention(RetentionPolicy.CLASS)
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.LOCAL_VARIABLE})
@@ -100,3 +108,7 @@ public @interface NotNull {
   String value() default "";
 }
 ```
+
+- __CLASS 정책이 필요한 이유__
+	- Maven/Gradle로 다운받은 라이브러리와 같이 jar 파일에는 소스가 포함되어있지 않다는 점이다. class 파일만 포함되어있다 (Download Sources 옵션은 논외)
+	- 즉, class 파일만 존재하는 라이브러리 같은 경우에도 타입체커, IDE 부가기능 등을 사용할수 있으려면 CLASS 정책이 필요하게 된다. SOURCE 정책으로 사용한다면 컴파일된 라이브러리의 jar 파일에는 어노테이션 정보가 남아있지 않기 때문이다.그 외에도 클래스 로딩 시 무언가를 하고 싶은 경우에도 사용될 수도 있다.
