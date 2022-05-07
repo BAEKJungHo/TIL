@@ -2,6 +2,7 @@
 
 - https://kotlinlang.org/docs/home.html
 - https://play.kotlinlang.org/
+- https://www.koolstories.com/blog/best-coding-practices-in-kotlin
 
 ## Table of Contents
 
