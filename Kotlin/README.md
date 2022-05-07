@@ -3,6 +3,7 @@
 - https://kotlinlang.org/docs/home.html
 - https://play.kotlinlang.org/
 - https://www.koolstories.com/blog/best-coding-practices-in-kotlin
+- https://phauer.com/2017/idiomatic-kotlin-best-practices/
 
 ## Table of Contents
 
