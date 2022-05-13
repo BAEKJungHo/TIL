@@ -18,7 +18,7 @@ fun orderAcceptThreadPoolTaskExecutor(): Executor {
     val executor = ThreadPoolTaskExecutor().apply {
         corePoolSize = 5
         maxPoolSize = 30
-        setQueueCapacity(500)
+        setQueueCapacity(80)
         setThreadNamePrefix("My-Async")
         initialize()
     }
