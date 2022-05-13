@@ -29,7 +29,7 @@ fun orderAcceptThreadPoolTaskExecutor(): Executor {
 - corePoolSize
   - 동시에 실행 시킬 스레드의 수
 - maxPoolSize
-  - 스레드 풀의 최대 사이즈
+  - 스레드 풀의 최대 사이즈: 최대로 생성되는 스레드 사이즈
   - maxPoolSize 는 ThreadPoolTaskExecutor 가 대기열의 항목 수가 queueCapacity 를 초과하는 경우에만 새 스레드를 생성 한다는 점 에서 queueCapacity 에 의존한다.
 - setQueueCapacity
   - 스레드 풀의 큐 사이즈
