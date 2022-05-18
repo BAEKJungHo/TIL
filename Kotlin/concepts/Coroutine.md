@@ -1,0 +1,1 @@
+- https://thdev.tech/kotlin/2020/12/15/kotlin_effective_15/
