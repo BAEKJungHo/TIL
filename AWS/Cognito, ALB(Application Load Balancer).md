@@ -33,6 +33,8 @@
 - [일반적인 Cognito 시나리오](https://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/cognito-scenarios.html)
 - https://aws.amazon.com/ko/cognito/dev-resources/
 - [Using the Cognito Hosted UI with an Application Load Balancer](https://www.kdgregory.com/index.php?page=aws.albCognito)
+- https://jonghyeok-dev.tistory.com/m/40
+- [How to Set Up AWS Cognito Authentication with Serverless and NodeJS](https://www.freecodecamp.org/news/aws-cognito-authentication-with-serverless-and-nodejs/)
 
 ## 인증(AuthN)/인가(AuthR)
 
@@ -93,4 +95,113 @@
 - JSON 기반의 웹 API 를 생성
 - 백엔드 서비스들과 연동 가능
 - 만약 authN 이 필요하다면, 고객은 IAM, Custom Authroizer(Lambda Function) 혹은 Cognito User Pools Authorizer 를 이용할 수 있다.
+
+# 모바일 개발
+
+![aws mobile](https://user-images.githubusercontent.com/47518272/169054964-5c4b6f8f-6313-4d56-9118-4ebb1bff0efc.png)
+
+# 기존 인증 흐름
+
+![aws fed](https://user-images.githubusercontent.com/47518272/169055684-ab6816e9-4117-488b-82e4-0e4de6400f47.png)
+
+## Cognito Identity
+
+![aws cog identity](https://user-images.githubusercontent.com/47518272/169056875-86487eab-90e2-4bd0-85df-a60db781244b.png)
+
+## User Pools
+
+> 간단히 말하면 사용자 데이터베이스. 과거에는 유저 데이터베이스를 만들어야 했으나, 모바일 개발을 한다면 굳이 유저 데이터베이스를 가지고 있을 필요가 없다.
+
+![aws userpools](https://user-images.githubusercontent.com/47518272/169057575-5d00a7cf-b742-4b46-bf54-609eec612893.png)
+
+- 유저 데이터에 대한 보안 관리 용이
+- 확장성이 용이
+- 유저 데이터베이스를 생성에 대한 리소스 없음
+
+## 유저 시나리오
+
+![aws user scenario](https://user-images.githubusercontent.com/47518272/169059217-fc6aa5f0-fc4a-4c9f-8c5e-95ea47f6edda.png)
+
+![aws user scenario2](https://user-images.githubusercontent.com/47518272/169059570-5d878932-56ba-4d0b-9647-b91d9ff953b3.png)
+
+## 확장된 관리 기능
+
+![aws extensions](https://user-images.githubusercontent.com/47518272/169059839-62df0d6d-5b3b-434d-94bc-62db25a549cc.png)
+
+## Cognito Sign-in 
+
+![aws cognito signin](https://user-images.githubusercontent.com/47518272/169060266-524dac40-f143-4f89-9f36-077bd4972e45.png)
+
+## Triggers - Lambda for pre-post process
+
+![aws lamb trigger](https://user-images.githubusercontent.com/47518272/169061227-e6590c0b-a26b-4bf9-9f14-eff1431a6508.png)
+
+User Pools 에는 Lambda 를 이용해서 Trigger 를 설정할 수 있다. 
+
+sign-in or sign-up 을 한 다음, 유저에 특화된 기능(Ex. 환영 메시지)이 추가적으로 필요한 경우 사용할 수 있다. 
+
+> 분석 기능도 있다.
+
+![aws trigger](https://user-images.githubusercontent.com/47518272/169061149-e11ac3bd-d5bd-473a-b074-566b94b2a4a5.png)
+
+## Cognito User Pools 와 API 게이트웨이
+
+![cognito user pools](https://user-images.githubusercontent.com/47518272/169061693-2e132c0c-2c4d-4aa7-a67f-544a438e43c5.png)
+
+## Custom Auth Flow
+
+![custom auth flow](https://user-images.githubusercontent.com/47518272/169062126-436b7263-f314-4f1a-8c00-2ae28468fd25.png)
+
+## 유저 상태 이해
+
+![user state](https://user-images.githubusercontent.com/47518272/169062386-700a04ab-0fd0-46a4-88b3-dc59172aff1a.png)
+
+## 이메일과 폰의 인증번호 전송
+
+![email phone](https://user-images.githubusercontent.com/47518272/169062561-3f4c8de5-58ee-4b45-a92a-22e667b4218b.png)
+
+## Amazon Cognito 사용자 풀에서 별명 사용하기
+
+![cognito alias](https://user-images.githubusercontent.com/47518272/169062740-9b89d756-3765-4aee-862e-69f83cfe2ad9.png)
+
+# API Gateway 동작 방식
+
+- __장점__
+  - API 응답을 저장하기 위한 관리형 캐시
+  - CloudFront 를 통한 응답속도 개선 및 DDos 보호
+  - iOS, Android 및 Javascript 를 위한 SDK 생성
+  - API 정의를 위한 Swagger 지원
+  - Request/Response 데이터 변환
+
+![api 호출 흐름](https://user-images.githubusercontent.com/47518272/169063144-e496c2f5-d862-4cdf-bf2f-754bb75b3074.png)
+
+![aws model](https://user-images.githubusercontent.com/47518272/169063269-0a6fc054-2b06-42ae-aaab-432587f568cf.png)
+
+## 빌드, 배포, 복제 및 롤백
+
+![aws build](https://user-images.githubusercontent.com/47518272/169063494-f2e80a57-6a50-47da-a8f6-3b69bf9751d7.png)
+
+![api config](https://user-images.githubusercontent.com/47518272/169063719-5b78b3a9-957e-4941-80d9-2c86e5f3e8d4.png)
+
+![api build](https://user-images.githubusercontent.com/47518272/169063819-a4e93392-ffc1-4440-b25b-b76665d99341.png)
+
+# Cognito User Pools Token
+
+![cognito user pools token](https://user-images.githubusercontent.com/47518272/169064200-72242d8c-3354-4459-abb8-5eb107b5fab2.png)
+
+# Flow
+
+![cognito user pools, api gateway](https://user-images.githubusercontent.com/47518272/169064622-44de1991-daab-467a-a52a-3c5f5dc44bf0.png)
+
+![cognito user pools, api gateway2](https://user-images.githubusercontent.com/47518272/169064939-b4f5f1d1-baca-4c87-b97b-27cd016afccf.png)
+
+![cognito user pools, api gateway3](https://user-images.githubusercontent.com/47518272/169065435-692dafa5-b926-4598-b37d-3fa4cb824959.png)
+
+
+
+
+
+
+
+
 
