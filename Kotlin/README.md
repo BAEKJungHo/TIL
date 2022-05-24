@@ -4,6 +4,7 @@
 - https://play.kotlinlang.org/
 - https://www.koolstories.com/blog/best-coding-practices-in-kotlin
 - https://phauer.com/2017/idiomatic-kotlin-best-practices/
+- [/what-is-the-purpose-of-actual-keyword-in-kotlin](https://stackoverflow.com/questions/48794879/what-is-the-purpose-of-actual-keyword-in-kotlin)
 
 ## Table of Contents
 
