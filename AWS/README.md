@@ -1,0 +1,3 @@
+- https://www.bleepingcomputer.com/news/security/popular-python-and-php-libraries-hijacked-to-steal-aws-keys/
+  - 최근 주요 언어의 몇몇 패키지가 레파지토리에서부터 침해되어서 AWS key 탈취 시도하는 사례가 있다고 함.
+  - 외부 패키지 쓸때 한번 더 주의해야 함 (링크를 보면 npm 에서도 사례가 있음)
