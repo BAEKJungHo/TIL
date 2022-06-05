@@ -4,7 +4,7 @@
 
 The jwt specification recommends (but does not require) sending the access tokens in an authorization header of type Bearer. But there is no mention of the refresh tokens.
 
-Refresh tokens are an Oauth2 concept. If you read the Rfc6749 specification, to refresh an access token, the refresh token is sent using a form parameter in a POST request
+Refresh tokens are an Oauth2 concept. If you read the [Rfc6749 specification](https://www.rfc-editor.org/rfc/rfc6749#section-6), to refresh an access token, the refresh token is sent using a form parameter in a POST request
 
 > ## 6. Refreshing an Access Token ...
 
