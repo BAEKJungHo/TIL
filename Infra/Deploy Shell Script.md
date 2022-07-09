@@ -108,3 +108,8 @@ check_df
       echo $dirPath
       cd $dirPath
       ```
+      
+> fatal unsafe repostiroy error 해결 방법
+>
+> 1. git config --global --add safe.directory 디렉토리경로
+> 2. git 명령과 관련된 부분을 `sudo -u ubuntu --` git rev-parse .. 이런식으로 되도록 변경
