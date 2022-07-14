@@ -2,6 +2,7 @@
 
 ## Links
 
+- https://www.redhat.com/ko/topics/devops/what-is-blue-green-deployment
 - https://ecsimsw.tistory.com/entry/NginX-%EC%99%80-%EB%AC%B4%EC%A4%91%EB%8B%A8-%EB%B0%B0%ED%8F%AC
 - https://www.sipios.com/blog-tech/blue-green-deployment-of-spring-applications
 - [BeanStalk 에서의 BlueGreen 배포](https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/using-features.CNAMESwap.html)
