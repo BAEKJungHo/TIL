@@ -6,6 +6,9 @@
 
 ## Retrofit 특징
 
+- __기본적인 타임아웃 설정 값을 가지고 있다.__
+  - https://jongmin92.github.io/2018/01/31/Programming/android-customize-network-timeouts/
+  - RestTemplate 의 경우에는 Timeout 값을 따로 설정해줘야 한다.
 - __BackEnd or FrontEnd 개발을 하다보면 다른 서버에 데이터를 요청할 일이 생긴다.__
   - Ex. PG 사에 결제 창 호출 요청 등
   - OPEN API 호출 등
