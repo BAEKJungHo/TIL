@@ -6,6 +6,11 @@
 - Specs must have a public zero-arg constructor error
   - https://minkukjo.github.io/framework/2020/06/28/JUnit-23/
   - https://jaehhh.tistory.com/118
+  
+## Release
+
+- 4.3
+  - https://dev.to/kotest/kotest-release-4-3-2768
 
 ## Links
 
