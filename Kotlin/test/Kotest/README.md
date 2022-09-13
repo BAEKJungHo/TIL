@@ -7,6 +7,10 @@
   - https://minkukjo.github.io/framework/2020/06/28/JUnit-23/
   - https://jaehhh.tistory.com/118
   
+## FeatureSpec with AcceptanceTest
+
+- https://github.com/zeroooooowest/youthcon-tdd-kotlin/blob/475e1d71eff6c0ff528edfa9413c7b4b60353d77/src/test/kotlin/me/zw/tdd/AcceptanceTest.kt
+  
 ## Release
 
 - 4.3
