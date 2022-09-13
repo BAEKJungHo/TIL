@@ -16,6 +16,7 @@ redis 나 memcached 같은 캐시 엔진들도 있지만, 저 2개의 캐시 엔
 
 - https://www.ehcache.org/
 - https://medium.com/finda-tech/spring-%EB%A1%9C%EC%BB%AC-%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-ehcache-4b5cba8697e0
+- https://kimyhcj.tistory.com/253
 
 ## Links
 
