@@ -1,5 +1,9 @@
 # 실행 중인 Job 을 gracefully shutdown 하기
 
+## SmartLifecycle
+
+> An extension of the Lifecycle interface for those objects that require to be started upon ApplicationContext refresh and/or shutdown in a particular order
+
 ## Links
 
 - [Spring SmartLifecycle](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/SmartLifecycle.html)
