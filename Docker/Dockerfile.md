@@ -17,6 +17,11 @@
     COPY [--chown=<user>:<group>] <src>... <dest>
     COPY [--chown=<user>:<group>] ["<src>",... "<dest>"]
     ```
+- [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint)
+  - ```
+    ENTRYPOINT ["executable", "param1", "param2"]
+    ENTRYPOINT command param1 param2
+    ```
 
 ## Links
 
