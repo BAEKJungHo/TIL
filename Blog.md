@@ -6,6 +6,7 @@
 - @DirtiesContext
 - AtomicReference
 - KSP
-- CI/CD
-  - GitLab workflow
-  - Github workflow
+- ~~CI/CD~~
+  - ~~GitLab workflow~~
+  - ~~Github workflow~~
+- Manifestfile
