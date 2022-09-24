@@ -9,3 +9,4 @@
 - https://always-kimkim.tistory.com/entry/kafka101-configuration-bootstrap-servers
 - https://stackoverflow.com/questions/31745666/simple-kafka-consumer-example-not-working
   - Missing required configuration "key.deserializer"
+- [What is the difference between ::class and ::class.java in Kotlin?](https://stackoverflow.com/questions/59781916/what-is-the-difference-between-class-and-class-java-in-kotlin)
