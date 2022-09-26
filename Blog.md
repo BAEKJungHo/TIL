@@ -4,7 +4,8 @@
 
 - Kubernetes Architecture
 - ~~Rolling update, blue-green, canary~~
-- ant patterns
+- Spring Validation
+- Ant patterns
 - [spring security expressions](https://www.baeldung.com/spring-security-expressions)
 - [spring security test](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/test.html)
   - https://tecoble.techcourse.co.kr/post/2020-09-30-spring-security-test/
