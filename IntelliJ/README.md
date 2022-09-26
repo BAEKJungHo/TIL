@@ -1,14 +1,15 @@
 # IntelliJ Settings
 
 - __Appearance & Behavior__
-  - Theme : `High contrast`
+  - Theme: `Super Dark Theme`
+  - Progress Bar: Mario Progress Bar
   - Use custom font : `Malgun Gothic` size : 12
   - Presentation Mode : Font size : 24
 - __Editor > Font__
   - ![fontsetting](https://user-images.githubusercontent.com/47518272/155870655-ec52dcbb-5d9f-4567-95b8-d269e25ddd8a.png)
 - __Editor > File Encodings__
   - `UTF-8`
-- __Editor > General > Auto import
+- __Editor > General > Auto import__
   - ![optimizeimport](https://user-images.githubusercontent.com/47518272/156608752-4bad388f-a867-49e9-9514-0ccaac4b7e89.png)
 - __Editor > Code Style > Java__
   - Use single class import
