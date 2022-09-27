@@ -5,6 +5,7 @@
 - CustomAnnotation @DistributedLock 활용하기
   - https://dzone.com/articles/distributed-java-locks-with-redis
   - https://redisson.org/articles/the-top-5-redis-based-objects-used-in-java.html
+  - https://github.com/redisson/redisson/wiki/8.-Distributed-locks-and-synchronizers
   - 전체적인 구조
 - Kubernetes Architecture
   - Docker
