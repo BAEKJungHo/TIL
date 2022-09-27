@@ -16,7 +16,8 @@
 - Batch JobExecutionAlreadyException
 - @DirtiesContext
 - AtomicReference
-- KSP
+- Docker
+- ~~KSP~~
 - ~~CI/CD~~
   - ~~GitLab workflow~~
   - ~~Github workflow~~
