@@ -2,6 +2,7 @@
 
 ## 포스팅 예정 주제
 
+- CustomAnnotation @DistributedLock 활용하기
 - Kubernetes Architecture
   - Docker
   - https://thenewstack.io/why-do-you-need-istio-when-you-already-have-kubernetes/
