@@ -4,6 +4,7 @@
 
 - CustomAnnotation @DistributedLock 활용하기
   - https://dzone.com/articles/distributed-java-locks-with-redis
+  - 전체적인 구조
 - Kubernetes Architecture
   - Docker
   - https://thenewstack.io/why-do-you-need-istio-when-you-already-have-kubernetes/
