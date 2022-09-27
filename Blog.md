@@ -4,6 +4,7 @@
 
 - Kubernetes Architecture
   - Docker
+  - https://thenewstack.io/why-do-you-need-istio-when-you-already-have-kubernetes/
 - Index 내용 보충
 - 실행 계획
 - ~~Rolling update, blue-green, canary~~
