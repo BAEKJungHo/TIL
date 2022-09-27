@@ -3,6 +3,9 @@
 ## 포스팅 예정 주제
 
 - Kubernetes Architecture
+  - Docker
+- Index 내용 보충
+- 실행 계획
 - ~~Rolling update, blue-green, canary~~
 - Spring Validation
 - Ant patterns
