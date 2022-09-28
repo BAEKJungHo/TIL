@@ -8,6 +8,7 @@
   - https://github.com/redisson/redisson/wiki/8.-Distributed-locks-and-synchronizers
   - https://www.javadoc.io/doc/org.redisson/redisson/2.8.2/org/redisson/api/RLock.html
   - https://www.sobyte.net/post/2021-08/about-redisson-lock/
+  - https://dzone.com/articles/why-do-we-need-threadcurrentthreadinterrupt-in-int
 - Kubernetes Architecture
   - https://thenewstack.io/why-do-you-need-istio-when-you-already-have-kubernetes/
 - Index 내용 보충
