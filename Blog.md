@@ -2,13 +2,12 @@
 
 ## 포스팅 예정 주제
 
-- CustomAnnotation @DistributedLock 활용하기
+- ~~DistributedLock~~
   - https://dzone.com/articles/distributed-java-locks-with-redis
   - https://redisson.org/articles/the-top-5-redis-based-objects-used-in-java.html
   - https://github.com/redisson/redisson/wiki/8.-Distributed-locks-and-synchronizers
-  - 전체적인 구조
+  - https://www.javadoc.io/doc/org.redisson/redisson/2.8.2/org/redisson/api/RLock.html
 - Kubernetes Architecture
-  - Docker
   - https://thenewstack.io/why-do-you-need-istio-when-you-already-have-kubernetes/
 - Index 내용 보충
 - 실행 계획
@@ -25,7 +24,7 @@
 - Batch JobExecutionAlreadyException
 - @DirtiesContext
 - AtomicReference
-- Docker
+- ~~Docker~~
 - ~~KSP~~
 - ~~CI/CD~~
   - ~~GitLab workflow~~
