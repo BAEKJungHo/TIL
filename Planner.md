@@ -1,7 +1,35 @@
-# Blog
+## Book
 
-## 포스팅 예정 주제
+- 성공과 실패를 결정하는 1% 의 네트워크 원리 (진행중)
+- 코틀린 완벽 가이드
+- ~~Kotlin in Action~~
 
+## Study
+
+- Expedia Clone Coding (진행중)
+- Kafka (진행중)
+
+## Lecture
+
+- Fastcampus MSA (진행중)
+
+## Blog
+
+- Saga Pattern
+- Time to live
+- Date
+  - LocalDate
+  - LocalDateTime
+  - Calendar
+  - ZoneDateTime
+  - Instant
+  - ...
+- N+1
+- save vs saveAndFlush
+- Round Robin
+- Zero Payload 를 통한 이벤트 순서 보장
+  - Message Event Driven Architecture
+- Backpressure
 - Manifestfile
 - Index 내용 보충
 - 실행 계획
