@@ -53,6 +53,7 @@
   - https://www.sobyte.net/post/2021-08/about-redisson-lock/
   - https://dzone.com/articles/why-do-we-need-threadcurrentthreadinterrupt-in-int
   - https://redis.io/docs/reference/patterns/distributed-locks/#the-redlock-algorithm
+  - https://stackoverflow.com/questions/2572566/java-jpa-version-annotation
 - ~~Batch JobExecutionAlreadyException~~
 - ~~Kubernetes Architecture~~
   - https://thenewstack.io/why-do-you-need-istio-when-you-already-have-kubernetes/
