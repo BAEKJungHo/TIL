@@ -15,6 +15,17 @@
 
 ## Blog
 
+- kotlin inline
+  - https://thdev.tech/kotlin/2020/09/29/kotlin_effective_04/
+- Java Spring bean with private constructor
+  - https://stackoverflow.com/questions/7254496/java-spring-bean-with-private-constructor
+- redissonclient - spring cache
+ - https://stackoverflow.com/questions/56036980/how-can-i-create-redisson-client-to-connect-to-a-redis
+ - https://redisson.org/glossary/spring-cache.html
+ - https://www.baeldung.com/redis-redisson
+ - https://pamesh12.github.io/spring-boot/spring-cache-redis.html#spring-boot-redis-cache-maven-configuration
+- Spring Shutdown callback
+  - https://www.baeldung.com/spring-shutdown-callbacks
 - Saga Pattern
 - Time to live
 - Date
