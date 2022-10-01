@@ -15,6 +15,8 @@
 
 ## Blog
 
+- Generic
+  - https://tecoble.techcourse.co.kr/post/2020-11-09-generics-basic/
 - kotlin inline
   - https://thdev.tech/kotlin/2020/09/29/kotlin_effective_04/
 - Java Spring bean with private constructor
