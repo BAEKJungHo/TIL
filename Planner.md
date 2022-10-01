@@ -15,6 +15,8 @@
 
 ## Blog
 
+- Kotlin 에서 상수를 어디에 보관해야 하나요?
+  - https://www.egorand.dev/where-should-i-keep-my-constants-in-kotlin/#:~:text=In%20Kotlin%2C%20you%E2%80%99ll%20be%20accessing%20the%20value%20by,file%20to%20specify%20a%20more%20readable%20name%3A%20%40file%3AJvmName%28%22Constants%22%29
 - Generic
   - https://tecoble.techcourse.co.kr/post/2020-11-09-generics-basic/
 - kotlin inline
