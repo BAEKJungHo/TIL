@@ -15,6 +15,8 @@
 
 ## Blog
 
+- inner class vs nested class
+  - https://www.developer.com/design/understanding-java-nested-classes-and-java-inner-classes/#:~:text=In%20Java%20programming%2C%20nested%20and,specimen%20of%20a%20nested%20class.
 - Mapstruct
   - https://www.baeldung.com/mapstruct-custom-mapper
 - docker network 
