@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-10-03T10:43:50.635Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="VSCGNZuzISNuAAhSBH4o" version="20.3.7" type="github">
+<mxfile host="app.diagrams.net" modified="2022-10-03T10:54:20.931Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="whLohMEvgAKtGx4XNg7u" version="20.3.7" type="github">
   <diagram id="_x3wEIcpyEA3F0cznZlo" name="페이지-1">
     <mxGraphModel dx="1422" dy="754" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
       <root>
@@ -33,7 +33,7 @@
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-13" value="" style="endArrow=none;html=1;rounded=0;fontSize=13;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="630" y="1010" as="sourcePoint" />
+            <mxPoint x="625" y="1010" as="sourcePoint" />
             <mxPoint x="623" y="527" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -44,11 +44,11 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-16" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="413" y="550" width="14" height="179" as="geometry" />
+          <mxGeometry x="413" y="550" width="14" height="343" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-17" value="" style="endArrow=none;html=1;rounded=0;fontSize=13;" edge="1" parent="1" target="hlDAkTI5Rvjaobr0PhCq-16">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="425" y="1012" as="sourcePoint" />
+            <mxPoint x="420" y="1012" as="sourcePoint" />
             <mxPoint x="420" y="527" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -65,52 +65,52 @@
           <mxGeometry x="202" y="584" width="217" height="13" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-25" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="617" y="550" width="14" height="131" as="geometry" />
+          <mxGeometry x="617" y="550" width="14" height="231" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-27" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="610" y="581" width="30" height="60" as="geometry" />
+          <mxGeometry x="610" y="581" width="30" height="99" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-28" value="AccessToken + RefreshToken" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="435" y="584" width="175" height="13" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-30" value="Redis" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="961" y="550" width="109" height="109" as="geometry" />
+          <mxGeometry x="993" y="577" width="109" height="109" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-31" value="Booking-Service-Database" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=13;direction=south;" vertex="1" parent="1">
-          <mxGeometry x="93" y="643" width="109" height="109" as="geometry" />
+          <mxGeometry x="99" y="772" width="109" height="109" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-35" value="" style="endArrow=classic;html=1;rounded=0;fontSize=13;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="649" y="610.5" as="sourcePoint" />
-            <mxPoint x="952" y="611" as="targetPoint" />
+            <mxPoint x="651" y="604" as="sourcePoint" />
+            <mxPoint x="954" y="604.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-37" value="" style="endArrow=classic;html=1;rounded=0;fontSize=13;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="603" y="632" as="sourcePoint" />
-            <mxPoint x="441" y="632" as="targetPoint" />
+            <mxPoint x="606" y="741.5" as="sourcePoint" />
+            <mxPoint x="444" y="741.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-38" value="3. TokenResponse" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="435" y="613.5" width="175" height="13" as="geometry" />
+          <mxGeometry x="438" y="723" width="175" height="13" as="geometry" />
         </mxCell>
-        <mxCell id="hlDAkTI5Rvjaobr0PhCq-40" value="2-1) accessToken 이 만료되었으면 refreshToken 을 사용하여 Redis 에서 조회 후 accessToken 과 refreshToken 갱신" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" vertex="1" parent="1">
+        <mxCell id="hlDAkTI5Rvjaobr0PhCq-40" value="2-1) AccessToken 이 만료되었으면 RefreshToken 을 사용하여 Redis 에서 조회" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="658" y="568" width="277" height="13" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-41" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="405" y="566.5" width="30" height="81.5" as="geometry" />
+          <mxGeometry x="405" y="566.5" width="30" height="139.5" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-42" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="405" y="669" width="30" height="41.5" as="geometry" />
+          <mxGeometry x="405" y="754" width="30" height="41.5" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-43" value="" style="endArrow=classic;html=1;rounded=0;fontSize=13;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="391" y="689.25" as="sourcePoint" />
-            <mxPoint x="218" y="689.25" as="targetPoint" />
+            <mxPoint x="405" y="825.25" as="sourcePoint" />
+            <mxPoint x="232" y="825.25" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-44" value="4. 주문 정보 저장" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="240" y="668" width="135" height="13" as="geometry" />
+          <mxGeometry x="254" y="804" width="135" height="13" as="geometry" />
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-45" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="285" y="1192" width="30" height="60" as="geometry" />
@@ -201,6 +201,33 @@
         </mxCell>
         <mxCell id="hlDAkTI5Rvjaobr0PhCq-89" value="4. Response" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="373.5" y="1419" width="130" height="13" as="geometry" />
+        </mxCell>
+        <mxCell id="hlDAkTI5Rvjaobr0PhCq-90" value="" style="endArrow=classic;html=1;rounded=0;fontSize=13;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="654" y="659" as="sourcePoint" />
+            <mxPoint x="957" y="659.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hlDAkTI5Rvjaobr0PhCq-91" value="2-2) 갱신된 RefreshToken 저장" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="658" y="636.5" width="277" height="13" as="geometry" />
+        </mxCell>
+        <mxCell id="hlDAkTI5Rvjaobr0PhCq-93" value="" style="endArrow=classic;html=1;rounded=0;fontSize=13;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="601" y="657.75" as="sourcePoint" />
+            <mxPoint x="444" y="657.75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hlDAkTI5Rvjaobr0PhCq-94" value="2-a) 모든 토큰이 만료되었다면 EXPIRED 상태를 포함한 응답" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="427" y="627.25" width="186" height="13" as="geometry" />
+        </mxCell>
+        <mxCell id="hlDAkTI5Rvjaobr0PhCq-95" value="" style="endArrow=classic;html=1;rounded=0;fontSize=13;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="396" y="660" as="sourcePoint" />
+            <mxPoint x="223" y="660.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hlDAkTI5Rvjaobr0PhCq-96" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;2-b) 재 로그인 요청&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="217.5" y="640.25" width="186" height="13" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
