@@ -15,6 +15,10 @@
 
 ## Blog
 
+- singleton vs static class
+  - http://net-informations.com/faq/netfaq/singlestatic.htm
+  - https://stackoverflow.com/questions/519520/difference-between-static-class-and-singleton-pattern
+  - https://javarevisited.blogspot.com/2013/03/difference-between-singleton-pattern-vs-static-class-java.html#axzz7gdmye8Vp
 - inner class vs nested class
   - https://www.developer.com/design/understanding-java-nested-classes-and-java-inner-classes/#:~:text=In%20Java%20programming%2C%20nested%20and,specimen%20of%20a%20nested%20class.
 - Mapstruct
