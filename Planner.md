@@ -15,9 +15,13 @@
 
 ## Blog
 
-- stress test
+
+- @ModelAttribute and CommandObject
+  - 예전 미디엄 블로그 글 옮기기
+  - https://medium.com/webeveloper/modelattribute-%EC%99%80-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EA%B0%9D%EC%B2%B4-command-object-42c14f268324
+- ~~stress test~~
   - https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4_%ED%85%8C%EC%8A%A4%ED%8A%B8
-- smoke test
+- ~~smoke test~~
   - https://www.guru99.com/smoke-testing.html
 - grafana with k6
   - https://intrepidgeeks.com/tutorial/load-test-with-k6
