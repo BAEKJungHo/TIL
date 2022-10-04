@@ -24,6 +24,7 @@
   - https://k6.io/docs/
   - https://github.com/grafana/k6
   - https://k6.io/blog/load-test-your-kafka-producers-and-consumers-using-k6/
+  - https://k6.io/docs/javascript-api/
 - singleton vs static class
   - http://net-informations.com/faq/netfaq/singlestatic.htm
   - https://stackoverflow.com/questions/519520/difference-between-static-class-and-singleton-pattern
