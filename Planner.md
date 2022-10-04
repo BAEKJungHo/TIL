@@ -19,7 +19,7 @@
   - https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4_%ED%85%8C%EC%8A%A4%ED%8A%B8
 - smoke test
   - https://www.guru99.com/smoke-testing.html
-- grafana with k6_
+- grafana with k6
   - https://intrepidgeeks.com/tutorial/load-test-with-k6
   - https://k6.io/docs/
   - https://github.com/grafana/k6
