@@ -15,6 +15,10 @@
 
 ## Blog
 
+- __stress test__
+  - https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%8A%A4_%ED%85%8C%EC%8A%A4%ED%8A%B8
+- __smoke test__
+  - https://www.guru99.com/smoke-testing.html
 - __grafana with k6__ 
   - https://intrepidgeeks.com/tutorial/load-test-with-k6
 - singleton vs static class
