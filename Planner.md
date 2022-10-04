@@ -15,6 +15,8 @@
 
 ## Blog
 
+- __grafana with k6__ 
+  - https://intrepidgeeks.com/tutorial/load-test-with-k6
 - singleton vs static class
   - http://net-informations.com/faq/netfaq/singlestatic.htm
   - https://stackoverflow.com/questions/519520/difference-between-static-class-and-singleton-pattern
