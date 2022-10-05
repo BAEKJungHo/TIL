@@ -31,6 +31,7 @@
   - https://k6.io/docs/javascript-api/
   - https://k6.io/blog/integrating-k6-with-apache-kafka/
   - https://issuecloser.com/blog/how-to-load-test-your-kafka-producers-and-consumers-using-k6
+  - https://medium.com/swlh/beautiful-load-testing-with-k6-and-docker-compose-4454edb3a2e3
 - singleton vs static class
   - http://net-informations.com/faq/netfaq/singlestatic.htm
   - https://stackoverflow.com/questions/519520/difference-between-static-class-and-singleton-pattern
