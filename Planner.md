@@ -16,6 +16,8 @@
 ## Blog
 
 
+- discovering-novel-algorithms-with-alphatensor
+  - https://www.deepmind.com/blog/discovering-novel-algorithms-with-alphatensor
 - @ModelAttribute and CommandObject
   - 예전 미디엄 블로그 글 옮기기
   - https://medium.com/webeveloper/modelattribute-%EC%99%80-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EA%B0%9D%EC%B2%B4-command-object-42c14f268324
