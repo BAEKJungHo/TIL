@@ -15,6 +15,8 @@
 
 ## Blog
 
+- 도커와 Testcontainer를 활용한 서버와 동일한 환경에서의 로컬 테스트 구현
+  - https://ujkim-game.tistory.com/81
 - discovering-novel-algorithms-with-alphatensor
   - https://www.deepmind.com/blog/discovering-novel-algorithms-with-alphatensor
 - @ModelAttribute and CommandObject
