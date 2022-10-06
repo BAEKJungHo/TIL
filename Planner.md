@@ -15,7 +15,6 @@
 
 ## Blog
 
-
 - discovering-novel-algorithms-with-alphatensor
   - https://www.deepmind.com/blog/discovering-novel-algorithms-with-alphatensor
 - @ModelAttribute and CommandObject
@@ -77,8 +76,8 @@
   - Message Event Driven Architecture
 - Backpressure
 - Manifestfile
-- Index 내용 보충
-- 실행 계획
+- ~~Index 내용 보충~~
+- ~~실행 계획~~
 - @DirtiesContext
 - AtomicReference
 - CountDownLatch
