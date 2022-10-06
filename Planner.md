@@ -8,7 +8,7 @@
 
 - Expedia Clone Coding (진행중)
   - 결제 서비스 구현하기
-  - 로깅 구현하기
+  - 로깅 구현하기(CustomLogAppender)
     - `MDC`, `AsyncAppenderBase<ILoggingEvent> implements ApplicationContextAware`, `LogContext(ThreadLocal)`
 - Kafka (진행중)
 
