@@ -18,6 +18,9 @@
 
 ## Blog
 
+- __Redisson FairLock vs UnfairLock__
+  - https://github.com/redisson/redisson/issues/1353
+  - https://redisson.org/glossary/java-distributed-lock.html
 - SOLID
   - https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html
 - Garbage Collection
